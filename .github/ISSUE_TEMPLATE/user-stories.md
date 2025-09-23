@@ -7,7 +7,7 @@ assignees: etherOnGitHub
 
 ---
 
-**As a ... , I want to ... **
+**As a ... ,** *I want to ... *
 
 **Acceptance Criteria:**
 - [ ] 
