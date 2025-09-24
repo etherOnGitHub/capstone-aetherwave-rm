@@ -1,0 +1,22 @@
+<svg width="1080" height="360" viewBox="0 0 1080 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad" x1="0" y1="0" x2="1080" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FF8C00"/>
+      <stop offset="100%" stop-color="#00A0FF"/>
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="6" result="b1"/>
+      <feGaussianBlur stdDeviation="14" in="b1" result="b2"/>
+      <feMerge>
+        <feMergeNode in="b1"/>
+        <feMergeNode in="b2"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <!-- Glowing fixed square wave -->
+  <path d="M60 180 L60 80 L540 80 L540 280 L1020 280 L1020 180"
+        stroke="url(#grad)" stroke-width="10" stroke-linecap="round" fill="none" filter="url(#glow)"/>
+  <!-- Core fixed square wave -->
+  <path d="M60 180 L60 80 L540 80 L540 280 L1020 280 L1020 180"
+        stroke="url(#grad)" stroke-width="4" stroke-linecap="round" fill="none"/>
+</svg>
