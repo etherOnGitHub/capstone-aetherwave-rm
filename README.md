@@ -3,9 +3,29 @@
 </p>
 
 <div align="center">
-<h2>Deploy Link</h2>
-<h2><a href="https://github.com/users/etherOnGitHub/projects/7">Project Board</a></h2>
+.svg Deploy Link
+<a href="https://github.com/users/etherOnGitHub/projects/7">.svg Project Board</a>
 </div>
+
+<p align="center">
+<img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/aetherwave-divider-sine.svg" width="1440" alt="Aetherwave.rm">
+</p>
+
+.svg contents
+
+<details align="center" open>
+  <summary><b>📑 Table of Contents</b></summary>
+
+- [Learning Objectives 🎯](#learning-objectives-)  
+- [LO1 – 🌀 Agile Methodology](#lo1--agile-methodology)  
+- [LO2 – 🔎 Data & Business Logic](#lo2--data--business-logic)  
+- [LO3 – 🔐 Auth & Permissions](#lo3--auth--permissions)  
+- [LO4 – 🧪 Testing](#lo4--testing)  
+- [LO6 – ☁️ Deployment](#lo6--deployment)  
+- [LO7 – 🏗️ Data Models](#lo7--data-models)  
+- [LO8 – 🤖 AI Tools](#lo8--ai-tools)
+
+</details>
 
 <table>
   <thead>
@@ -139,3 +159,6 @@
   </tbody>
 </table>
 
+<p align="center">
+<img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/aetherwave-divider-square.svg" width="1440" alt="Aetherwave.rm">
+</p>
