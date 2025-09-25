@@ -18,7 +18,9 @@
 <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/aetherwave-divider-sine.svg" width="1440" alt="Aetherwave.rm">
 </p>
 
-.svg contents
+<p align="center">
+<img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/contents-heading-orbitron.svg" width="1440" alt="Aetherwave.rm">
+</p>
 
 <details align="center" open>
   <summary><b>📑 Table of Contents</b></summary>
