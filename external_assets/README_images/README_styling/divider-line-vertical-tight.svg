@@ -1,0 +1,22 @@
+
+<svg width="6" height="800" viewBox="0 0 6 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Neon gradient (top → bottom now) -->
+    <linearGradient id="grad" x1="0" y1="0" x2="0" y2="800" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FF8C00"/>
+      <stop offset="100%" stop-color="#00A0FF"/>
+    </linearGradient>
+
+    <!-- Soft glow -->
+    <filter id="glow" x="-200%" y="-20%" width="500%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Vertical tapered line (top and bottom pointed) -->
+  <path d="M3 0 L6 400 L3 800 L0 400 Z" fill="url(#grad)" filter="url(#glow)"/>
+</svg>

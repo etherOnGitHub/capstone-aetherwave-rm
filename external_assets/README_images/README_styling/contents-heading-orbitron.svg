@@ -13,6 +13,7 @@
         letter-spacing: 1.2px;
       }
     </style>
+
     <filter id="glow" x="-150%" y="-150%" width="400%" height="400%">
       <feGaussianBlur stdDeviation="2.5" result="b1"/>
       <feGaussianBlur stdDeviation="6" in="b1" result="b2"/>
@@ -23,7 +24,8 @@
     </filter>
   </defs>
 
-    <text x="360" y="90"
+  <!-- Outer blue neon stroke -->
+  <text x="360" y="90"
         text-anchor="middle"
         dominant-baseline="middle"
         class="heading"
@@ -31,15 +33,17 @@
         fill="none"
         stroke="#00A0FF"
         stroke-width="6"
-        filter="url(#glow)">contents</text>
+        filter="url(#glow)">
+    Contents
+  </text>
 
+  <!-- Main white fill -->
   <text x="360" y="90"
         text-anchor="middle"
         dominant-baseline="middle"
         class="heading"
         font-size="72"
         fill="#FFFFFF">
-    contents
+    Contents
   </text>
-
 </svg>
