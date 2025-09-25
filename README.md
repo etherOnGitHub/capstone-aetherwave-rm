@@ -1,7 +1,9 @@
+<!-- hero image !-->
 <p align="center">
 <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/aetherwave-hero-embedded.svg" width="1024" alt="Aetherwave.rm hero image">
 </p>
 <br>
+<!-- thin divider !-->
 <div align="center" style="margin: 100px 0;">
 <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tapered-glow.svg" style="pointer-events: none;" width="800" alt="Aetherwave.rm thin horizontal line divider image">
 </div>
@@ -9,26 +11,21 @@
 <br>
 <br>
 <br>
+<!-- deploy link !-->
 <div align="center">
   <a href="https://github.com/users/etherOnGitHub/projects/7" target="_blank">
         <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/aetherwave-badge-deploy-link.svg" width="500" alt="Aetherwave.rm deploy link image">
   </a>
-<!--
-     <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/aetherwave-divider-vertical.svg" height="65" alt="Aetherwave.rm">
-!-->
+<!-- project board link !-->  
   <a href="https://github.com/users/etherOnGitHub/projects/7" align="right" target="_blank">
         <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/aetherwave-badge-project-board.svg" width="500" alt="Aetherwave.rm project board image">
   </a>
 </div>
-
+<!-- sine divider !-->
 <p align="center">
 <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/aetherwave-divider-sine.svg" width="1440" alt="Aetherwave.rm sine wave divider image">
 </p>
-
-<p align="center">
-
-</p>
-
+<!-- contents !-->
 <details align="center" open>
   <summary>
     <p>
@@ -86,15 +83,15 @@
  <br>
  
 </details>
-
+<!-- triangle divider !-->
 <p align="center">
 <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/aetherwave-divider-triangle.svg" width="1440" alt="Aetherwave.rm triangle wave divider image">
 </p>
-
+<!-- learning obj heading !-->
 <p align="center">
 <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/learning-objectives.svg" width="600" alt="Aetherwave.rm learning objective heading image" name="LO">
 </p>
-
+<!-- LO table !-->
 <table>
   <thead>
     <tr style="background-color:#000000; color:#ffffff; text-align:center; vertical-align:middle;">
@@ -226,11 +223,11 @@
     </tr>
   </tbody>
 </table>
-
+<!-- square divider !--> 
 <p align="center">
 <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/aetherwave-divider-square.svg" width="1440" alt="Aetherwave.rm square wave divider image">
 </p>
-
+<!-- planning heading !-->
 <p align="center">
 <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/planning.svg" width="600" alt="Aetherwave.rm planning heading image" name="Planning">
 </p>
