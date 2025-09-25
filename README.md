@@ -231,3 +231,14 @@
 <p align="center">
 <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/planning.svg" width="600" alt="Aetherwave.rm planning heading image" name="Planning">
 </p>
+<!-- wireframe heading !-->
+.svg-sub-wireframes
+<!-- wireframe img phone & medium !-->
+<p align="center">
+  <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/wireframes/mobile-wireframe.webp" height="400" alt="Aetherwave.rm wireframe mobile">
+  <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/wireframes/tablet-wireframe.webp" height="400" alt="Aetherwave.rm wireframe mobile">
+</p>
+<!-- wireframe desktop !-->
+<p>
+  
+</p>
