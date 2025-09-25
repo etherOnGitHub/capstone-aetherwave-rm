@@ -1,1 +1,42 @@
-<svg width="840" height="180" viewBox="0 0 840 180" fill="none" xmlns="http://www.w3.org/2000/svg"><defs>  <linearGradient id="grad" x1="0" y1="0" x2="560" y2="0" gradientUnits="userSpaceOnUse">    <stop offset="0%" stop-color="#FF8C00"/>    <stop offset="50%" stop-color="#FFC266"/>    <stop offset="100%" stop-color="#00A0FF"/>  </linearGradient>  <filter id="glow" x="-200%" y="-200%" width="500%" height="500%" color-interpolation-filters="sRGB">    <feGaussianBlur stdDeviation="6" result="b1"/>    <feGaussianBlur stdDeviation="18" in="b1" result="b2"/>    <feMerge><feMergeNode in="b1"/><feMergeNode in="b2"/></feMerge>  </filter>  <filter id="shadow" x="-200%" y="-200%" width="500%" height="500%" color-interpolation-filters="sRGB">    <feOffset dx="0" dy="8" result="off"/>    <feGaussianBlur in="off" stdDeviation="8" result="shad"/>    <feColorMatrix in="shad" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.35 0" result="shadow"/>    <feMerge><feMergeNode in="shadow"/><feMergeNode in="SourceGraphic"/></feMerge>  </filter>  <style><![CDATA[    .lbl { font-family: "Space Grotesk", "Inter", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif; font-weight: 700; letter-spacing: 0.4px; fill: #FFFFFF; }  ]]></style></defs><g filter="url(#glow)"><rect x="12" y="12" width="536" height="96" rx="28" stroke="url(#grad)" stroke-width="10" fill="none"/></g><g filter="url(#shadow)"><rect x="12" y="12" width="536" height="96" rx="28" stroke="url(#grad)" stroke-width="3" fill="none"/></g><text x="280.0" y="68.0" text-anchor="middle" class="lbl" font-size="36" fill="none" stroke="url(#grad)" stroke-width="2" filter="url(#glow)">Project Board</text><text x="280.0" y="68.0" text-anchor="middle" class="lbl" font-size="36">Project Board</text></svg>
+
+<svg width="840" height="180" viewBox="0 0 840 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Balanced gradient spans entire new canvas width -->
+    <linearGradient id="grad" x1="0" y1="0" x2="840" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FF8C00"/>
+      <stop offset="100%" stop-color="#00A0FF"/>
+    </linearGradient>
+    <filter id="glow" x="-200%" y="-200%" width="500%" height="500%" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="6" result="b1"/>
+      <feGaussianBlur stdDeviation="18" in="b1" result="b2"/>
+      <feMerge><feMergeNode in="b1"/><feMergeNode in="b2"/></feMerge>
+    </filter>
+    <filter id="shadow" x="-200%" y="-200%" width="500%" height="500%" color-interpolation-filters="sRGB">
+      <feOffset dx="0" dy="8" result="off"/>
+      <feGaussianBlur in="off" stdDeviation="8" result="shad"/>
+      <feColorMatrix in="shad" type="matrix"
+        values="0 0 0 0 0
+                0 0 0 0 0
+                0 0 0 0 0
+                0 0 0 0.35 0" result="shadow"/>
+      <feMerge><feMergeNode in="shadow"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <style><![CDATA[
+      .lbl { 
+        font-family: "Space Grotesk", "Inter", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+        font-weight: 700; letter-spacing: 0.4px; fill: #FFFFFF;
+      }
+    ]]></style>
+  </defs>
+  <g transform="translate(140.0,30.0)">
+    <g filter="url(#glow)">
+      <rect x="12" y="12" width="536" height="96" rx="28" stroke="url(#grad)" stroke-width="10" fill="none"/>
+    </g>
+    <g filter="url(#shadow)">
+      <rect x="12" y="12" width="536" height="96" rx="28" stroke="url(#grad)" stroke-width="3" fill="none"/>
+    </g>
+    <text x="280.0" y="68.0" text-anchor="middle" class="lbl" font-size="36"
+          fill="none" stroke="url(#grad)" stroke-width="2" filter="url(#glow)">Project Board</text>
+    <text x="280.0" y="68.0" text-anchor="middle" class="lbl" font-size="36">Project Board</text>
+  </g>
+</svg>
