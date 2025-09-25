@@ -635,3 +635,4 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+/external_assets/README_images/wireframes/wireframes.bmpr
