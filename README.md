@@ -29,7 +29,10 @@
 <details align="center" open>
   <summary>
     <p>
-    <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/contents-heading-orbitron.svg" style="pointer-events: none;" width="600" alt="Aetherwave.rm contents image">
+    <!-- contents heading !-->
+    <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/contents-heading-orbitron.svg" style="pointer-events: none;" width="650" alt="Aetherwave.rm contents image"> <br>
+    <!-- thin line divider !-->
+    <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tapered-glow.svg" style="pointer-events: none;" width="400" alt="Aetherwave.rm thin horizontal line divider image">
     </p>
   </summary>
 
@@ -38,35 +41,41 @@
   
    [Learning Objectives 🎯](#LO)  
  <br>
+ <!-- thin line divider !-->
  <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tapered-glow.svg" style="pointer-events: none;" width="600" alt="Aetherwave.rm thin horizontal line divider image">
  <br>
  <br>
  
    [Planning 📜](#Planning)  
  <br>
+ <!-- thin line divider !-->
  <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tapered-glow.svg" style="pointer-events: none;" width="600" alt="Aetherwave.rm thin horizontal line divider image">
  <br>
  <br>
  
    [LO2 – 🔎 Data & Business Logic](#lo2--data--business-logic)  
  <br>
+ <!-- thin line divider !-->
  <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tapered-glow.svg" style="pointer-events: none;" width="600" alt="Aetherwave.rm thin horizontal line divider image">
  <br>
  <br>
  
    [LO3 – 🔐 Auth & Permissions](#lo3--auth--permissions)  
- <br>  
+ <br>
+ <!-- thin line divider !-->
  <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tapered-glow.svg" style="pointer-events: none;" width="600" alt="Aetherwave.rm thin horizontal line divider image">
  <br>
  <br>
  
    [LO4 – 🧪 Testing](#lo4--testing)  
  <br>
+ <!-- thin line divider !-->
  <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tapered-glow.svg" style="pointer-events: none;" width="600" alt="Aetherwave.rm thin horizontal line divider image">
  <br>
  <br>
    [LO6 – ☁️ Deployment](#lo6--deployment) 
  <br>
+ <!-- thin line divider !-->
  <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tapered-glow.svg" style="pointer-events: none;" width="600" alt="Aetherwave.rm thin horizontal line divider image">
  <br>
  <br>
@@ -74,6 +83,7 @@
    [LO7 – 🏗️ Data Models](#lo7--data-models) 
    
  <br>
+ <!-- thin line divider !-->
  <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tapered-glow.svg" style="pointer-events: none;" width="600" alt="Aetherwave.rm thin horizontal line divider image">
  <br>
  <br>
@@ -89,7 +99,9 @@
 </p>
 <!-- learning obj heading !-->
 <p align="center">
-<img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/learning-objectives.svg" width="600" alt="Aetherwave.rm learning objective heading image" name="LO">
+<img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/learning-objectives.svg" width="1000" alt="Aetherwave.rm learning objective heading image" name="LO"> <br>
+<!-- thin line divider !-->
+<img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tapered-glow.svg" style="pointer-events: none;" width="400" alt="Aetherwave.rm thin horizontal line divider image">
 </p>
 <!-- LO table !-->
 <table>
@@ -229,13 +241,17 @@
 </p>
 <!-- planning heading !-->
 <p align="center">
-<img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/planning.svg" width="600" alt="Aetherwave.rm planning heading image" name="Planning">
+<img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/planning.svg" width="800" alt="Aetherwave.rm planning heading image" name="Planning"> <br>
+<!-- thin line divider !-->
+<img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tapered-glow.svg" style="pointer-events: none;" width="400" alt="Aetherwave.rm thin horizontal line divider image">
 </p>
 <!-- wireframe heading !-->
-.svg-sub-wireframes
+<p align="center">
+<img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/wireframes-heading.svg" width="450" alt="Aetherwave.rm wireframes heading image">
+</p>
 <!-- wireframe img phone & medium !-->
 <p align="center">
-  <!-- phone!-->
+  <!-- phone !-->
   <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/wireframes/mobile-wireframe.webp" height="600" alt="Aetherwave.rm wireframe mobile">
   <!-- tablet !-->
   <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/wireframes/tablet-wireframe.webp" height="600" alt="Aetherwave.rm wireframe tablet">
