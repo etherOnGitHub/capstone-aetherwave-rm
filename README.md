@@ -33,7 +33,7 @@
    [Learning Objectives 🎯](#LO)  
  <hr>
  
-   [Planning](#Planning)  
+   [Planning 📜](#Planning)  
  <hr>
  
    [LO2 – 🔎 Data & Business Logic](#lo2--data--business-logic)  
@@ -60,12 +60,14 @@
 <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/aetherwave-divider-triangle.svg" width="1440" alt="Aetherwave.rm triangle wave divider image">
 </p>
 
-
+<p align="center">
+<img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/learning-objectives.svg" width="600" alt="Aetherwave.rm learning objective heading image" name="LO">
+</p>
 
 <table>
   <thead>
     <tr style="background-color:#000000; color:#ffffff; text-align:center; vertical-align:middle;">
-      <th style="padding:10px; border:1px solid #444;" name="LO">LO 🌐</th>
+      <th style="padding:10px; border:1px solid #444;">LO 🌐</th>
       <th style="padding:10px; border:1px solid #444;">Sub LO 🛠️</th>
       <th style="padding:10px; border:1px solid #444;">Expected 📖</th>
     </tr>
@@ -196,4 +198,8 @@
 
 <p align="center">
 <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/aetherwave-divider-square.svg" width="1440" alt="Aetherwave.rm square wave divider image">
+</p>
+
+<p align="center">
+<img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/planning.svg" width="600" alt="Aetherwave.rm planning heading image" name="Planning">
 </p>
