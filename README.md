@@ -235,10 +235,12 @@
 .svg-sub-wireframes
 <!-- wireframe img phone & medium !-->
 <p align="center">
+  <!-- phone!-->
   <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/wireframes/mobile-wireframe.webp" height="600" alt="Aetherwave.rm wireframe mobile">
-  <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/wireframes/tablet-wireframe.webp" height="600" alt="Aetherwave.rm wireframe mobile">
+  <!-- tablet !-->
+  <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/wireframes/tablet-wireframe.webp" height="600" alt="Aetherwave.rm wireframe tablet">
 </p>
 <!-- wireframe desktop !-->
-<p>
-  
+<p  align="center">
+  <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/wireframes/desktop-wireframe.webp" width="770" alt="Aetherwave.rm wireframe desktop">
 </p>
