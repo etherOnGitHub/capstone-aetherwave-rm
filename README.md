@@ -1,40 +1,66 @@
 <p align="center">
-<img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/aetherwave-hero-embedded.svg" width="1024" alt="Aetherwave.rm">
+<img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/aetherwave-hero-embedded.svg" width="1024" alt="Aetherwave.rm hero image">
 </p>
 
 <div align="center">
   <a href="https://github.com/users/etherOnGitHub/projects/7" target="_blank">
-        <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/aetherwave-badge-deploy-link.svg" width="500" alt="Aetherwave.rm">
+        <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/aetherwave-badge-deploy-link.svg" width="500" alt="Aetherwave.rm deploy link image">
   </a>
 <!--
      <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/aetherwave-divider-vertical.svg" height="65" alt="Aetherwave.rm">
 !-->
   <a href="https://github.com/users/etherOnGitHub/projects/7" align="right" target="_blank">
-        <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/aetherwave-badge-project-board.svg" width="500" alt="Aetherwave.rm">
+        <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/aetherwave-badge-project-board.svg" width="500" alt="Aetherwave.rm project board image">
   </a>
 </div>
 
 <p align="center">
-<img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/aetherwave-divider-sine.svg" width="1440" alt="Aetherwave.rm">
+<img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/aetherwave-divider-sine.svg" width="1440" alt="Aetherwave.rm sine wave divider image">
 </p>
 
 <p align="center">
-<img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/contents-heading-orbitron.svg" width="1440" alt="Aetherwave.rm">
+
 </p>
 
 <details align="center" open>
-  <summary><b>📑 Table of Contents</b></summary>
-
-- [Learning Objectives 🎯](#LO)
-- [Planning](#Planning)  
-- [LO2 – 🔎 Data & Business Logic](#lo2--data--business-logic)  
-- [LO3 – 🔐 Auth & Permissions](#lo3--auth--permissions)  
-- [LO4 – 🧪 Testing](#lo4--testing)  
-- [LO6 – ☁️ Deployment](#lo6--deployment)  
-- [LO7 – 🏗️ Data Models](#lo7--data-models)  
-- [LO8 – 🤖 AI Tools](#lo8--ai-tools)
+  <summary>
+    <p>
+    <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/contents-heading-orbitron.svg" style="pointer-events: none;" width="600" alt="Aetherwave.rm contents image">
+    </p>
+  </summary>
+ <hr>
+  
+   [Learning Objectives 🎯](#LO)  
+ <hr>
+ 
+   [Planning](#Planning)  
+ <hr>
+ 
+   [LO2 – 🔎 Data & Business Logic](#lo2--data--business-logic)  
+ <hr>
+ 
+   [LO3 – 🔐 Auth & Permissions](#lo3--auth--permissions)  
+ <hr>
+ 
+   [LO4 – 🧪 Testing](#lo4--testing)  
+ <hr>
+ 
+   [LO6 – ☁️ Deployment](#lo6--deployment)  
+ <hr>
+ 
+   [LO7 – 🏗️ Data Models](#lo7--data-models)  
+ <hr>
+ 
+   [LO8 – 🤖 AI Tools](#lo8--ai-tools)
+ <hr>
 
 </details>
+
+<p align="center">
+<img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/aetherwave-divider-triangle.svg" width="1440" alt="Aetherwave.rm triangle wave divider image">
+</p>
+
+
 
 <table>
   <thead>
@@ -169,5 +195,5 @@
 </table>
 
 <p align="center">
-<img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/aetherwave-divider-square.svg" width="1440" alt="Aetherwave.rm">
+<img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/aetherwave-divider-square.svg" width="1440" alt="Aetherwave.rm square wave divider image">
 </p>
