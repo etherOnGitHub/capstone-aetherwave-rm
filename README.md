@@ -4,13 +4,13 @@
 
 <div align="center">
   <a href="https://github.com/users/etherOnGitHub/projects/7" target="_blank">
-        <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/aetherwave-badge-deploy-link.svg" width="300" alt="Aetherwave.rm">
+        <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/aetherwave-badge-deploy-link.svg" width="500" alt="Aetherwave.rm">
   </a>
- 
-  <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/aetherwave-divider-vertical.svg" height="65" alt="Aetherwave.rm">
-
+<!--
+     <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/aetherwave-divider-vertical.svg" height="65" alt="Aetherwave.rm">
+!-->
   <a href="https://github.com/users/etherOnGitHub/projects/7" align="right" target="_blank">
-        <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/aetherwave-badge-project-board.svg" width="300" alt="Aetherwave.rm">
+        <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/aetherwave-badge-project-board.svg" width="500" alt="Aetherwave.rm">
   </a>
 </div>
 
