@@ -4,7 +4,7 @@
 
 <div align="center">
 .svg Deploy Link
-<a href="https://github.com/users/etherOnGitHub/projects/7">.svg Project Board</a>
+<a href="https://github.com/users/etherOnGitHub/projects/7" target="_blank">.svg Project Board</a>
 </div>
 
 <p align="center">
@@ -16,8 +16,8 @@
 <details align="center" open>
   <summary><b>📑 Table of Contents</b></summary>
 
-- [Learning Objectives 🎯](#learning-objectives-)  
-- [LO1 – 🌀 Agile Methodology](#lo1--agile-methodology)  
+- [Learning Objectives 🎯](#LO)
+- [Planning](#Planning)  
 - [LO2 – 🔎 Data & Business Logic](#lo2--data--business-logic)  
 - [LO3 – 🔐 Auth & Permissions](#lo3--auth--permissions)  
 - [LO4 – 🧪 Testing](#lo4--testing)  
@@ -30,7 +30,7 @@
 <table>
   <thead>
     <tr style="background-color:#000000; color:#ffffff; text-align:center; vertical-align:middle;">
-      <th style="padding:10px; border:1px solid #444;">LO 🌐</th>
+      <th style="padding:10px; border:1px solid #444;" name="LO">LO 🌐</th>
       <th style="padding:10px; border:1px solid #444;">Sub LO 🛠️</th>
       <th style="padding:10px; border:1px solid #444;">Expected 📖</th>
     </tr>
