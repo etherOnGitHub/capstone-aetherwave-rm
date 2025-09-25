@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/aetherwave-rm-hero-cropped.svg" width="1024" alt="Aetherwave.rm">
+<img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/aetherwave-hero-embedded.svg" width="1024" alt="Aetherwave.rm">
 </p>
 
 <div align="center">
