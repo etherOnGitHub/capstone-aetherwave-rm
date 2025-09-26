@@ -257,6 +257,10 @@
 <p align="center">
 <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/wireframes-heading.svg" width="450" alt="Aetherwave.rm wireframes heading image">
 </p>
+<!-- pixel thin divider !-->
+<div align="center">
+<img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tight.svg" style="pointer-events: none;" width="780" alt="Aetherwave.rm thin horizontal line divider image">
+</div>
 <!-- wireframe img phone & medium !-->
 <p align="center">
   <!-- phone !-->
@@ -274,6 +278,50 @@
 <p  align="center">
   <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/wireframes/desktop-wireframe.webp" width="780" alt="Aetherwave.rm wireframe desktop">
 </p>
+<!-- pixel thin divider !-->
+<div align="center">
+<img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tight.svg" style="pointer-events: none;" width="780" alt="Aetherwave.rm thin horizontal line divider image">
+</div>
+<br>
+<!-- Wireframe text !-->
+<div>
+  <p align="center">
+    For the wireframes (made in <a href="https://www.balsamiq.com/" target="_blank">Balsamiq</a> ) I kept them simple to account for iterative development, as a basis though, the website will be very simple and hopefully contain all the elements needed onto one page. Mobile devices will collapse into a column state and shrink in size I think due to the simple MVP it wont need a burger icon and drop down. Medium screens will account for the extra place by extending out, spacing out items and showing extra information. Desktop will again extend and split into a dual column layout to help contain all the relevant information to the user immediately. In theory this design will then containerise the Django apps into these sections to both be easier to control on the development side and user experience side.
+  </p>
+</div>
+<br>
+<!-- thin line divider !-->
+<p align="center">
+  <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tapered-glow.svg" style="pointer-events: none;" width="400" alt="Aetherwave.rm thin horizontal line divider image">
+</p>
+<!-- models heading !-->
+<p align="center">
+  <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/entity-relationship-diagram.svg" width="550" alt="Aetherwave.rm ERD heading image">
+</p>
+<!-- pixel thin divider !-->
+<div align="center">
+<img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tight.svg" style="pointer-events: none;" width="780" alt="Aetherwave.rm thin horizontal line divider image">
+</div>
+<br>
+<!-- erd model !-->
+<p  align="center">
+  <!-- pixel thin vertical divider !-->
+  <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-vertical-tight.svg" height="186" style="pointer-events: none;" alt="Aetherwave.rm thin horizontal line divider image">
+  <!-- model img !-->
+  <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/database/entity-relationship-model-aetherwave.svg" width="780" alt="Aetherwave.rm ERD model">
+  <!-- pixel thin vertical divider !-->
+  <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-vertical-tight.svg" height="186" style="pointer-events: none;" alt="Aetherwave.rm thin horizontal line divider image">
+</p>
+<!-- pixel thin divider !-->
+<div align="center">
+<img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tight.svg" style="pointer-events: none;" width="780" alt="Aetherwave.rm thin horizontal line divider image">
+</div>
+<br>
+<!-- ERD text !-->
+<p>
+  The ERD for the app is relatively straight forward as it will have one user being able to create, read, edit and delete their many audio apps. This system will allow users to store their synth component settings and manipulate them when required.
+</p>
+<br>
 <!-- saw divider !-->
 <p  align="center">
   <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/aetherwave-divider-saw.svg" width="1440" alt="Aetherwave.rm saw wave divider">
