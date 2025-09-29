@@ -13,7 +13,7 @@
 <br>
 <!-- deploy link !-->
 <div align="center">
-  <a href="https://github.com/users/etherOnGitHub/projects/7" target="_blank">
+  <a href="https://aetherwave-rm-53c8c8259e3d.herokuapp.com/" target="_blank">
         <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/aetherwave-badge-deploy-link.svg" width="500" alt="Aetherwave.rm deploy link image">
   </a>
 <!-- project board link !-->  
