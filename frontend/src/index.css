@@ -71,3 +71,15 @@ button:focus-visible {
   }
 }
 
+.text-glow {
+    text-shadow: 0 0 8px rgba(0, 160, 255, 0.6), 
+                 0 0 16px rgba(0, 160, 255, 0.4);
+}
+
+.shadow-glow {
+    filter: drop-shadow(0 0 6px rgba(0,160,255,0.7)) drop-shadow(0 0 12px rgba(0,160,255,0.5));
+}
+
+.animate-gradient-x {
+    background-size: 250% 250%;
+}

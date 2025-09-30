@@ -14,6 +14,16 @@ export default {
               orbitron: ['Orbitron', 'sans-serif'],
               exo: ['"Exo 2"', 'sans-serif'],
           },
+          keyframes: {
+              'gradient-x': {
+                  '0%': { backgroundPosition: '0% 50%' },
+                  '50%': { backgroundPosition: '100% 50%' },
+                  '100%': { backgroundPosition: '0% 50%' },
+              },
+          },
+          animation: {
+              'gradient-x': 'gradient-x 6s ease infinite',
+          },
       },
   },
   plugins: [],
