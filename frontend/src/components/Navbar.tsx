@@ -5,13 +5,13 @@ export default function Navbar() {
 
     return (
         <nav className="fixed left-0 top-0 flex w-full items-center justify-between bg-gray-900 px-6 py-4 text-white">
-            <div className="text-2xl font-bold">Aetherwave</div>
+            <div className="font-orbitron text-2xl">aetherwave.rm</div>
 
             <div className="hidden space-x-8 md:flex">
-                <a href="#" className="transition hover:text-blue-400">Home</a>
-                <a href="#" className="transition hover:text-blue-400">About</a>
-                <a href="#" className="transition hover:text-blue-400">Services</a>
-                <a href="#" className="transition hover:text-blue-400">Contact</a>
+                <a href="#" className="font-exo transition hover:text-blue-400">Home</a>
+                <a href="#" className="font-exo transition hover:text-blue-400">About</a>
+                <a href="#" className="font-exo transition hover:text-blue-400">Services</a>
+                <a href="#" className="font-exo transition hover:text-blue-400">Contact</a>
             </div>
 
             <button
@@ -37,8 +37,8 @@ export default function Navbar() {
                 <div className="absolute left-0 top-16 z-50 flex w-full flex-col items-center space-y-4 bg-gray-800 py-6 md:hidden">
                     <a href="#" className="transition hover:text-blue-400">Home</a>
                     <a href="#" className="transition hover:text-blue-400">About</a>
-                    <a href="#" className="transition hover:text-blue-400">Services</a>
-                    <a href="#" className="transition hover:text-blue-400">Contact</a>
+                    <a href="#" className="transition hover:text-blue-400">Plugins</a>
+                    <a href="#" className="transition hover:text-blue-400">Feedback</a>
                 </div>
             )}
         </nav>

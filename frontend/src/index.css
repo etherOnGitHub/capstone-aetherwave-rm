@@ -1,3 +1,12 @@
+/* import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Exo+2:wght@400;700&display=swap');
+
+/* Tailwind CSS directives - These should come AFTER custom styles */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -62,7 +71,3 @@ button:focus-visible {
   }
 }
 
-/* Tailwind CSS directives - These should come AFTER custom styles */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
