@@ -76,8 +76,9 @@ button:focus-visible {
                  0 0 16px rgba(0, 160, 255, 0.4);
 }
 
-.shadow-glow {
-    filter: drop-shadow(0 0 6px rgba(0,160,255,0.7)) drop-shadow(0 0 12px rgba(0,160,255,0.5));
+.drop-glow {
+    filter: drop-shadow(0 0 10px rgba(0,160,255,1)) 
+            drop-shadow(0 0 20px rgba(0,160,255,0.9));
 }
 
 .animate-gradient-x {

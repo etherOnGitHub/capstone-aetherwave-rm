@@ -5,10 +5,10 @@ export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <nav className="fixed left-0 top-0 flex w-full items-center justify-between px-6 py-3 text-white outline-double outline-brandBlue">
+        <nav className="fixed left-0 top-0 flex w-full items-center justify-between bg-black px-6 py-3 text-white">
             {/* logo with gradient */  }
             <div className="font-orbitron relative inline-block text-3xl font-bold">
-                <span className="animate-gradient-x absolute inset-0 select-none bg-gradient-to-r from-brandOrange via-brandSage to-brandBlue bg-clip-text text-transparent opacity-70 blur-lg">
+                <span className="animate-gradient-x absolute inset-0 select-none bg-gradient-to-r from-brandOrange via-brandSage to-brandBlue bg-clip-text text-transparent opacity-70 blur-md">
                     aetherwave.rm
                 </span>
                 <span className="animate-gradient-x relative bg-gradient-to-r from-brandOrange via-brandSage to-brandBlue bg-clip-text text-transparent">
@@ -17,10 +17,10 @@ export default function Navbar() {
             </div>
 
             <div className="hidden space-x-8 md:flex">
-                <a href="#" className="font-orbitron transition hover:text-blue-400">Home</a>
-                <a href="#" className="font-orbitron transition hover:text-blue-400">About</a>
-                <a href="#" className="font-orbitron transition hover:text-blue-400">Plugins</a>
-                <a href="#" className="font-orbitron transition hover:text-blue-400">Feedback</a>
+                <a href="#" className="font-orbitron animate-gradient-x relative bg-gradient-to-r from-brandOrange via-brandSage to-brandBlue bg-clip-text text-transparent">Home</a>
+                <a href="#" className="font-orbitron animate-gradient-x relative bg-gradient-to-r from-brandOrange via-brandSage to-brandBlue bg-clip-text text-transparent">About</a>
+                <a href="#" className="font-orbitron animate-gradient-x relative bg-gradient-to-r from-brandOrange via-brandSage to-brandBlue bg-clip-text text-transparent">Plugins</a>
+                <a href="#" className="font-orbitron animate-gradient-x relative bg-gradient-to-r from-brandOrange via-brandSage to-brandBlue bg-clip-text text-transparent">Feedback</a>
             </div>
 
             {/* burger menu for mobile*/}
@@ -46,11 +46,11 @@ export default function Navbar() {
             </button>
 
             {isOpen && (
-                <div className="absolute left-0 top-16 z-50 flex w-full flex-col items-center space-y-4 py-6 outline-2 outline-brandBlue md:hidden">
-                    <a href="#" className="transition hover:text-blue-400">Home</a>
-                    <a href="#" className="transition hover:text-blue-400">About</a>
-                    <a href="#" className="transition hover:text-blue-400">Plugins</a>
-                    <a href="#" className="transition hover:text-blue-400">Feedback</a>
+                <div className="absolute left-0 top-16 z-50 flex w-full flex-col items-center space-y-4 py-6 backdrop-blur-sm md:hidden">
+                    <a href="#" className="animate-gradient-x relative bg-gradient-to-r from-brandOrange via-brandSage to-brandBlue bg-clip-text text-transparent">Home</a>
+                    <a href="#" className="animate-gradient-x relative bg-gradient-to-r from-brandOrange via-brandSage to-brandBlue bg-clip-text text-transparent">About</a>
+                    <a href="#" className="animate-gradient-x relative bg-gradient-to-r from-brandOrange via-brandSage to-brandBlue bg-clip-text text-transparent">Plugins</a>
+                    <a href="#" className="animate-gradient-x relative bg-gradient-to-r from-brandOrange via-brandSage to-brandBlue bg-clip-text text-transparent">Feedback</a>
                 </div>
             )}
         </nav>
