@@ -13,7 +13,7 @@ export default function Navbar() {
                 <a href="#" className="font-exo transition hover:text-blue-400">Services</a>
                 <a href="#" className="font-exo transition hover:text-blue-400">Contact</a>
             </div>
-
+            // burger menu for mobile
             <button
                 className="focus:outline-none md:hidden"
                 onClick={() => setIsOpen(!isOpen)}
