@@ -1,0 +1,10 @@
+{
+  "name": "heroku-root-build",
+  "private": true,
+  "scripts": {
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm --prefix frontend ci && npm --prefix frontend run build && mkdir -p templates && cp -f frontend/dist/index.html templates/index.html"
+  },
+  "devDependencies": {
+    "tailwindcss": "^4.0.0"
+  }
+}
