@@ -24,8 +24,7 @@ export default function PianoCanvas({
 
         // array of notes
         const notes = [
-            "C4",
-            "C#4",
+            "C4", "C#4",
             "D4",
             "D#4",
             "E4",
@@ -51,22 +50,20 @@ export default function PianoCanvas({
             "C6",
         ];
 
+       
+
         // record positions of white notes by filtering out sharps
         const whiteNotes = notes.filter(n => !n.includes("#"));
         // create width of notes based on length of white notes array
         const whiteWidth = canvas.width / whiteNotes.length;
         const whiteHeight = canvas.height;
-        const blackWidth = whiteWidth / 2;
-        const blackHeight = whiteHeight / 2;
-
-        
-
-        
+        const blackWidth = whiteWidth * 0.5;
+        const blackHeight = whiteHeight * 0.60;
 
         keysRef.current = [];
 
         // draw white keys
-        let whiteIndex = 0;
+        const whiteIndex = 0;
         notes.forEach((note) => {
             // only draw if not sharp
             if (!note.includes("#")) {
@@ -74,29 +71,24 @@ export default function PianoCanvas({
                 ctx.fillStyle = "#fff";
                 ctx.fillRect(x, 0, whiteWidth, whiteHeight);
 
-                // 3D highlight
-                const grad = ctx.createLinearGradient(x, 0, x, whiteHeight * 0.4);
-                grad.addColorStop(0, "rgba(0,0,0,0.3)");
-                grad.addColorStop(1, "rgba(0,0,0,0)");
-                ctx.fillStyle = grad;
-                ctx.fillRect(x, 0, whiteWidth, whiteHeight * 0.4);
-
-                ctx.strokeStyle = "#000";
-                ctx.strokeRect(x, 0, whiteWidth, whiteHeight);
-
-                keysRef.current.push({ note, isBlack: false, x, y: 0, w: whiteWidth, h: whiteHeight });
-                whiteIndex++;
+                
             }
         });
 
-        // draw black keys on top
         notes.forEach((note, i) => {
             if (note.includes("#")) {
-                const whitePos = Math.floor(i / 2) * whiteWidth + whiteWidth - blackWidth / 2;
+                // the white note is always the previous entry in the array
+                const prevWhiteNote = notes[i - 1];
+                const baseWhite = keysRef.current.find(
+                    (k) => !k.isBlack && k.note === prevWhiteNote
+                );
+                if (!baseWhite) return;
+
+                const whitePos = baseWhite.x + whiteWidth - blackWidth / 2;
+
                 ctx.fillStyle = "#111";
                 ctx.fillRect(whitePos, 0, blackWidth, blackHeight);
 
-                // glossy highlight
                 const grad = ctx.createLinearGradient(whitePos, 0, whitePos, blackHeight * 0.4);
                 grad.addColorStop(0, "rgba(0,255,255,0.2)");
                 grad.addColorStop(1, "rgba(0,255,255,0)");
@@ -114,6 +106,8 @@ export default function PianoCanvas({
             }
         });
 
+
+
         // neon border
         ctx.shadowColor = "white";
         ctx.shadowBlur = 2;
@@ -123,6 +117,74 @@ export default function PianoCanvas({
 
         // reset shadow so clicks aren�t weird later
         ctx.shadowBlur = 0;
+
+        // create keymap for computer keyboard to piano keys
+        // two octaves: C4–C6
+        const keyMap: Record<string, string> = {
+            // O4
+            z: "C4",
+            s: "C#4",
+            x: "D4",
+            d: "D#4",
+            c: "E4",
+            v: "F4",
+            g: "F#4",
+            b: "G4",
+            h: "G#4",
+            n: "A4",
+            j: "A#4",
+            m: "B4",
+
+            // O5
+            q: "C5",
+            "2": "C#5",
+            w: "D5",
+            "3": "D#5",
+            e: "E5",
+            r: "F5",
+            "5": "F#5",
+            t: "G5",
+            "6": "G#5",
+            y: "A5",
+            "7": "A#5",
+            u: "B5",
+
+            // O6
+            i: "C6",
+        };
+        const pressed = new Set<string>(); // track what’s currently down
+
+
+        const handleKeyDown = (e: KeyboardEvent) => {
+            const key = e.key.toLowerCase();
+            const note = keyMap[key];
+
+            if (note && !pressed.has(key)) {
+                e.preventDefault(); // stop browser actions (scroll, tab shortcuts, etc.)
+                pressed.add(key);
+                onPlay(note);
+            }
+        };
+
+        const handleKeyUp = (e: KeyboardEvent) => {
+            const key = e.key.toLowerCase();
+            const note = keyMap[key];
+
+            if (note) {
+                e.preventDefault();
+                pressed.delete(key);
+                onStop(note);
+            }
+        };
+
+        window.addEventListener("keydown", handleKeyDown);
+        window.addEventListener("keyup", handleKeyUp);
+
+        return () => {
+            window.removeEventListener("keydown", handleKeyDown);
+            window.removeEventListener("keyup", handleKeyUp);
+        };
+
     }, []);
 
     const handleMouseDown = (e: React.MouseEvent) => {
@@ -157,6 +219,9 @@ export default function PianoCanvas({
         }
     };
 
+    
+
+
     return (
         <div className="h-full w-full">
             <canvas
@@ -168,4 +233,5 @@ export default function PianoCanvas({
             />
         </div>
     );
-}
+
+}   
