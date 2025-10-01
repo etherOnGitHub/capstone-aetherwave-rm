@@ -1,5 +1,6 @@
-﻿import { useEffect, useRef } from "react";
+﻿import { useEffect, useRef, useCallback } from "react";
 import * as Tone from "tone";
+import PianoCanvas from "./keys";
 
 //create a simple synth module using Tone.js and React
 export default function SynthModule() {
@@ -18,32 +19,26 @@ export default function SynthModule() {
         };
     }, []);
 
-    // plays note
-    const playSynth = async () => {
-        await Tone.start();
-        console.log("Audio is ready");
-        // trigger note
-        synthR.current?.triggerAttackRelease("C2");
-    }
+    const playSynth = useCallback(
+        async (note: string) => {
+            synthR.current?.triggerAttack(note);
+        },
+        []
+    );
+
     // stops note
-    const stopSynth = () => {
-        // release the held note
-        synthR.current?.triggerRelease("C2");
-    };
+    const stopSynth = useCallback((note: string) => {
+        synthR.current?.triggerRelease(note);
+    }, []);
 
 
     
 
     return (
-        <div className="outline-solid outline-brandBlue-1 m-10 w-max">
-            <div className="w-max">
+        <div className="outline-solid outline-brandBlue-1 m-10 h-full w-full">
+            <div className="w-full">
                 <h2>Synth Module</h2>
-                <button
-                    onMouseDown={playSynth}
-                    onMouseUp={stopSynth}
-                    onMouseLeave={stopSynth}
-                >Hold Note</button>
-                
+                <PianoCanvas onPlay={playSynth} onStop={stopSynth} />
             </div>
         </div>
     );
