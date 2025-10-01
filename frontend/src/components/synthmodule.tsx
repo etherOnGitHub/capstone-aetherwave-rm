@@ -36,7 +36,7 @@ export default function SynthModule() {
 
     return (
         <div className="outline-solid outline-brandBlue-1 m-10 h-full w-full">
-            <div className="w-full">
+            <div className="w-full border-r-0">
                 <h2>Synth Module</h2>
                 <PianoCanvas onPlay={playSynth} onStop={stopSynth} />
             </div>

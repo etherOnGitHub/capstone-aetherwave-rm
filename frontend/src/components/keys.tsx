@@ -63,15 +63,29 @@ export default function PianoCanvas({
         keysRef.current = [];
 
         // draw white keys
-        const whiteIndex = 0;
+        let whiteIndex = 0;
         notes.forEach((note) => {
             // only draw if not sharp
             if (!note.includes("#")) {
+                // draw white key
                 const x = whiteIndex * whiteWidth;
                 ctx.fillStyle = "#fff";
                 ctx.fillRect(x, 0, whiteWidth, whiteHeight);
-
-                
+                // border
+                ctx.lineWidth = 2;
+                ctx.strokeStyle = "#000";
+                ctx.strokeRect(x, 0, whiteWidth, whiteHeight);
+                // save key data for hit detection later
+                keysRef.current.push({
+                    note,
+                    isBlack: false,
+                    x,
+                    y: 0,
+                    w: whiteWidth,
+                    h: whiteHeight,
+                });
+                // increment white key index
+                whiteIndex++;
             }
         });
 
@@ -79,21 +93,17 @@ export default function PianoCanvas({
             if (note.includes("#")) {
                 // the white note is always the previous entry in the array
                 const prevWhiteNote = notes[i - 1];
+                // find the x position of that white note from keysRef
                 const baseWhite = keysRef.current.find(
                     (k) => !k.isBlack && k.note === prevWhiteNote
                 );
+                
                 if (!baseWhite) return;
 
                 const whitePos = baseWhite.x + whiteWidth - blackWidth / 2;
 
                 ctx.fillStyle = "#111";
                 ctx.fillRect(whitePos, 0, blackWidth, blackHeight);
-
-                const grad = ctx.createLinearGradient(whitePos, 0, whitePos, blackHeight * 0.4);
-                grad.addColorStop(0, "rgba(0,255,255,0.2)");
-                grad.addColorStop(1, "rgba(0,255,255,0)");
-                ctx.fillStyle = grad;
-                ctx.fillRect(whitePos, 0, blackWidth, blackHeight * 0.4);
 
                 keysRef.current.push({
                     note,
@@ -185,7 +195,7 @@ export default function PianoCanvas({
             window.removeEventListener("keyup", handleKeyUp);
         };
 
-    }, []);
+    }, [onPlay, onStop]);
 
     const handleMouseDown = (e: React.MouseEvent) => {
         const rect = canvasRef.current!.getBoundingClientRect();
@@ -223,13 +233,13 @@ export default function PianoCanvas({
 
 
     return (
-        <div className="h-full w-full">
+        <div className="aspect-[16/4] w-full max-w-[90%]">
             <canvas
                 ref={canvasRef}
                 onMouseDown={handleMouseDown}
                 onMouseUp={handleMouseUp}
                 onMouseLeave={handleMouseUp}
-                className="h-full w-full rounded-md border border-gray-700"
+                className="h-full w-full border border-gray-700 outline-none focus:outline-none"
             />
         </div>
     );
