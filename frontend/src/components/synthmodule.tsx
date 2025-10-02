@@ -2,6 +2,7 @@
 import * as Tone from "tone";
 import PianoCanvas from "./keys";
 import { Knob, Pointer, Arc } from "rc-knob";
+
 // import { DEFAULTS } from ../constants/constants;
 console.log(Knob);
 //create a simple synth module using Tone.js and React
