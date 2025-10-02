@@ -13,20 +13,21 @@ export default function SynthModule() {
     const [decay, setDecay] = useState(0.3);
     const [sustain, setSustain] = useState(0.8);
     const [release, setRelease] = useState(1.2);
+   
+
     const oscWaveType = [
-        "sine",
-        "triangle",
-        "square",
-        "sawtooth",
-        "pulse",
-        "pwm",
-        "fatsawtooth",
-        "fatsquare"
+        { type: "sine" },
+        { type: "triangle" },
+        { type: "square" },
+        { type: "sawtooth" },
+        { type: "pulse" },
+        { type: "pwm" },
+        { type: "fatsawtooth", count: 7, spread:40 },
+        { type: "fatsquare", count: 7, spread:25 },
     ] as const;
     type OscType = typeof oscWaveType[number]; // inferred union
-    const [oscType, setOscType] = useState<OscType>("sawtooth");
-    const currentIndex = oscWaveType.indexOf(oscType);
-
+    const [oscType, setOscType] = useState<OscType>(oscWaveType[3]); // default to sawtooth wave
+    const currentIndex = oscWaveType.findIndex(o => o.type === oscType.type); // compare index of type property
 
     // ref to synth so it doesnt update on every render
     const synthR = useRef<Tone.PolySynth | null>(null);
@@ -78,7 +79,7 @@ export default function SynthModule() {
         if (synthR.current) {
             synthR.current.set({
                 oscillator: {
-                    type: oscType
+                    ...oscType
                 }
             });
         }
@@ -126,7 +127,7 @@ export default function SynthModule() {
                             />
                         </Knob>
                         { /* osc type */}
-                        <span className="font-exo inline-block w-[150px] text-ellipsis whitespace-nowrap p-1.5">Wave: {oscType}</span>
+                        <span className="font-exo inline-block w-[150px] text-ellipsis whitespace-nowrap p-1.5">Wave: {oscType.type}</span>
                         <Knob
                             size={50}
                             angleOffset={220}      // where the knob arc starts (degrees)
@@ -156,6 +157,7 @@ export default function SynthModule() {
                                 radius={5}            // distance from center
                             />
                         </Knob>
+                        
                     </div>
                     { /* ADSR */}
                     { /* atk */ }
@@ -271,7 +273,7 @@ export default function SynthModule() {
                     </div>
                 </div>
                 {/* Keys */}
-                <div className="flex justify-center">
+                <div className="mb-2 mt-2 flex justify-center">
                     <PianoCanvas onPlay={playSynth} onStop={stopSynth} />
                 </div>
             </div>
