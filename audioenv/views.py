@@ -1,9 +1,7 @@
-from django.shortcuts import render
-from django.views.generic import TemplateView
+from rest_framework import generics
+from .models import Preset
+from .serializers import PresetSerializer
 
-# Create your views here.
-class HomePage(TemplateView):
-    """
-    Displays home page"
-    """
-    template_name = 'index.html'
+class PresetListCreateView(generics.ListCreateAPIView):
+    queryset = Preset.objects.all()
+    serializer_class = PresetSerializer
