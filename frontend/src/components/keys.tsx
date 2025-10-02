@@ -233,7 +233,7 @@ export default function PianoCanvas({
 
 
     return (
-        <div className="aspect-[16/4] w-full max-w-[90%]">
+        <div className="aspect-[16/4] w-10/12 max-w-[900px]">
             <canvas
                 ref={canvasRef}
                 onMouseDown={handleMouseDown}
