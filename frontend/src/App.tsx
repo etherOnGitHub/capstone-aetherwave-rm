@@ -1,22 +1,27 @@
 ﻿import { useState } from 'react'
 import "./index.css";
-import Navbar from "./components/navbar";
+import Navbar from "./components/Navbar";
 import SynthModule from "./components/synthmodule";
+
 
 function App() {
   const [count, setCount] = useState(0)
 
     return (
-        <div>
-            < Navbar />
-            < div className="min-h-[calc(100vh-4rem)] mt-16 grid w-screen grid-cols-1 lg:grid-cols-2">
-                <div className="bg-brandBlack outline outline-2 outline-white">
-                    < SynthModule />
-                </div>
-                <div className="bg-brandBlack outline outline-2 outline-white">
+        <>
+            <div>
+                < Navbar />
+            </div>
+            <div>
+                < div className="min-h-[calc(100vh-4rem)] mt-16 w-screen bg-brandBlack outline outline-2 outline-white">
+                    <div className="w-full">
+                        < SynthModule />
+                    </div>
+                    <div className="grid-cols-1 bg-brandBlack outline outline-2 outline-white xl:grid-cols-2">
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
   )
 }
 

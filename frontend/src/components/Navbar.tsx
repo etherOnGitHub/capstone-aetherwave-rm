@@ -7,13 +7,13 @@ export default function Navbar() {
     return (
         <nav className="fixed left-0 top-0 flex w-full items-center justify-between bg-black px-6 py-3 text-white">
             {/* logo with gradient */  }
-            <div className="font-orbitron relative inline-block text-3xl font-bold">
+            <div className="font-orbitron relative inline-block animate-bounce text-3xl font-bold">
                 <span className="animate-gradient-x absolute inset-0 select-none bg-gradient-to-r from-brandOrange via-brandSage to-brandBlue bg-clip-text text-transparent opacity-70 blur-md">
                     aetherwave.rm
                 </span>
-                <span className="animate-gradient-x relative bg-gradient-to-r from-brandOrange via-brandSage to-brandBlue bg-clip-text text-transparent">
-                    aetherwave.rm
-                </span>
+                    <span className="  animate-gradient-x relative bg-gradient-to-r from-brandOrange via-brandSage to-brandBlue bg-clip-text text-transparent">
+                        aetherwave.rm
+                    </span>
             </div>
 
             <div className="hidden space-x-8 md:flex">
