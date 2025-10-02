@@ -84,3 +84,21 @@ button:focus-visible {
 .animate-gradient-x {
     background-size: 250% 250%;
 }
+
+/* outer track */
+.synth-knob .rc-knob-track {
+    stroke: white;
+    stroke-width: 8;
+}
+
+/* active progress arc */
+.synth-knob .rc-knob-value {
+    stroke: #00a0ff;
+    stroke-width: 8;
+    filter: drop-shadow(0 0 6px rgba(0,160,255,0.6));
+}
+
+/* handle / indicator */
+.synth-knob .rc-knob-handle {
+    fill: white;
+}
