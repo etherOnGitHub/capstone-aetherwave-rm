@@ -39,7 +39,15 @@ SECRET_KEY = os.environ.get("SECRET_KEY", "nice_try")
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'aetherwave-rm-53c8c8259e3d.herokuapp.com',]
 
-CSRF_TRUSTED_ORIGINS = ['http://*.herokuapp.com', "https://*.codeinstitute-ide.net/",]
+CSRF_TRUSTED_ORIGINS = [
+    'http://*.herokuapp.com', 
+    "https://*.codeinstitute-ide.net/",
+]
+
+CORS_ALLOWED_ORIGINS = [
+    "https://localhost:5173",   # React dev server
+]
+
 
 # Application definition
 
