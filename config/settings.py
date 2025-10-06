@@ -59,6 +59,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # allauth
+    "django.contrib.sites",
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
+
+    
+
     # packages
     'cloudinary_storage',
     'cloudinary',
@@ -76,12 +84,14 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'corsheaders.middleware.CorsMiddleware',
+    "django.contrib.sites.middleware.CurrentSiteMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -141,6 +151,26 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTHENTICATION_BACKENDS = [
+    "django.contrib.auth.backends.ModelBackend",        # default
+    "allauth.account.auth_backends.AuthenticationBackend",  # allauth
+]
+
+SITE_ID = 1
+
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/"
+
+ACCOUNT_LOGIN_METHODS = {"email", "username"}
+
+ACCOUNT_SIGNUP_FIELDS = [
+    "email*", 
+    "username*", 
+    "password1*", 
+    "password2*"
+]
+       
+ACCOUNT_EMAIL_VERIFICATION = "none" # iteration 1 - none, iteration 2 - mandatory
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/

@@ -26,7 +26,7 @@ export default function SynthModule() {
         { type: "fatsawtooth", count: 7, spread:40 },
         { type: "fatsquare", count: 7, spread:25 },
     ] as const;
-    type OscType = typeof oscWaveType[number]; // inferred union
+    type OscType = typeof oscWaveType[number];
     const [oscType, setOscType] = useState<OscType>(oscWaveType[3]); // default to sawtooth wave
     const currentIndex = oscWaveType.findIndex(o => o.type === oscType.type); // compare index of type property
 
@@ -94,7 +94,7 @@ export default function SynthModule() {
                 <div className="grid grid-cols-2 gap-1 md:grid-cols-4">
                     { /* Volume */}
                     <div className="flex flex-col items-center justify-start text-center">
-                        <span className="font-exo inline-block w-[150px] text-ellipsis whitespace-nowrap p-1.5">Volume: {volume} dB</span>
+                        <span className="font-exo inline-block w-[150px] p-1.5 text-ellipsis whitespace-nowrap">Volume: {volume} dB</span>
                         <Knob
                             size={50}
                             angleOffset={220}      // where the knob arc starts (degrees)
@@ -128,7 +128,7 @@ export default function SynthModule() {
                             />
                         </Knob>
                         { /* osc type */}
-                        <span className="font-exo inline-block w-[150px] text-ellipsis whitespace-nowrap p-1.5">Wave: {oscType.type}</span>
+                        <span className="font-exo inline-block w-[150px] p-1.5 text-ellipsis whitespace-nowrap">Wave: {oscType.type}</span>
                         <Knob
                             size={50}
                             angleOffset={220}      // where the knob arc starts (degrees)
@@ -163,7 +163,7 @@ export default function SynthModule() {
                     { /* ADSR */}
                     { /* atk */ }
                     <div className="flex flex-col items-center justify-start text-center">
-                        <span className="font-exo inline-block w-[150px] text-ellipsis whitespace-nowrap p-1.5">Attack: {attack}s</span>
+                        <span className="font-exo inline-block w-[150px] p-1.5 text-ellipsis whitespace-nowrap">Attack: {attack}s</span>
                         <Knob
                             size={50}
                             angleOffset={220}      // where the knob arc starts (degrees)
@@ -190,7 +190,7 @@ export default function SynthModule() {
                             />
                         </Knob>
                         { /* dec */}
-                        <span className="font-exo inline-block w-[150px] text-ellipsis whitespace-nowrap p-1.5">Decay: {decay}s</span>
+                        <span className="font-exo inline-block w-[150px] p-1.5 text-ellipsis whitespace-nowrap">Decay: {decay}s</span>
                         <Knob
                             size={50}
                             angleOffset={220}      // where the knob arc starts (degrees)
@@ -217,7 +217,7 @@ export default function SynthModule() {
                             />
                         </Knob>
                         { /* sus */}
-                        <span className="font-exo inline-block w-[150px] text-ellipsis whitespace-nowrap p-1.5">Sustain: {(sustain * 100).toFixed(2)}%</span>
+                        <span className="font-exo inline-block w-[150px] p-1.5 text-ellipsis whitespace-nowrap">Sustain: {(sustain * 100).toFixed(2)}%</span>
                         <Knob
                             size={50}
                             angleOffset={220}      // where the knob arc starts (degrees)
@@ -244,7 +244,7 @@ export default function SynthModule() {
                             />
                         </Knob>
                         { /* rel */}
-                        <span className="font-exo inline-block w-[150px] text-ellipsis whitespace-nowrap p-1.5">Release: {release}s</span>
+                        <span className="font-exo inline-block w-[150px] p-1.5 text-ellipsis whitespace-nowrap">Release: {release}s</span>
                         <Knob
                             size={50}
                             angleOffset={220}      // where the knob arc starts (degrees)
@@ -274,7 +274,7 @@ export default function SynthModule() {
                     </div>
                 </div>
                 {/* Keys */}
-                <div className="mb-2 mt-2 flex justify-center">
+                <div className="mt-2 mb-2 flex justify-center">
                     <PianoCanvas onPlay={playSynth} onStop={stopSynth} />
                 </div>
             </div>
