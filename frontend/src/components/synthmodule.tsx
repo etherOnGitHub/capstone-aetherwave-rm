@@ -4,7 +4,17 @@ import PianoCanvas from "./keys";
 import { Knob, Pointer, Arc } from "rc-knob";
 
 // import { DEFAULTS } from ../constants/constants;
-console.log(Knob);
+type Preset = {
+    id: number;
+    name: string;
+    volume: number;
+    attack: number;
+    decay: number;
+    sustain: number;
+    release: number;
+    waveType: string;
+    created_at: string;
+};
 //create a simple synth module using Tone.js and React
 export default function SynthModule() {
 
@@ -26,12 +36,14 @@ export default function SynthModule() {
         { type: "fatsawtooth", count: 7, spread:40 },
         { type: "fatsquare", count: 7, spread:25 },
     ] as const;
+
     type OscType = typeof oscWaveType[number];
     const [oscType, setOscType] = useState<OscType>(oscWaveType[3]); // default to sawtooth wave
     const currentIndex = oscWaveType.findIndex(o => o.type === oscType.type); // compare index of type property
 
     // ref to synth so it doesnt update on every render
     const synthR = useRef<Tone.PolySynth | null>(null);
+
     useEffect(() => {
 
         // create a synth and connect it to the main output (your output device)
@@ -86,6 +98,51 @@ export default function SynthModule() {
         }
 
     }, [oscType]);
+
+    useEffect(() => {
+        async function loadOrCreatePreset() {
+            try {
+                const res = await fetch("/api/presets/", { credentials: "include" });
+                const data: Preset[] = await res.json();
+
+                if (data.length > 0) {
+                    const preset = data[0];
+
+                    setVolume(preset.volume);
+                    setAttack(preset.attack);
+                    setDecay(preset.decay);
+                    setSustain(preset.sustain);
+                    setRelease(preset.release);
+
+                    const match = oscWaveType.find(o => o.type === preset.waveType);
+                    if (match) setOscType(match);
+                }
+
+                if (data.length === 0) {
+                    await fetch("/api/presets/", {
+                        method: "POST",
+                        credentials: "include",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({
+                            name: "Default Preset",
+                            volume: -12,
+                            attack: 0.02,
+                            decay: 0.3,
+                            sustain: 0.8,
+                            release: 1.2,
+                            waveType: "sawtooth",
+                        }),
+                    });
+
+                    // optional: re-fetch or directly set state here if you want to immediately reflect the new preset
+                }
+            } catch (err) {
+                console.error("Failed to load presets:", err);
+            }
+        }
+
+        loadOrCreatePreset();
+    }, []);
 
     return (
         <div className="w-screen max-w-full overflow-x-hidden">
