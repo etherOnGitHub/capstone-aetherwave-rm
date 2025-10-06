@@ -1,0 +1,22 @@
+﻿{% load i18n %}
+{% load allauth account %}
+
+<div id="auth-modal-content" class="hidden">
+    <h2 class="mb-4 text-2xl font-bold">{% trans "Sign In" %}</h2>
+
+    {% if not SOCIALACCOUNT_ONLY %}
+    <p class="mb-4">
+        {% blocktranslate %}If you have not created an account yet, then please <a href="{{ signup_url }}">sign up</a> first.{% endblocktranslate %}
+    </p>
+
+    {% url 'account_login' as login_url %}
+    <form method="post" action="{{ login_url }}" class="space-y-4">
+        {% csrf_token %}
+        {% element fields form=form unlabeled=True %}{% endelement %}
+        {{ redirect_field }}
+        <button type="submit" class="bg-brandBlue w-full rounded py-2 text-white transition hover:bg-brandOrange">
+            {% trans "Sign In" %}
+        </button>
+    </form>
+    {% endif %}
+</div>
