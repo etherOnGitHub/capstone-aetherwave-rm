@@ -1,15 +1,17 @@
 {% load static %}
 
-{% include "account/login.html" %}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="{% static 'assets/index-DRBGTKLl.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/index-B6QuAgtY.css' %}">
 </head>
 <body>
-    <div id="root"></div>
-    <script type="module" src="{% static 'assets/index-BiiXkJYO.js' %}"></script>
+    <div id="root">
+        <div id="auth-modal" style="display: none;">
+            {% include "account/login.html" %}
+        </div>
+    </div>
+    <script type="module" src="{% static 'assets/index-FJ3qDEm1.js' %}"></script>
 </body>
 </html>

@@ -1,10 +1,24 @@
-﻿import { useState } from "react";
-import LoginModal from "./loginModal";
+﻿import { useState, useEffect } from "react";
+
+type AuthState = {
+    authenticated: boolean;
+    username: string | null;
+};
 
 export default function Navbar() {
+    const [auth, setAuth] = useState<AuthState>({
+        authenticated: false,
+        username: null,
+    });
+
+    useEffect(() => {
+        fetch("/api/auth-status/", { credentials: "include" })
+            .then((res) => res.json())
+            .then(setAuth)
+            .catch(console.error);
+    }, []);
 
     const [isOpen, setIsOpen] = useState(false);
-    const [showLogin, setShowLogin] = useState(false);
 
     return (
         <nav className="fixed top-0 left-0 flex w-full items-center bg-black px-6 py-3 text-white">
@@ -24,8 +38,17 @@ export default function Navbar() {
                 <a href="#" className="font-orbitron animate-gradient-x from-brandOrange via-brandSage to-brandBlue relative bg-gradient-to-r bg-clip-text text-transparent">Plugins</a>
                 <a href="#" className="font-orbitron animate-gradient-x from-brandOrange via-brandSage to-brandBlue relative bg-gradient-to-r bg-clip-text text-transparent">Feedback</a>
             </div>
+            <div className="ml-auto">
+                {auth.authenticated && <span className="ml-2 opacity-70">Welcome, {auth.username}</span>}
+            </div>
             <div className="ml-auto hidden justify-end space-x-8 md:block">
-                <a href="#" onClick={(e) => { e.preventDefault(); setShowLogin(true); }} className="font-orbitron animate-gradient-x from-brandOrange via-brandSage to-brandBlue relative justify-end bg-gradient-to-r bg-clip-text text-transparent">Login</a> {/* open login modal with event listener */} 
+               
+                <a
+                    href={auth.authenticated ? "/accounts/logout" : "/accounts/login"}
+                    className="font-orbitron animate-gradient-x from-brandOrange via-brandSage to-brandBlue relative justify-end bg-gradient-to-r bg-clip-text text-transparent"
+                >
+                    {auth.authenticated ? "Logout" : "Login"}
+                </a>
             </div>
             {/* burger menu for mobile*/}
 
@@ -55,9 +78,15 @@ export default function Navbar() {
                     <a href="#" className="animate-gradient-x from-brandOrange via-brandSage to-brandBlue relative bg-gradient-to-r bg-clip-text text-transparent">About</a>
                     <a href="#" className="animate-gradient-x from-brandOrange via-brandSage to-brandBlue relative bg-gradient-to-r bg-clip-text text-transparent">Plugins</a>
                     <a href="#" className="animate-gradient-x from-brandOrange via-brandSage to-brandBlue relative bg-gradient-to-r bg-clip-text text-transparent">Feedback</a>
+                    <a
+                        href={auth.authenticated ? "/accounts/logout" : "/accounts/login"}
+                        className="font-orbitron animate-gradient-x from-brandOrange via-brandSage to-brandBlue relative justify-end bg-gradient-to-r bg-clip-text text-transparent"
+                    >
+                        {auth.authenticated ? "Logout" : "Login"}
+                    </a>
                 </div>
             )}
-            <LoginModal isOpen={showLogin} onClose={() => setShowLogin(false)} /> {/* login modal call */}
+            
         </nav>
     );
 }
