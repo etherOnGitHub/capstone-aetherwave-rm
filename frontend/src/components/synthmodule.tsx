@@ -19,6 +19,7 @@ type Preset = {
 export default function SynthModule() {
 
     // declare settings
+    const [presetName, setPresetName] = useState("");
     const [volume, setVolume] = useState(-12);
     const [attack, setAttack] = useState(0.02);
     const [decay, setDecay] = useState(0.3);
@@ -134,15 +135,45 @@ export default function SynthModule() {
                         }),
                     });
 
-                    // optional: re-fetch or directly set state here if you want to immediately reflect the new preset
+                    
                 }
             } catch (err) {
                 console.error("Failed to load presets:", err);
             }
         }
-
         loadOrCreatePreset();
     }, []);
+
+    // save preset
+
+    async function savePreset() {
+        const presetData = {
+            name: presetName || "Untitled Preset",
+            volume,
+            attack,
+            decay,
+            sustain,
+            release,
+            waveType: oscType.type,
+        };
+
+        try {
+            const res = await fetch("/api/presets/", {
+                method: "POST",
+                credentials: "include",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(presetData),
+            });
+
+            if (!res.ok) throw new Error(`Failed to save preset (${res.status})`);
+
+            const saved = await res.json();
+            console.log("Preset saved:", saved);
+        } catch (err) {
+            console.error("Save failed:", err);
+        }
+    }
+
 
     return (
         <div className="w-screen max-w-full overflow-x-hidden">
@@ -333,6 +364,21 @@ export default function SynthModule() {
                 {/* Keys */}
                 <div className="mt-2 mb-2 flex justify-center">
                     <PianoCanvas onPlay={playSynth} onStop={stopSynth} />
+                </div>
+                <div className="mt-2 mb-4 flex justify-center align-middle">
+                    <input
+                        type="text"
+                        placeholder="Enter preset name"
+                        value={presetName}
+                        onChange={(e) => setPresetName(e.target.value)}
+                        className="m-2 border border-[#7f967f] bg-transparent p-2 text-[#7f967f] placeholder-gray-400 focus:outline-none"
+                    />
+                    <button
+                        onClick={savePreset}
+                        className="bg-brandBlue px-4 py-2 text-white transition hover:bg-brandOrange"
+                    >
+                        Save Preset
+                    </button>
                 </div>
             </div>
         </div>
