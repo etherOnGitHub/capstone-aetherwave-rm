@@ -136,16 +136,20 @@ export default function SynthModule() {
     }, [isAuthenticated]);
 
     async function fetchPresets() {
+        setLoadStatus("loading");
         setIsLoadingPresets(true);
         try {
             const res = await fetch("/api/presets/", { credentials: "include" });
             if (!res.ok) throw new Error(`Failed to fetch presets (${res.status})`);
             const data: Preset[] = await res.json();
             setPresets(data);
+            setLoadStatus("success");
         } catch (err) {
             console.error("Failed to load presets:", err);
+            setLoadStatus("error");
         } finally {
             setIsLoadingPresets(false);
+            setLoadStatus("idle");
         }
     }
 
