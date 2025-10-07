@@ -307,6 +307,9 @@ export default function SynthModule() {
             const res = await fetch(`/api/presets/${presetId}/`, {
                 method: "DELETE",
                 credentials: "include",
+                headers: {
+                    "X-CSRFToken": getCSRFToken(),
+                },
             });
 
             if (!res.ok) throw new Error(`Failed to delete preset (${res.status})`);

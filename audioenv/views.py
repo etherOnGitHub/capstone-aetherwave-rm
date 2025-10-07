@@ -1,5 +1,5 @@
 from django.http import JsonResponse
-from rest_framework import generics
+from rest_framework import generics, permissions
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -18,6 +18,12 @@ class PresetListCreateView(generics.ListCreateAPIView):
         # Automatically set the preset's user to the logged-in user
         serializer.save(user=self.request.user)
 
+class PresetDetailView(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = PresetSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        return Preset.objects.filter(user=self.request.user)
 
 @api_view(['GET'])
 def auth_status(request):
