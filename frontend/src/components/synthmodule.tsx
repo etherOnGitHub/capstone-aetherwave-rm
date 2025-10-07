@@ -200,6 +200,7 @@ export default function SynthModule() {
 
     async function updatePreset() {
         if (!presetId) return console.error("No preset to update!");
+        setUpdateStatus("updating");
 
         try {
             const res = await fetch(`/api/presets/${presetId}/`, {
@@ -219,13 +220,16 @@ export default function SynthModule() {
 
             if (!res.ok) throw new Error(`Failed to update preset (${res.status})`);
             console.log("Preset updated!");
+            setUpdateStatus("success");
         } catch (err) {
             console.error("Update failed:", err);
+            setUpdateStatus("error");
         }
     }
 
     async function deletePreset() {
         if (!presetId) return console.error("No preset to delete!");
+        setDeleteStatus("deleting");
 
         try {
             const res = await fetch(`/api/presets/${presetId}/`, {
@@ -235,6 +239,7 @@ export default function SynthModule() {
 
             if (!res.ok) throw new Error(`Failed to delete preset (${res.status})`);
             console.log("Preset deleted!");
+            setDeleteStatus("success");
 
             // Reset local state so the UI doesn't show stale data
             setPresetId(null);
@@ -248,6 +253,7 @@ export default function SynthModule() {
 
         } catch (err) {
             console.error("Delete failed:", err);
+            setDeleteStatus("error");
         }
     }
 
@@ -474,10 +480,19 @@ export default function SynthModule() {
                         Delete Preset
                     </button> 
                 </div>
-                <div className="ml-2 flex items-center justify-center align-middle">
-                    {saveStatus === "saving" && <p className="mt-2 text-center text-yellow-400">Saving preset...</p>}
-                    {saveStatus === "success" && <p className="mt-2 text-center text-green-400">Preset saved!</p>}
-                    {saveStatus === "error" && <p className="mt-2 text-center text-red-400">Failed to save preset.</p>}
+                <div className="mr-2 ml-2 flex items-center justify-center border-2 border-white p-2 text-center align-middle">
+                    Currently loaded preset: <span className="font-exo m-2 font-bold"> {presetName || "No preset loaded"}</span>
+                    <div className="m-2">
+                        {saveStatus === "saving" && <p className="font-exo text-center text-yellow-400"><b>System Message:</b> Saving preset...</p>}
+                        {saveStatus === "success" && <p className="font-exo text-center text-green-400"><b>System Message:</b> Preset saved!</p>}
+                        {saveStatus === "error" && <p className="font-exo text-center text-red-400"><b>System Message:</b> Failed to save preset.</p>}
+                        {updateStatus === "updating" && <p className="font-exo text-center text-yellow-400"><b>System Message:</b> Updating preset...</p>}
+                        {updateStatus === "success" && <p className="font-exo text-center text-green-400"><b>System Message:</b> Preset updated!</p>}
+                        {updateStatus === "error" && <p className="font-exo text-center text-red-400"><b>System Message:</b> Failed to update preset.</p>}
+                        {deleteStatus === "deleting" && <p className="font-exo text-center text-yellow-400"><b>System Message:</b> Deleting preset...</p>}
+                        {deleteStatus === "success" && <p className="font-exo text-center text-green-400"><b>System Message:</b> Preset deleted!</p>}
+                        {deleteStatus === "error" && <p className="font-exo text-center text-red-400"><b>System Message:</b> Failed to delete preset.</p>}
+                    </div>
                 </div>
                 <ConfirmModal
                     isOpen={isConfirmOpen}
