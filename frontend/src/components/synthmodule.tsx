@@ -2,6 +2,7 @@
 import * as Tone from "tone";
 import PianoCanvas from "./keys";
 import { Knob, Pointer, Arc } from "rc-knob";
+import ConfirmModal from "./confirm";
 
 // import { DEFAULTS } from ../constants/constants;
 type Preset = {
@@ -25,6 +26,9 @@ export default function SynthModule() {
     const [decay, setDecay] = useState(0.3);
     const [sustain, setSustain] = useState(0.8);
     const [release, setRelease] = useState(1.2);
+
+    const [isConfirmOpen, setIsConfirmOpen] = useState(false);
+    const [saveStatus, setSaveStatus] = useState<"idle" | "saving" | "success" | "error">("idle");
    
 
     const oscWaveType = [
@@ -146,9 +150,22 @@ export default function SynthModule() {
 
     // save preset
 
+    async function confirmAndSave() {
+        setIsConfirmOpen(false); // close the modal
+        await savePreset(); // run the actual function
+    }
+
+    useEffect(() => {
+        if (saveStatus === "success" || saveStatus === "error") {
+            const t = setTimeout(() => setSaveStatus("idle"), 3000);
+            return () => clearTimeout(t);
+        }
+    }, [saveStatus]);
+
     async function savePreset() {
+        setSaveStatus("saving");
         const presetData = {
-            name: presetName || "Untitled Preset",
+            name: presetName.trim() || "Untitled Preset",
             volume,
             attack,
             decay,
@@ -168,8 +185,10 @@ export default function SynthModule() {
             if (!res.ok) throw new Error(`Failed to save preset (${res.status})`);
 
             const saved = await res.json();
+            setSaveStatus("success");
             console.log("Preset saved:", saved);
         } catch (err) {
+            setSaveStatus("error");
             console.error("Save failed:", err);
         }
     }
@@ -365,21 +384,31 @@ export default function SynthModule() {
                 <div className="mt-2 mb-2 flex justify-center">
                     <PianoCanvas onPlay={playSynth} onStop={stopSynth} />
                 </div>
-                <div className="mt-2 mb-4 flex justify-center align-middle">
+                <div className="font-exo mt-2 mb-4 flex justify-center align-middle">
                     <input
                         type="text"
                         placeholder="Enter preset name"
                         value={presetName}
                         onChange={(e) => setPresetName(e.target.value)}
-                        className="m-2 border border-[#7f967f] bg-transparent p-2 text-[#7f967f] placeholder-gray-400 focus:outline-none"
+                        className="m-2 border border-[#7f967f] bg-transparent p-2 text-white placeholder-[#7f967f] focus:outline-none"
                     />
                     <button
-                        onClick={savePreset}
-                        className="bg-brandBlue px-4 py-2 text-white transition hover:bg-brandOrange"
+                        onClick={() => setIsConfirmOpen(true)}
+                        className="bg-transparent px-4 py-2 text-white transition hover:bg-brandWhite hover:text-black"
                     >
                         Save Preset
                     </button>
+                    {saveStatus === "saving" && <p className="mt-2 text-yellow-400">Saving preset...</p>}
+                    {saveStatus === "success" && <p className="mt-2 text-green-400">Preset saved!</p>}
+                    {saveStatus === "error" && <p className="mt-2 text-red-400">Failed to save preset.</p>}
                 </div>
+                <ConfirmModal
+                    isOpen={isConfirmOpen}
+                    title="Save Preset?"
+                    message={`Are you sure you want to save "${presetName || "Untitled Preset"}"?`}
+                    onConfirm={confirmAndSave}
+                    onCancel={() => setIsConfirmOpen(false)}
+                />
             </div>
         </div>
     );

@@ -166,17 +166,33 @@ export default function PianoCanvas({
 
 
         const handleKeyDown = (e: KeyboardEvent) => {
+            const active = document.activeElement;
+            const isTyping =
+                active?.tagName === "INPUT" ||
+                active?.tagName === "TEXTAREA" ||
+                active?.isContentEditable;
+
+            if (isTyping) return; // 👈 bail out if user is typing in a field
+
             const key = e.key.toLowerCase();
             const note = keyMap[key];
 
             if (note && !pressed.has(key)) {
-                e.preventDefault(); // stop browser actions (scroll, tab shortcuts, etc.)
+                e.preventDefault();
                 pressed.add(key);
                 onPlay(note);
             }
         };
 
         const handleKeyUp = (e: KeyboardEvent) => {
+            const active = document.activeElement as HTMLElement | null;
+            const isTyping =
+                active?.tagName === "INPUT" ||
+                active?.tagName === "TEXTAREA" ||
+                active?.isContentEditable;
+
+            if (isTyping) return;
+
             const key = e.key.toLowerCase();
             const note = keyMap[key];
 
@@ -186,6 +202,7 @@ export default function PianoCanvas({
                 onStop(note);
             }
         };
+
 
         window.addEventListener("keydown", handleKeyDown);
         window.addEventListener("keyup", handleKeyUp);
