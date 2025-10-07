@@ -33,6 +33,10 @@ export default function SynthModule() {
     const [saveStatus, setSaveStatus] = useState<"idle" | "saving" | "success" | "error">("idle");
     const [updateStatus, setUpdateStatus] = useState<"idle" | "updating" | "success" | "error">("idle");
     const [deleteStatus, setDeleteStatus] = useState<"idle" | "deleting" | "success" | "error">("idle");
+    const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
+    const [username, setUsername] = useState<string | null>(null);
+    const [presets, setPresets] = useState<Preset[]>([]);
+    const [isLoadingPresets, setIsLoadingPresets] = useState(false);
     
 
     const oscWaveType = [
@@ -107,6 +111,49 @@ export default function SynthModule() {
         }
 
     }, [oscType]);
+
+    useEffect(() => {
+        async function checkAuth() {
+            try {
+                const res = await fetch("/api/auth-status/", { credentials: "include" });
+                const data = await res.json();
+                setIsAuthenticated(data.authenticated)
+                setUsername(data.username);
+            } catch (err) {
+                console.error("Auth check failed:", err);
+                setIsAuthenticated(true);
+            }
+        }
+
+        checkAuth();
+    }, []);
+
+    async function fetchPresets() {
+        setIsLoadingPresets(true);
+        try {
+            const res = await fetch("/api/presets/", { credentials: "include" });
+            if (!res.ok) throw new Error(`Failed to fetch presets (${res.status})`);
+            const data: Preset[] = await res.json();
+            setPresets(data);
+        } catch (err) {
+            console.error("Failed to load presets:", err);
+        } finally {
+            setIsLoadingPresets(false);
+        }
+    }
+
+    function loadPreset(p: Preset) {
+        setPresetId(p.id);
+        setPresetName(p.name);
+        setVolume(p.volume);
+        setAttack(p.attack);
+        setDecay(p.decay);
+        setSustain(p.sustain);
+        setRelease(p.release);
+
+        const match = oscWaveType.find(o => o.type === p.waveType);
+        if (match) setOscType(match);
+    }
 
     useEffect(() => {
         async function loadOrCreatePreset() {
@@ -448,37 +495,68 @@ export default function SynthModule() {
                 <div className="mt-2 mb-2 flex justify-center">
                     <PianoCanvas onPlay={playSynth} onStop={stopSynth} />
                 </div>
+                {/* Preset CRUD */}
                 <div className="font-exo mt-2 mb-4 ml-2 flex justify-center align-middle">
-                    <input
-                        type="text"
-                        placeholder="Enter preset name"
-                        value={presetName}
-                        onChange={(e) => setPresetName(e.target.value)}
-                        className="m-2 border border-white bg-transparent p-2 text-white placeholder-[#7f967f] focus:outline-none"
-                    />
-                    <button
-                        onClick={() => setIsConfirmOpen(true)}
-                        className="bg-transparent px-4 py-2 text-white transition hover:bg-brandWhite hover:text-black"
-                    >
-                        Save Preset
-                    </button>
-                    <button
-                        onClick={updatePreset}
-                        disabled={!presetId}
-                        className={`ml-2 bg-transparent px-4 py-2 text-white transition hover:bg-brandWhite hover:text-black ${presetId ? 'hover:bg-brandWhite hover:text-black' : 'opacity-50 cursor-not-allowed disabled:transform-none disabled:hover:bg-transparent disabled:hover:text-white disabled:transition-none hover:none'}`}>
-                        Update Preset
-                    </button>
-                    <button
-                        onClick={() => setIsConfirmDeleteOpen(true)}
-                        disabled={!presetId}
-                        className={`ml-2 px-4 py-2 border text-white transition 
-                                ${presetId
-                                ? "border-red-500 hover:bg-red-600 hover:text-white hover:translate-y-[-2px]"
-                            : "border-gray-500 bg-gray-700 text-gray-400 opacity-50 cursor-not-allowed transform-none"
-                                }`}
-                    >
-                        Delete Preset
-                    </button> 
+                    {isAuthenticated ? (
+                        <>
+                            <button
+                                onClick={fetchPresets}
+                                className="ml-2 border-white bg-transparent px-4 py-2 text-white transition hover:bg-white hover:text-black"
+                            >
+                                {isLoadingPresets ? "Loading..." : "Load Preset"}
+                            </button>
+
+                            {/* Show dropdown if presets exist */}
+                            {presets.length > 0 && (
+                                <select
+                                    onChange={(e) => {
+                                        const selected = presets.find(p => p.id === parseInt(e.target.value));
+                                        if (selected) loadPreset(selected);
+                                    }}
+                                    className="ml-2 bg-transparent text-white border border-white p-2"
+                                >
+                                    <option value="">-- Select a preset --</option>
+                                    {presets.map(p => (
+                                        <option key={p.id} value={p.id}>
+                                            {p.name}
+                                        </option>
+                                    ))}
+                                </select>
+                            )}
+                            <input
+                                type="text"
+                                placeholder="Enter preset name"
+                                value={presetName}
+                                onChange={(e) => setPresetName(e.target.value)}
+                                className="m-2 border border-white bg-transparent p-2 text-white placeholder-[#7f967f] focus:outline-none"
+                            />
+                            <button
+                                onClick={() => setIsConfirmOpen(true)}
+                                className="bg-transparent px-4 py-2 text-white transition hover:bg-brandWhite hover:text-black"
+                            >
+                                Save Preset
+                            </button>
+                            <button
+                                onClick={updatePreset}
+                                disabled={!presetId}
+                                className={`ml-2 bg-transparent px-4 py-2 text-white transition hover:bg-brandWhite hover:text-black ${presetId ? 'hover:bg-brandWhite hover:text-black' : 'opacity-50 cursor-not-allowed disabled:transform-none disabled:hover:bg-transparent disabled:hover:text-white disabled:transition-none hover:none'}`}>
+                                Update Preset
+                            </button>
+                            <button
+                                onClick={() => setIsConfirmDeleteOpen(true)}
+                                disabled={!presetId}
+                                className={`ml-2 px-4 py-2 border text-white transition 
+                                        ${presetId
+                                        ? "border-red-500 hover:bg-red-600 hover:text-white hover:translate-y-[-2px]"
+                                    : "border-gray-500 bg-gray-700 text-gray-400 opacity-50 cursor-not-allowed transform-none"
+                                        }`}
+                            >
+                                Delete Preset
+                            </button>
+                        </>
+                    ) : (
+                            <p className="font-exo text-white-400 text-center"><a href="/accounts/login" className="text-white underline">Log in</a> to save your presets!</p>
+                    )}
                 </div>
                 <div className="mr-2 ml-2 flex items-center justify-center border-2 border-white p-2 text-center align-middle">
                     Currently loaded preset: <span className="font-exo m-2 font-bold"> {presetName || "No preset loaded"}</span>
