@@ -121,7 +121,7 @@ export default function SynthModule() {
                 setUsername(data.username);
             } catch (err) {
                 console.error("Auth check failed:", err);
-                setIsAuthenticated(true);
+                setIsAuthenticated(false);
             }
         }
 
