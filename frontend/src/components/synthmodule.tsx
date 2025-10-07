@@ -113,6 +113,11 @@ export default function SynthModule() {
 
     }, [oscType]);
 
+    function getCSRFToken() {
+        const match = document.cookie.match(/csrftoken=([^;]+)/);
+        return match ? match[1] : "";
+    }
+
     useEffect(() => {
         async function checkAuth() {
             try {
@@ -190,7 +195,10 @@ export default function SynthModule() {
                     await fetch("/api/presets/", {
                         method: "POST",
                         credentials: "include",
-                        headers: { "Content-Type": "application/json" },
+                        headers: {
+                            "Content-Type": "application/json",
+                            "X-CSRFToken": getCSRFToken(),
+                        },
                         body: JSON.stringify({
                             name: "Default Preset",
                             volume: -12,
@@ -241,7 +249,10 @@ export default function SynthModule() {
             const res = await fetch("/api/presets/", {
                 method: "POST",
                 credentials: "include",
-                headers: { "Content-Type": "application/json" },
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRFToken": getCSRFToken(),
+                },
                 body: JSON.stringify(presetData),
             });
 
@@ -264,7 +275,10 @@ export default function SynthModule() {
             const res = await fetch(`/api/presets/${presetId}/`, {
                 method: "PATCH",
                 credentials: "include",
-                headers: { "Content-Type": "application/json" },
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRFToken": getCSRFToken(),
+                },
                 body: JSON.stringify({
                     name: presetName || "Untitled Preset",
                     volume,
