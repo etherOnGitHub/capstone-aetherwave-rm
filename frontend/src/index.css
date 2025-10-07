@@ -54,7 +54,7 @@ button {
     cursor: pointer;
     transition: border-color 0.25s;
 }
-button:hover {
+button:hover:not(:disabled) {
   border-color: white;
   text-shadow: 3px 20px 10px rgba(255, 255, 255, 0.3);
   transform: translateY(-2px);

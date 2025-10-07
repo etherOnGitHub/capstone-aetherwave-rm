@@ -2,7 +2,8 @@
 import * as Tone from "tone";
 import PianoCanvas from "./keys";
 import { Knob, Pointer, Arc } from "rc-knob";
-import ConfirmModal from "./confirm";
+import ConfirmModal  from "./confirm";
+
 
 // import { DEFAULTS } from ../constants/constants;
 type Preset = {
@@ -20,16 +21,19 @@ type Preset = {
 export default function SynthModule() {
 
     // declare settings
+    const [presetId, setPresetId] = useState<number | null>(null);
     const [presetName, setPresetName] = useState("");
     const [volume, setVolume] = useState(-12);
     const [attack, setAttack] = useState(0.02);
     const [decay, setDecay] = useState(0.3);
     const [sustain, setSustain] = useState(0.8);
     const [release, setRelease] = useState(1.2);
-
+    const [isConfirmDeleteOpen, setIsConfirmDeleteOpen] = useState(false);
     const [isConfirmOpen, setIsConfirmOpen] = useState(false);
     const [saveStatus, setSaveStatus] = useState<"idle" | "saving" | "success" | "error">("idle");
-   
+    const [updateStatus, setUpdateStatus] = useState<"idle" | "updating" | "success" | "error">("idle");
+    const [deleteStatus, setDeleteStatus] = useState<"idle" | "deleting" | "success" | "error">("idle");
+    
 
     const oscWaveType = [
         { type: "sine" },
@@ -112,7 +116,8 @@ export default function SynthModule() {
 
                 if (data.length > 0) {
                     const preset = data[0];
-
+                    setPresetId(preset.id);
+                    setPresetName(preset.name);
                     setVolume(preset.volume);
                     setAttack(preset.attack);
                     setDecay(preset.decay);
@@ -190,6 +195,59 @@ export default function SynthModule() {
         } catch (err) {
             setSaveStatus("error");
             console.error("Save failed:", err);
+        }
+    }
+
+    async function updatePreset() {
+        if (!presetId) return console.error("No preset to update!");
+
+        try {
+            const res = await fetch(`/api/presets/${presetId}/`, {
+                method: "PATCH",
+                credentials: "include",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    name: presetName || "Untitled Preset",
+                    volume,
+                    attack,
+                    decay,
+                    sustain,
+                    release,
+                    waveType: oscType.type,
+                }),
+            });
+
+            if (!res.ok) throw new Error(`Failed to update preset (${res.status})`);
+            console.log("Preset updated!");
+        } catch (err) {
+            console.error("Update failed:", err);
+        }
+    }
+
+    async function deletePreset() {
+        if (!presetId) return console.error("No preset to delete!");
+
+        try {
+            const res = await fetch(`/api/presets/${presetId}/`, {
+                method: "DELETE",
+                credentials: "include",
+            });
+
+            if (!res.ok) throw new Error(`Failed to delete preset (${res.status})`);
+            console.log("Preset deleted!");
+
+            // Reset local state so the UI doesn't show stale data
+            setPresetId(null);
+            setPresetName("");
+            setVolume(-12);
+            setAttack(0.02);
+            setDecay(0.3);
+            setSustain(0.8);
+            setRelease(1.2);
+            setOscType(oscWaveType[3]);
+
+        } catch (err) {
+            console.error("Delete failed:", err);
         }
     }
 
@@ -384,13 +442,13 @@ export default function SynthModule() {
                 <div className="mt-2 mb-2 flex justify-center">
                     <PianoCanvas onPlay={playSynth} onStop={stopSynth} />
                 </div>
-                <div className="font-exo mt-2 mb-4 flex justify-center align-middle">
+                <div className="font-exo mt-2 mb-4 ml-2 flex justify-center align-middle">
                     <input
                         type="text"
                         placeholder="Enter preset name"
                         value={presetName}
                         onChange={(e) => setPresetName(e.target.value)}
-                        className="m-2 border border-[#7f967f] bg-transparent p-2 text-white placeholder-[#7f967f] focus:outline-none"
+                        className="m-2 border border-white bg-transparent p-2 text-white placeholder-[#7f967f] focus:outline-none"
                     />
                     <button
                         onClick={() => setIsConfirmOpen(true)}
@@ -398,9 +456,28 @@ export default function SynthModule() {
                     >
                         Save Preset
                     </button>
-                    {saveStatus === "saving" && <p className="mt-2 text-yellow-400">Saving preset...</p>}
-                    {saveStatus === "success" && <p className="mt-2 text-green-400">Preset saved!</p>}
-                    {saveStatus === "error" && <p className="mt-2 text-red-400">Failed to save preset.</p>}
+                    <button
+                        onClick={updatePreset}
+                        disabled={!presetId}
+                        className={`ml-2 bg-transparent px-4 py-2 text-white transition hover:bg-brandWhite hover:text-black ${presetId ? 'hover:bg-brandWhite hover:text-black' : 'opacity-50 cursor-not-allowed disabled:transform-none disabled:hover:bg-transparent disabled:hover:text-white disabled:transition-none hover:none'}`}>
+                        Update Preset
+                    </button>
+                    <button
+                        onClick={() => setIsConfirmDeleteOpen(true)}
+                        disabled={!presetId}
+                        className={`ml-2 px-4 py-2 border text-white transition 
+                                ${presetId
+                                ? "border-red-500 hover:bg-red-600 hover:text-white hover:translate-y-[-2px]"
+                            : "border-gray-500 bg-gray-700 text-gray-400 opacity-50 cursor-not-allowed transform-none"
+                                }`}
+                    >
+                        Delete Preset
+                    </button> 
+                </div>
+                <div className="ml-2 flex items-center justify-center align-middle">
+                    {saveStatus === "saving" && <p className="mt-2 text-center text-yellow-400">Saving preset...</p>}
+                    {saveStatus === "success" && <p className="mt-2 text-center text-green-400">Preset saved!</p>}
+                    {saveStatus === "error" && <p className="mt-2 text-center text-red-400">Failed to save preset.</p>}
                 </div>
                 <ConfirmModal
                     isOpen={isConfirmOpen}
@@ -408,6 +485,18 @@ export default function SynthModule() {
                     message={`Are you sure you want to save "${presetName || "Untitled Preset"}"?`}
                     onConfirm={confirmAndSave}
                     onCancel={() => setIsConfirmOpen(false)}
+                />
+                <ConfirmModal
+                    isOpen={isConfirmDeleteOpen}
+                    title="Delete Preset?"
+                    message={`Are you sure you want to permanently delete "${presetName || "this preset"}"?`}
+                    confirmLabel="Delete"
+                    confirmColor="bg-red-600"
+                    onConfirm={() => {
+                        setIsConfirmDeleteOpen(false);
+                        deletePreset();
+                    }}
+                    onCancel={() => setIsConfirmDeleteOpen(false)}
                 />
             </div>
         </div>
