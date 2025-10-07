@@ -1,5 +1,4 @@
-﻿import React from "react";
-
+﻿
 type ConfirmModalProps = {
     isOpen: boolean;
     title?: string;

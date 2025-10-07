@@ -33,8 +33,9 @@ export default function SynthModule() {
     const [saveStatus, setSaveStatus] = useState<"idle" | "saving" | "success" | "error">("idle");
     const [updateStatus, setUpdateStatus] = useState<"idle" | "updating" | "success" | "error">("idle");
     const [deleteStatus, setDeleteStatus] = useState<"idle" | "deleting" | "success" | "error">("idle");
+    const [loadStatus, setLoadStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
     const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
-    const [username, setUsername] = useState<string | null>(null);
+    const [, setUsername] = useState<string | null>(null);
     const [presets, setPresets] = useState<Preset[]>([]);
     const [isLoadingPresets, setIsLoadingPresets] = useState(false);
     
@@ -127,6 +128,12 @@ export default function SynthModule() {
 
         checkAuth();
     }, []);
+
+    useEffect(() => {
+        if (isAuthenticated) {
+            fetchPresets();
+        }
+    }, [isAuthenticated]);
 
     async function fetchPresets() {
         setIsLoadingPresets(true);
@@ -505,7 +512,11 @@ export default function SynthModule() {
                             >
                                 {isLoadingPresets ? "Loading..." : "Load Preset"}
                             </button>
-
+                            {!isLoadingPresets && presets.length === 0 && (
+                                <p className="text-brandSage mt-2 text-sm italic">
+                                    No presets found. Save one to see it here.
+                                </p>
+                            )}
                             {/* Show dropdown if presets exist */}
                             {presets.length > 0 && (
                                 <select
@@ -515,7 +526,7 @@ export default function SynthModule() {
                                     }}
                                     className="ml-2 bg-transparent text-white border border-white p-2"
                                 >
-                                    <option value="">-- Select a preset --</option>
+                                    <option value="" disabled selected>-- Select a preset --</option>
                                     {presets.map(p => (
                                         <option key={p.id} value={p.id}>
                                             {p.name}
@@ -558,6 +569,7 @@ export default function SynthModule() {
                             <p className="font-exo text-white-400 text-center"><a href="/accounts/login" className="text-white underline">Log in</a> to save your presets!</p>
                     )}
                 </div>
+                {/* Status Messages */}
                 <div className="mr-2 ml-2 flex items-center justify-center border-2 border-white p-2 text-center align-middle">
                     Currently loaded preset: <span className="font-exo m-2 font-bold"> {presetName || "No preset loaded"}</span>
                     <div className="m-2">
@@ -570,6 +582,9 @@ export default function SynthModule() {
                         {deleteStatus === "deleting" && <p className="font-exo text-center text-yellow-400"><b>System Message:</b> Deleting preset...</p>}
                         {deleteStatus === "success" && <p className="font-exo text-center text-green-400"><b>System Message:</b> Preset deleted!</p>}
                         {deleteStatus === "error" && <p className="font-exo text-center text-red-400"><b>System Message:</b> Failed to delete preset.</p>}
+                        {loadStatus === "loading" && <p className="font-exo text-center text-yellow-400"><b>System Message:</b> Loading preset...</p>}
+                        {loadStatus === "success" && <p className="font-exo text-center text-green-400"><b>System Message:</b> Preset loaded!</p>}
+                        {loadStatus === "error" && <p className="font-exo text-center text-red-400"><b>System Message:</b> Failed to load preset.</p>}
                     </div>
                 </div>
                 <ConfirmModal

@@ -166,7 +166,7 @@ export default function PianoCanvas({
 
 
         const handleKeyDown = (e: KeyboardEvent) => {
-            const active = document.activeElement;
+            const active = document.activeElement as HTMLElement | null;
             const isTyping =
                 active?.tagName === "INPUT" ||
                 active?.tagName === "TEXTAREA" ||
