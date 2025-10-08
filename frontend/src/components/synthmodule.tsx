@@ -127,7 +127,7 @@ export default function SynthModule() {
                 setUsername(data.username);
             } catch (err) {
                 console.error("Auth check failed:", err);
-                setIsAuthenticated(false);
+                setIsAuthenticated(true);
             }
         }
 
@@ -230,8 +230,16 @@ export default function SynthModule() {
         if (saveStatus === "success" || saveStatus === "error") {
             const t = setTimeout(() => setSaveStatus("idle"), 3000);
             return () => clearTimeout(t);
+        } else if (updateStatus === "success" || updateStatus === "error") {
+            const t = setTimeout(() => setUpdateStatus("idle"), 3000);
+            return () => clearTimeout(t);
+        } else if (deleteStatus === "success" || deleteStatus === "error") {
+            const t = setTimeout(() => setDeleteStatus("idle"), 3000);
+            return () => clearTimeout(t);
         }
-    }, [saveStatus]);
+        
+
+    }, [saveStatus, updateStatus, deleteStatus]);
 
     async function savePreset() {
         setSaveStatus("saving");
@@ -265,6 +273,7 @@ export default function SynthModule() {
             setSaveStatus("error");
             console.error("Save failed:", err);
         }
+        fetchPresets();
     }
 
     async function updatePreset() {
@@ -297,6 +306,7 @@ export default function SynthModule() {
             console.error("Update failed:", err);
             setUpdateStatus("error");
         }
+        fetchPresets();
     }
 
     async function deletePreset() {
@@ -330,6 +340,7 @@ export default function SynthModule() {
             console.error("Delete failed:", err);
             setDeleteStatus("error");
         }
+        fetchPresets();
     }
 
 
@@ -354,7 +365,7 @@ export default function SynthModule() {
                                 const norm = (v - min) / (max - min); // normalize to 0-1
                                 const expo = 1 - Math.pow(1 - norm, 2); // exponential scaling
                                 const newVol = min + expo * (max - min); // scale back to original range
-                                setVolume(Math.round(newVol * 100) / 100) // 2 decimal places
+                                setVolume(Math.round(newVol * 100) / 100) // 2 decimal places then set back to normal range
                             }}
                             aria-label="Volume knob"
                             steps={6000}
@@ -529,12 +540,12 @@ export default function SynthModule() {
                         <>
                             <button
                                 onClick={fetchPresets}
-                                className="ml-2 border-white bg-transparent px-4 py-2 text-white transition hover:bg-white hover:text-black"
+                                className="m-2 border-white bg-transparent px-4 py-2 text-white transition hover:bg-white hover:text-black"
                             >
                                 {isLoadingPresets ? "Loading..." : "Load Preset"}
                             </button>
                             {!isLoadingPresets && presets.length === 0 && (
-                                <p className="text-brandSage mt-2 text-sm italic">
+                                <p className="text-brandSage m-2 border border-white bg-transparent p-2 px-4 py-2 text-sm text-white italic">
                                     No presets found. Save one to see it here.
                                 </p>
                             )}
@@ -545,7 +556,7 @@ export default function SynthModule() {
                                         const selected = presets.find(p => p.id === parseInt(e.target.value));
                                         if (selected) loadPreset(selected);
                                     }}
-                                    className="ml-2 bg-transparent text-white border border-white p-2"
+                                    className=" m-2 px-4 py-2 bg-transparent text-white border border-white p-2"
                                 >
                                     <option value="" disabled selected>-- Select a preset --</option>
                                     {presets.map(p => (
@@ -571,13 +582,13 @@ export default function SynthModule() {
                             <button
                                 onClick={updatePreset}
                                 disabled={!presetId}
-                                className={`ml-2 bg-transparent px-4 py-2 text-white transition hover:bg-brandWhite hover:text-black ${presetId ? 'hover:bg-brandWhite hover:text-black' : 'opacity-50 cursor-not-allowed disabled:transform-none disabled:hover:bg-transparent disabled:hover:text-white disabled:transition-none hover:none'}`}>
+                                className={`m-2 bg-transparent px-4 py-2 text-white transition hover:bg-brandWhite hover:text-black ${presetId ? 'hover:bg-brandWhite hover:text-black' : 'opacity-50 cursor-not-allowed disabled:transform-none disabled:hover:bg-transparent disabled:hover:text-white disabled:transition-none hover:none'}`}>
                                 Update Preset
                             </button>
                             <button
                                 onClick={() => setIsConfirmDeleteOpen(true)}
                                 disabled={!presetId}
-                                className={`ml-2 px-4 py-2 border text-white transition 
+                                className={`m-2 px-4 py-2 border text-white transition 
                                         ${presetId
                                         ? "border-red-500 hover:bg-red-600 hover:text-white hover:translate-y-[-2px]"
                                     : "border-gray-500 bg-gray-700 text-gray-400 opacity-50 cursor-not-allowed transform-none"
@@ -587,11 +598,11 @@ export default function SynthModule() {
                             </button>
                         </>
                     ) : (
-                            <p className="font-exo text-white-400 text-center"><a href="/accounts/login" className="text-white underline">Log in</a> to save your presets!</p>
+                            <p className="font-exo text-white-400 m-2 flex px-4 py-2 text-center align-middle"><a href="/accounts/login" className="font-exo text-white-400 flex px-4 py-2 text-center align-middle">Log in</a> to save your presets!</p>
                     )}
                 </div>
                 {/* Status Messages */}
-                <div className="mr-2 ml-2 flex items-center justify-center border-2 border-white p-2 text-center align-middle">
+                <div className="m-2 flex items-center justify-center border-2 border-white p-2 text-center align-middle">
                     Currently loaded preset: <span className="font-exo m-2 font-bold"> {presetName || "No preset loaded"}</span>
                     <div className="m-2">
                         {saveStatus === "saving" && <p className="font-exo text-center text-yellow-400"><b>System Message:</b> Saving preset...</p>}
