@@ -1,15 +1,15 @@
+{% extends "base.html" %}
+
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Django-Setup</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
-<body>
-    <h1>Hello Django From Heroku</h1>
+{% block head %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'assets/index-DRBGTKLl.css' %}">
+{% endblock %}
 
-</body>
-</html>
+{% block content %}
+<div id="root"></div>
+<script type="module" src="{% static 'assets/index-BiiXkJYO.js' %}"></script>
+{% endblock %}
+
+
