@@ -38,6 +38,7 @@ export default function SynthModule() {
     const [, setUsername] = useState<string | null>(null);
     const [presets, setPresets] = useState<Preset[]>([]);
     const [isLoadingPresets, setIsLoadingPresets] = useState(false);
+    const presetKey = `${presetId}-${presetName}-${volume}-${attack}-${decay}-${sustain}-${release}`;
     
 
     const oscWaveType = [
@@ -350,7 +351,7 @@ export default function SynthModule() {
                 {/* Controls */}
                 <div className="grid grid-cols-2 gap-1 md:grid-cols-4">
                     { /* Volume */}
-                    <div className="flex flex-col items-center justify-start text-center">
+                    <div key={presetKey} className="flex flex-col items-center justify-start text-center">
                         <span className="font-exo inline-block w-[150px] p-1.5 text-ellipsis whitespace-nowrap">Volume: {volume} dB</span>
                         <Knob
                             size={50}
@@ -358,7 +359,6 @@ export default function SynthModule() {
                             angleRange={280}       // total angle the knob can rotate through
                             min={-60}
                             max={0}
-                            key={presetId}
                             value={volume}
                             onChange={(v: number) => {  // value as num
                                 const min = -60;
@@ -393,7 +393,6 @@ export default function SynthModule() {
                             angleRange={280}       // total angle the knob can rotate through
                             min={0}
                             max={oscWaveType.length - 1} // index of wave types
-                            key={presetId}
                             value={currentIndex} // current index of wave type
                             // update wave type from index
                             onChange={(v: number) => {
@@ -421,7 +420,7 @@ export default function SynthModule() {
                     </div>
                     { /* ADSR */}
                     { /* atk */ }
-                    <div className="flex flex-col items-center justify-start text-center">
+                    <div key={presetKey} className="flex flex-col items-center justify-start text-center">
                         <span className="font-exo inline-block w-[150px] p-1.5 text-ellipsis whitespace-nowrap">Attack: {attack}s</span>
                         <Knob
                             size={50}
@@ -429,7 +428,6 @@ export default function SynthModule() {
                             angleRange={280}       // total angle the knob can rotate through
                             min={0.005}
                             max={2}
-                            key={presetId}
                             value={attack}
                             onChange={(v: number) => setAttack(parseFloat(v.toFixed(3)))}
                             aria-label="Attack-Knob"
@@ -457,7 +455,6 @@ export default function SynthModule() {
                             angleRange={280}       // total angle the knob can rotate through
                             min={0.01}
                             max={2}
-                            key={presetId}
                             value={decay}
                             onChange={(v: number) => setDecay(parseFloat(v.toFixed(2)))}
                             aria-label="Decay-Knob"
@@ -485,7 +482,6 @@ export default function SynthModule() {
                             angleRange={280}       // total angle the knob can rotate through
                             min={0}
                             max={100}
-                            key={presetId}
                             value={sustain}
                             onChange={(v: number) => setSustain(parseFloat((v / 100).toFixed(4)))}
                             aria-label="Sustain-Knob"
@@ -513,7 +509,6 @@ export default function SynthModule() {
                             angleRange={280}       // total angle the knob can rotate through
                             min={0.01}
                             max={2}
-                            key={presetId}
                             value={release}
                             onChange={(v: number) => setRelease(parseFloat(v.toFixed(2)))}
                             aria-label="Release-Knob"
