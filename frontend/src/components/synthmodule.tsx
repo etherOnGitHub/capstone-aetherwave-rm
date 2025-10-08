@@ -358,6 +358,7 @@ export default function SynthModule() {
                             angleRange={280}       // total angle the knob can rotate through
                             min={-60}
                             max={0}
+                            key={volume} // key to force re-render when value changes externally
                             value={volume}
                             onChange={(v: number) => {  // value as num
                                 const min = -60;
@@ -392,6 +393,7 @@ export default function SynthModule() {
                             angleRange={280}       // total angle the knob can rotate through
                             min={0}
                             max={oscWaveType.length - 1} // index of wave types
+                            key={currentIndex} // key to force re-render when value changes externally
                             value={currentIndex} // current index of wave type
                             // update wave type from index
                             onChange={(v: number) => {
@@ -427,6 +429,7 @@ export default function SynthModule() {
                             angleRange={280}       // total angle the knob can rotate through
                             min={0.005}
                             max={2}
+                            key={attack} // key to force re-render when value changes externally
                             value={attack}
                             onChange={(v: number) => setAttack(parseFloat(v.toFixed(3)))}
                             aria-label="Attack-Knob"
@@ -454,6 +457,7 @@ export default function SynthModule() {
                             angleRange={280}       // total angle the knob can rotate through
                             min={0.01}
                             max={2}
+                            key={decay} // key to force re-render when value changes externally
                             value={decay}
                             onChange={(v: number) => setDecay(parseFloat(v.toFixed(2)))}
                             aria-label="Decay-Knob"
@@ -481,6 +485,7 @@ export default function SynthModule() {
                             angleRange={280}       // total angle the knob can rotate through
                             min={0}
                             max={100}
+                            key={sustain} // key to force re-render when value changes externally
                             value={sustain}
                             onChange={(v: number) => setSustain(parseFloat((v / 100).toFixed(4)))}
                             aria-label="Sustain-Knob"
@@ -508,6 +513,7 @@ export default function SynthModule() {
                             angleRange={280}       // total angle the knob can rotate through
                             min={0.01}
                             max={2}
+                            key={release} // key to force re-render when value changes externally
                             value={release}
                             onChange={(v: number) => setRelease(parseFloat(v.toFixed(2)))}
                             aria-label="Release-Knob"
@@ -542,7 +548,7 @@ export default function SynthModule() {
                                 onClick={fetchPresets}
                                 className="m-2 border-white bg-transparent px-4 py-2 text-white transition hover:bg-white hover:text-black"
                             >
-                                {isLoadingPresets ? "Loading..." : "Load Preset"}
+                                {isLoadingPresets ? "Loading..." : "Load Presets"}
                             </button>
                             {!isLoadingPresets && presets.length === 0 && (
                                 <p className="text-brandSage m-2 border border-white bg-transparent p-2 px-4 py-2 text-sm text-white italic">
