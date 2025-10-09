@@ -23,16 +23,20 @@ export default function Knob({
     const startY = useRef(0);
     const startVal = useRef(value);
 
-    // Drag logic
-    const handleMouseDown = (e: React.MouseEvent) => {
+    // Start drag
+    const handlePointerDown = (e: React.PointerEvent) => {
+        e.preventDefault();
         setDragging(true);
         startY.current = e.clientY;
         startVal.current = value;
+        // capture all pointer movement even if finger leaves knob area
+        (e.target as HTMLElement).setPointerCapture(e.pointerId);
     };
 
     useEffect(() => {
         if (!dragging) return;
-        const handleMove = (e: MouseEvent) => {
+
+        const handleMove = (e: PointerEvent) => {
             const delta = startY.current - e.clientY;
             const range = max - min;
             let newValue = startVal.current + (delta / 150) * range;
@@ -42,24 +46,25 @@ export default function Knob({
             newValue = Math.round(newValue / stepSize) * stepSize;
             onChange(parseFloat(newValue.toFixed(3)));
         };
+
         const stop = () => setDragging(false);
 
-        window.addEventListener("mousemove", handleMove);
-        window.addEventListener("mouseup", stop);
+        window.addEventListener("pointermove", handleMove);
+        window.addEventListener("pointerup", stop);
+
         return () => {
-            window.removeEventListener("mousemove", handleMove);
-            window.removeEventListener("mouseup", stop);
+            window.removeEventListener("pointermove", handleMove);
+            window.removeEventListener("pointerup", stop);
         };
     }, [dragging, min, max, steps, onChange]);
 
     // Geometry
     const radius = size / 2 - 6;
     const angleRange = 270;
-    const startAngle = -135; // far left
+    const startAngle = -135;
     const norm = (value - min) / (max - min);
     const angle = startAngle + norm * angleRange;
 
-    // Arc path generator
     const polarToCartesian = (cx: number, cy: number, r: number, angleDeg: number) => {
         const rad = ((angleDeg - 90) * Math.PI) / 180;
         return {
@@ -80,42 +85,24 @@ export default function Knob({
 
     const fullArcPath = describeArc(startAngle, startAngle + angleRange);
     const activeArcPath = describeArc(startAngle, angle);
-
-    // Pointer coords
     const pointerPos = polarToCartesian(size / 2, size / 2, radius * 0.7, angle);
 
     return (
         <svg
             width={size}
             height={size}
-            onMouseDown={handleMouseDown}
-            style={{ cursor: "ns-resize", userSelect: "none" }}
+            onPointerDown={handlePointerDown}
+            style={{ cursor: "ns-resize", touchAction: "none", userSelect: "none" }}
         >
-            {/* Background arc */}
-            <path
-                d={fullArcPath}
-                stroke="#7f967f"
-                strokeWidth={8}
-                fill="none"
-                strokeLinecap="butt"
-            />
-            {/* Active arc */}
-            <path
-                d={activeArcPath}
-                stroke="#ffffff"
-                strokeWidth={8}
-                fill="none"
-                strokeLinecap="butt"
-            />
-            {/* Pointer */}
+            <path d={fullArcPath} stroke="#7f967f" strokeWidth={8} fill="none" />
+            <path d={activeArcPath} stroke="#fff" strokeWidth={8} fill="none" />
             <line
                 x1={size / 2}
                 y1={size / 2}
                 x2={pointerPos.x}
                 y2={pointerPos.y}
-                stroke="#ffffff"
+                stroke="#fff"
                 strokeWidth={2}
-                strokeLinecap="square"
             />
         </svg>
     );
