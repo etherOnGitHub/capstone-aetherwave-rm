@@ -477,7 +477,7 @@ export default function SynthModule() {
                                             const selected = presets.find(p => p.id === parseInt(e.target.value));
                                             if (selected) loadPreset(selected);
                                         }}
-                                        className="m-2 px-4 w-fit py-2 bg-transparent backdrop-blur-sm text-white border border-white p-2"
+                                        className="m-2 px-4 w-fit py-2 bg-blend-color backdrop-blur-sm text-black border border-white p-2"
                                         >
                                         <option value="" disabled selected>-- Select a preset --</option>
                                         {presets.map(p => (
