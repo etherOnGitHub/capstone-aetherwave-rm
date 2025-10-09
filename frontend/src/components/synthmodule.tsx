@@ -523,7 +523,7 @@ export default function SynthModule() {
                                 </button>
                         </>
                     ) : (
-                            <p className="font-exo text-white-400 m-2 px-4 py-2 text-center align-middle"><a href="/accounts/login" className="font-exo text-white-400 px-4 py-2 text-center align-middle">Log in</a> to save your presets!</p>
+                            <p className="font-exo text-white-400 m-2 px-4 py-2 text-center align-middle"><a href="/accounts/login" className="font-exo py-2 text-center text-white">Log in</a> to save your presets!</p>
                     )}
                 </div>
                 </div>
