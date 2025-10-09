@@ -1,45 +1,50 @@
-{% extends "base.html" %}
+﻿{% extends "base.html" %}
 {% load allauth i18n %}
-{% block head_title %}
-    {% trans "Signup" %}
-{% endblock head_title %}
+
 {% block content %}
-    {% element h1 %}
-        {% trans "Sign Up" %}
-    {% endelement %}
-    {% setvar link %}
-        <a href="{{ login_url }}">
-        {% endsetvar %}
-        {% setvar end_link %}
+<div id="auth-modal-content" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
+    <div class="border-brandSage w-full max-w-md rounded-lg border bg-[#111] p-8 shadow-xl">
+        
+        <a href="/"
+           class="fixed top-3 right-3 text-2xl leading-none text-gray-400 transition hover:text-white">
+            EXIT &times;
         </a>
-    {% endsetvar %}
-    {% element p %}
-        {% blocktranslate %}Already have an account? Then please {{ link }}sign in{{ end_link }}.{% endblocktranslate %}
-    {% endelement %}
-    {% if not SOCIALACCOUNT_ONLY %}
+        
+        <h2 class="mb-4 text-center text-2xl font-bold">{% trans "Sign Up" %}</h2>
+
         {% url 'account_signup' as action_url %}
-        {% element form form=form method="post" action=action_url tags="entrance,signup" %}
-            {% slot body %}
-                {% csrf_token %}
-                {% element fields form=form unlabeled=True %}
-                {% endelement %}
-                {{ redirect_field }}
-            {% endslot %}
-            {% slot actions %}
-                {% element button tags="prominent,signup" type="submit" %}
-                    {% trans "Sign Up" %}
-                {% endelement %}
-            {% endslot %}
-        {% endelement %}
-    {% endif %}
-    {% if PASSKEY_SIGNUP_ENABLED %}
-        {% element hr %}
-        {% endelement %}
-        {% element button href=signup_by_passkey_url tags="prominent,signup,outline,primary" %}
+        {% if not SOCIALACCOUNT_ONLY %}
+        <form method="post" action="{{ action_url }}" class="space-y-4">
+            {% csrf_token %}
+            {% element fields form=form unlabeled=True %}{% endelement %}
+            {{ redirect_field }}
+            <button type="submit"
+                    class="bg-brandOrange w-full rounded py-2 text-white transition hover:bg-brandBlue">
+                {% trans "Sign Up" %}
+            </button>
+        </form>
+
+        <p class="mt-4 text-center text-sm text-gray-400">
+            {% blocktranslate %}
+            Already have an account?
+            <a href="{{ login_url }}" class="text-brandBlue hover:underline">
+                Sign in
+            </a>
+            {% endblocktranslate %}
+        </p>
+        {% endif %}
+
+        {% if PASSKEY_SIGNUP_ENABLED %}
+        <hr class="my-6 border-gray-700" />
+        <a href="{{ signup_by_passkey_url }}"
+           class="border-brandSage text-brandSage block w-full rounded border py-2 text-center text-sm transition hover:bg-brandSage hover:text-black">
             {% trans "Sign up using a passkey" %}
-        {% endelement %}
-    {% endif %}
-    {% if SOCIALACCOUNT_ENABLED %}
+        </a>
+        {% endif %}
+
+        {% if SOCIALACCOUNT_ENABLED %}
         {% include "socialaccount/snippets/login.html" with page_layout="entrance" %}
-    {% endif %}
-{% endblock content %}
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

@@ -2,8 +2,15 @@
 {% load allauth i18n %}
 
 {% block content %}
-<div id="auth-modal-content" class="flex min-h-[60vh] items-center justify-center">
-    <div class="border-brandSage w-full max-w-md rounded-lg border bg-[#111] p-8 shadow-xl">
+<div id="auth-modal-content"
+     class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
+    <div class="border-brandSage relative w-full max-w-md rounded-lg border bg-[#111] p-8 shadow-xl">
+
+        <a href="/"
+           class="fixed top-3 right-3 text-2xl leading-none text-gray-400 transition hover:text-white">
+            EXIT &times;
+        </a>
+
         <h2 class="mb-4 text-center text-2xl font-bold">{% trans "Sign In" %}</h2>
 
         {% if not SOCIALACCOUNT_ONLY %}
@@ -12,12 +19,19 @@
             {% csrf_token %}
             {% element fields form=form unlabeled=True %}{% endelement %}
             {{ redirect_field }}
-            <button type="submit" class="bg-brandBlue w-full rounded py-2 text-white hover:bg-brandOrange">
+            <button type="submit"
+                    class="bg-brandBlue w-full rounded py-2 text-white transition hover:bg-brandOrange">
                 {% trans "Sign In" %}
             </button>
         </form>
 
         <p class="mt-4 text-center text-sm text-gray-400">
+            <a href="{% url 'account_reset_password' %}" class="text-brandOrange hover:underline">
+                {% trans "Forgot your password?" %}
+            </a>
+        </p>
+
+        <p class="mt-2 text-center text-sm text-gray-400">
             {% blocktranslate %}
             Don’t have an account?
             <a href="{{ signup_url }}" class="text-brandOrange hover:underline">
