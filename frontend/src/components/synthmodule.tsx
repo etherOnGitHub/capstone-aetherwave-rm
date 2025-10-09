@@ -1,8 +1,8 @@
 ﻿import { useEffect, useRef, useCallback, useState } from "react";
 import * as Tone from "tone";
 import PianoCanvas from "./keys";
-import { Knob, Pointer, Arc } from "rc-knob";
-import ConfirmModal  from "./confirm";
+import ConfirmModal from "./confirm";
+import Knob from "./knob";
 
 
 // import { DEFAULTS } from ../constants/constants;
@@ -38,7 +38,7 @@ export default function SynthModule() {
     const [, setUsername] = useState<string | null>(null);
     const [presets, setPresets] = useState<Preset[]>([]);
     const [isLoadingPresets, setIsLoadingPresets] = useState(false);
-    const presetKey = `${presetId}-${presetName}-${volume}-${attack}-${decay}-${sustain}-${release}`;
+    const [, setPresetVersion] = useState(0);
     
 
     const oscWaveType = [
@@ -170,6 +170,8 @@ export default function SynthModule() {
 
         const match = oscWaveType.find(o => o.type === p.waveType);
         if (match) setOscType(match);
+
+        setPresetVersion(v => v + 1);
     }
 
     useEffect(() => {
@@ -344,191 +346,103 @@ export default function SynthModule() {
         fetchPresets();
     }
 
-
     return (
         <div className="w-screen max-w-full overflow-x-hidden">
             <div className="w-full max-w-full">
                 {/* Controls */}
                 <div className="grid grid-cols-2 gap-1 md:grid-cols-4">
                     { /* Volume */}
-                    <div key={presetKey} className="flex flex-col items-center justify-start text-center">
+                    <div className="flex flex-col items-center justify-start text-center">
                         <span className="font-exo inline-block w-[150px] p-1.5 text-ellipsis whitespace-nowrap">Volume: {volume} dB</span>
                         <Knob
                             size={50}
-                            angleOffset={220}      // where the knob arc starts (degrees)
-                            angleRange={280}       // total angle the knob can rotate through
                             min={-60}
                             max={0}
                             value={volume}
-                            onChange={(v: number) => {  // value as num
+                            angleRange={280}
+                            angleOffset={220}
+                            steps={6000}
+                            onChange={(v: number) => {
                                 const min = -60;
                                 const max = 0;
-                                const norm = (v - min) / (max - min); // normalize to 0-1
-                                const expo = 1 - Math.pow(1 - norm, 2); // exponential scaling
-                                const newVol = min + expo * (max - min); // scale back to original range
-                                setVolume(Math.round(newVol * 100) / 100) // 2 decimal places then set back to normal range
+                                const norm = (v - min) / (max - min);
+                                const expo = 1 - Math.pow(1 - norm, 2);
+                                const newVol = min + expo * (max - min);
+                                setVolume(Math.round(newVol * 100) / 100);
                             }}
-                            aria-label="Volume knob"
-                            steps={6000}
-                            snap={true}// number of discrete steps
-                        >
-                            <Arc
-                                arcWidth={8}
-                                color="#ffffff"        // active progress color
-                                background="#7f967f"   // background track color
-                            />
-                            <Pointer
-                                width={1}
-                                height={10}
-                                type="rect"
-                                color="#ffffff"        // pointer color
-                                radius={5}            // distance from center
-                            />
-                        </Knob>
+                            
+                        />
                         { /* osc type */}
                         <span className="font-exo inline-block w-[150px] p-1.5 text-ellipsis whitespace-nowrap">Wave: {oscType.type}</span>
                         <Knob
                             size={50}
-                            angleOffset={220}      // where the knob arc starts (degrees)
-                            angleRange={280}       // total angle the knob can rotate through
                             min={0}
-                            max={oscWaveType.length - 1} // index of wave types
-                            value={currentIndex} // current index of wave type
-                            // update wave type from index
+                            max={oscWaveType.length - 1}
+                            value={currentIndex}
+                            angleRange={280}
+                            angleOffset={220}
+                            steps={oscWaveType.length - 1}
                             onChange={(v: number) => {
-                                const clamped = Math.round(v); // make sure value is whole
-                                setOscType(oscWaveType[clamped]); // set wave type from array
+                                const clamped = Math.round(v);
+                                setOscType(oscWaveType[clamped]);
                             }}
-                            aria-label="Wave knob"
-                            steps={oscWaveType.length - 1} // steps always equal to number of wave types - 1 (0 index)
-                            snap={true}// number of discrete steps
-                        >
-                            <Arc
-                                arcWidth={8}
-                                color="#ffffff"        // active progress color
-                                background="#7f967f"   // background track color
-                            />
-                            <Pointer
-                                width={1}
-                                height={10}
-                                type="rect"
-                                color="#ffffff"        // pointer color
-                                radius={5}            // distance from center
-                            />
-                        </Knob>
-                        
+                            
+                        />
                     </div>
                     { /* ADSR */}
-                    { /* atk */ }
-                    <div key={presetKey} className="flex flex-col items-center justify-start text-center">
+                    <div className="flex flex-col items-center justify-start text-center">
+                        { /* atk */}
                         <span className="font-exo inline-block w-[150px] p-1.5 text-ellipsis whitespace-nowrap">Attack: {attack}s</span>
                         <Knob
                             size={50}
-                            angleOffset={220}      // where the knob arc starts (degrees)
-                            angleRange={280}       // total angle the knob can rotate through
                             min={0.005}
                             max={2}
                             value={attack}
-                            onChange={(v: number) => setAttack(parseFloat(v.toFixed(3)))}
-                            aria-label="Attack-Knob"
+                            angleRange={280}
+                            angleOffset={220}
                             steps={2000}
-                            snap={true}// number of discrete steps
-                        >
-                            <Arc
-                                arcWidth={8}
-                                color="#ffffff"        // active progress color
-                                background="#7f967f"   // background track color
-                            />
-                            <Pointer
-                                width={1}
-                                height={10}
-                                type="rect"
-                                color="#ffffff"        // pointer color
-                                radius={5}            // distance from center
-                            />
-                        </Knob>
+                            onChange={(v: number) => setAttack(parseFloat(v.toFixed(3)))}
+                            
+                        />
                         { /* dec */}
                         <span className="font-exo inline-block w-[150px] p-1.5 text-ellipsis whitespace-nowrap">Decay: {decay}s</span>
                         <Knob
                             size={50}
-                            angleOffset={220}      // where the knob arc starts (degrees)
-                            angleRange={280}       // total angle the knob can rotate through
                             min={0.01}
                             max={2}
                             value={decay}
-                            onChange={(v: number) => setDecay(parseFloat(v.toFixed(2)))}
-                            aria-label="Decay-Knob"
+                            angleRange={280}
+                            angleOffset={220}
                             steps={200}
-                            snap={true}// number of discrete steps
-                        >
-                            <Arc
-                                arcWidth={8}
-                                color="#ffffff"        // active progress color
-                                background="#7f967f"   // background track color
-                            />
-                            <Pointer
-                                width={1}
-                                height={10}
-                                type="rect"
-                                color="#ffffff"        // pointer color
-                                radius={5}            // distance from center
-                            />
-                        </Knob>
+                            onChange={(v: number) => setDecay(parseFloat(v.toFixed(2)))}
+                            
+                        />
                         { /* sus */}
                         <span className="font-exo inline-block w-[150px] p-1.5 text-ellipsis whitespace-nowrap">Sustain: {(sustain * 100).toFixed(2)}%</span>
                         <Knob
                             size={50}
-                            angleOffset={220}      // where the knob arc starts (degrees)
-                            angleRange={280}       // total angle the knob can rotate through
                             min={0}
-                            max={100}
+                            max={1}
                             value={sustain}
-                            onChange={(v: number) => setSustain(parseFloat((v / 100).toFixed(4)))}
-                            aria-label="Sustain-Knob"
-                            steps={1000}
-                            snap={true}// number of discrete steps
-                        >
-                            <Arc
-                                arcWidth={8}
-                                color="#ffffff"        // active progress color
-                                background="#7f967f"   // background track color
-                            />
-                            <Pointer
-                                width={1}
-                                height={10}
-                                type="rect"
-                                color="#ffffff"        // pointer color
-                                radius={5}            // distance from center
-                            />
-                        </Knob>
+                            angleRange={280}
+                            angleOffset={220}
+                            steps={10000}
+                            onChange={(v: number) => setSustain(parseFloat(v.toFixed(4)))}
+                            
+                        />
                         { /* rel */}
                         <span className="font-exo inline-block w-[150px] p-1.5 text-ellipsis whitespace-nowrap">Release: {release}s</span>
                         <Knob
                             size={50}
-                            angleOffset={220}      // where the knob arc starts (degrees)
-                            angleRange={280}       // total angle the knob can rotate through
                             min={0.01}
                             max={2}
                             value={release}
-                            onChange={(v: number) => setRelease(parseFloat(v.toFixed(2)))}
-                            aria-label="Release-Knob"
+                            angleRange={280}
+                            angleOffset={220}
                             steps={200}
-                            snap={true}// number of discrete steps
-                        >
-                            <Arc
-                                arcWidth={8}
-                                color="#ffffff"        // active progress color
-                                background="#7f967f"   // background track color
-                            />
-                            <Pointer
-                                width={1}
-                                height={10}
-                                type="rect"
-                                color="#ffffff"        // pointer color
-                                radius={5}            // distance from center
-                            />
-                        </Knob>
-                        
+                            onChange={(v: number) => setRelease(parseFloat(v.toFixed(2)))}
+                            
+                        />
                     </div>
                 </div>
                 {/* Keys */}
@@ -536,44 +450,54 @@ export default function SynthModule() {
                     <PianoCanvas onPlay={playSynth} onStop={stopSynth} />
                 </div>
                 {/* Preset CRUD */}
-                <div className="font-exo mt-2 mb-4 ml-2 flex justify-center align-middle">
+                <div className="mb-2 flex w-full flex-col items-center justify-center">
+                    <div className="font-exo mx-auto flex max-w-[900px] flex-wrap place-items-center items-center gap-4 align-middle">
                     {isAuthenticated ? (
                         <>
-                            <button
-                                onClick={fetchPresets}
-                                className="m-2 border-white bg-transparent px-4 py-2 text-white transition hover:bg-white hover:text-black"
-                            >
-                                {isLoadingPresets ? "Loading..." : "Load Presets"}
-                            </button>
-                            {!isLoadingPresets && presets.length === 0 && (
-                                <p className="text-brandSage m-2 border border-white bg-transparent p-2 px-4 py-2 text-sm text-white italic">
-                                    No presets found. Save one to see it here.
-                                </p>
-                            )}
-                            {/* Show dropdown if presets exist */}
-                            {presets.length > 0 && (
-                                <select
-                                    onChange={(e) => {
-                                        const selected = presets.find(p => p.id === parseInt(e.target.value));
-                                        if (selected) loadPreset(selected);
-                                    }}
-                                    className=" m-2 px-4 py-2 bg-transparent text-white border border-white p-2"
+                            
+                                <button
+                                    onClick={fetchPresets}
+                                    className="m-2 border-white bg-transparent px-4 py-2 text-right text-white transition hover:bg-white hover:text-black"
                                 >
-                                    <option value="" disabled selected>-- Select a preset --</option>
-                                    {presets.map(p => (
-                                        <option key={p.id} value={p.id}>
-                                            {p.name}
-                                        </option>
-                                    ))}
-                                </select>
-                            )}
-                            <input
-                                type="text"
-                                placeholder="Enter preset name"
-                                value={presetName}
-                                onChange={(e) => setPresetName(e.target.value)}
-                                className="m-2 border border-white bg-transparent p-2 text-white placeholder-[#7f967f] focus:outline-none"
-                            />
+                                {isLoadingPresets ? "Loading..." : "Load Presets"}
+                                </button>
+                            
+                            
+                                {!isLoadingPresets && presets.length === 0 && (
+                                    <p className="text-brandSage m-2 w-fit border border-white bg-transparent p-2 px-4 py-2 text-sm text-white italic">
+                                        No presets found. Save one to see it here.
+                                    </p>
+                                )}
+                            
+                            {/* Show dropdown if presets exist */}
+                            
+                                {presets.length > 0 && (
+                                    <select
+                                        onChange={(e) => {
+                                            const selected = presets.find(p => p.id === parseInt(e.target.value));
+                                            if (selected) loadPreset(selected);
+                                        }}
+                                        className="m-2 px-4 w-fit py-2 bg-transparent backdrop-blur-sm text-white border border-white p-2 max-h-[66]"
+                                        >
+                                        <option value="" disabled selected>-- Select a preset --</option>
+                                        {presets.map(p => (
+                                            <option key={p.id} value={p.id}>
+                                                {p.name}
+                                            </option>
+                                        ))}
+                                    </select>
+                                )}
+                            
+
+                            
+                                <input
+                                    type="text"
+                                    placeholder="Enter preset name"
+                                    value={presetName}
+                                    onChange={(e) => setPresetName(e.target.value)}
+                                    className="m-2 border w-fit border-white bg-transparent p-2 text-white placeholder-[#7f967f] focus:outline-none"
+                                />
+                            
                             <button
                                 onClick={() => setIsConfirmOpen(true)}
                                 className="bg-transparent px-4 py-2 text-white transition hover:bg-brandWhite hover:text-black"
@@ -596,11 +520,12 @@ export default function SynthModule() {
                                         }`}
                             >
                                 Delete Preset
-                            </button>
+                                </button>
                         </>
                     ) : (
-                            <p className="font-exo text-white-400 m-2 flex px-4 py-2 text-center align-middle"><a href="/accounts/login" className="font-exo text-white-400 flex px-4 py-2 text-center align-middle">Log in</a> to save your presets!</p>
+                            <p className="font-exo text-white-400 m-2 px-4 py-2 text-center align-middle"><a href="/accounts/login" className="font-exo text-white-400 px-4 py-2 text-center align-middle">Log in</a> to save your presets!</p>
                     )}
+                </div>
                 </div>
                 {/* Status Messages */}
                 <div className="m-2 flex items-center justify-center border-2 border-white p-2 text-center align-middle">

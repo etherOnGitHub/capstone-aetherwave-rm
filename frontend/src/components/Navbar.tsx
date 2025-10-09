@@ -38,11 +38,8 @@ export default function Navbar() {
                 <a href="#" className="font-orbitron animate-gradient-x from-brandOrange via-brandSage to-brandBlue relative bg-gradient-to-r bg-clip-text text-transparent">Plugins</a>
                 <a href="#" className="font-orbitron animate-gradient-x from-brandOrange via-brandSage to-brandBlue relative bg-gradient-to-r bg-clip-text text-transparent">Feedback</a>
             </div>
-            <div className="ml-auto">
-                {auth.authenticated && <span className="ml-2 opacity-70">Welcome, {auth.username}</span>}
-            </div>
             <div className="ml-auto hidden justify-end space-x-8 md:block">
-               
+                {auth.authenticated && <span className="ml-2 opacity-70">Welcome, {auth.username}</span>}
                 <a
                     href={auth.authenticated ? "/accounts/logout" : "/accounts/login"}
                     className="font-orbitron animate-gradient-x from-brandOrange via-brandSage to-brandBlue relative justify-end bg-gradient-to-r bg-clip-text text-transparent"
