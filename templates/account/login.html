@@ -1,22 +1,31 @@
-﻿{% load i18n %}
-{% load allauth account %}
+﻿{% extends "base.html" %}
+{% load allauth i18n %}
 
-<div id="auth-modal-content" class="hidden">
-    <h2 class="mb-4 text-2xl font-bold">{% trans "Sign In" %}</h2>
+{% block content %}
+<div id="auth-modal-content" class="flex min-h-[60vh] items-center justify-center">
+    <div class="border-brandSage w-full max-w-md rounded-lg border bg-[#111] p-8 shadow-xl">
+        <h2 class="mb-4 text-center text-2xl font-bold">{% trans "Sign In" %}</h2>
 
-    {% if not SOCIALACCOUNT_ONLY %}
-    <p class="mb-4">
-        {% blocktranslate %}If you have not created an account yet, then please <a href="{{ signup_url }}">sign up</a> first.{% endblocktranslate %}
-    </p>
+        {% if not SOCIALACCOUNT_ONLY %}
+        {% url 'account_login' as login_url %}
+        <form method="post" action="{{ login_url }}" class="space-y-4">
+            {% csrf_token %}
+            {% element fields form=form unlabeled=True %}{% endelement %}
+            {{ redirect_field }}
+            <button type="submit" class="bg-brandBlue w-full rounded py-2 text-white hover:bg-brandOrange">
+                {% trans "Sign In" %}
+            </button>
+        </form>
 
-    {% url 'account_login' as login_url %}
-    <form method="post" action="{{ login_url }}" class="space-y-4">
-        {% csrf_token %}
-        {% element fields form=form unlabeled=True %}{% endelement %}
-        {{ redirect_field }}
-        <button type="submit" class="bg-brandBlue w-full rounded py-2 text-white transition hover:bg-brandOrange">
-            {% trans "Sign In" %}
-        </button>
-    </form>
-    {% endif %}
+        <p class="mt-4 text-center text-sm text-gray-400">
+            {% blocktranslate %}
+            Don’t have an account?
+            <a href="{{ signup_url }}" class="text-brandOrange hover:underline">
+                Create one
+            </a>
+            {% endblocktranslate %}
+        </p>
+        {% endif %}
+    </div>
 </div>
+{% endblock %}

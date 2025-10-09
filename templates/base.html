@@ -1,16 +1,23 @@
-{% load static %}
+﻿{% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'assets/index-UV8iK1uK.css' %}">
 </head>
-<body>
-    <div id="root">
-        
+<body class="flex min-h-screen flex-col">
+
+    <div class="fixed inset-x-0 top-16 z-50 flex items-center justify-center">
+        {% block content %}{% endblock %}
     </div>
-    <script type="module" src="{% static 'assets/index-CU9JlKKx.js' %}"></script>
+
+
+        <div id="root"></div>
+
+        <script type="module" src="{% static 'assets/index-CUKF4_Zr.js' %}"></script>
+        {% block extra_scripts %}{% endblock %}
 </body>
 </html>
