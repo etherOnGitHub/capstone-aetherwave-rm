@@ -1,16 +1,25 @@
-{% load static %}
+﻿{% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{% static 'assets/index-CGeTpZYA.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/index-jBNZEaQd.css' %}">
+    <title>aetherwave.rm</title>
+    <link rel="icon" type="image/svg+xml" href="{% static 'assets/logo.svg' %}" />
 </head>
-<body>
-    <div id="root">
-        
+<body class="flex min-h-screen flex-col">
+
+    <div class="fixed inset-x-0 top-16 z-50 flex items-center justify-center">
+        {% block content %}{% endblock %}
     </div>
-    <script type="module" src="{% static 'assets/index-BF9CAyvS.js' %}"></script>
+
+
+        <div id="root"></div>
+
+        <script type="module" src="{% static 'assets/index-DOS8BG-4.js' %}"></script>
+        {% block extra_scripts %}{% endblock %}
 </body>
 </html>

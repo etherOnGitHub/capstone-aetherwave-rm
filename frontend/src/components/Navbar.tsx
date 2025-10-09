@@ -33,16 +33,13 @@ export default function Navbar() {
             </div>
 
             <div className="hidden justify-start space-x-8 md:flex">
-                <a href="#" className="font-orbitron animate-gradient-x from-brandOrange via-brandSage to-brandBlue relative bg-gradient-to-r bg-clip-text text-transparent">Home</a>
-                <a href="#" className="font-orbitron animate-gradient-x from-brandOrange via-brandSage to-brandBlue relative bg-gradient-to-r bg-clip-text text-transparent">About</a>
-                <a href="#" className="font-orbitron animate-gradient-x from-brandOrange via-brandSage to-brandBlue relative bg-gradient-to-r bg-clip-text text-transparent">Plugins</a>
-                <a href="#" className="font-orbitron animate-gradient-x from-brandOrange via-brandSage to-brandBlue relative bg-gradient-to-r bg-clip-text text-transparent">Feedback</a>
-            </div>
-            <div className="ml-auto">
-                {auth.authenticated && <span className="ml-2 opacity-70">Welcome, {auth.username}</span>}
+                <a href="/" className="font-orbitron animate-gradient-x from-brandOrange via-brandSage to-brandBlue relative bg-gradient-to-r bg-clip-text text-transparent">Home</a>
+                <a href="#" className="font-orbitron animate-gradient-x from-brandOrange via-brandSage to-brandBlue pointer-events-none relative cursor-not-allowed bg-gradient-to-r bg-clip-text text-transparent opacity-50">About</a>
+                <a href="#" className="font-orbitron animate-gradient-x from-brandOrange via-brandSage to-brandBlue pointer-events-none relative cursor-not-allowed bg-gradient-to-r bg-clip-text text-transparent opacity-50">Plugins</a>
+                <a href="#" className="font-orbitron animate-gradient-x from-brandOrange via-brandSage to-brandBlue pointer-events-none relative cursor-not-allowed bg-gradient-to-r bg-clip-text text-transparent opacity-50">Feedback</a>
             </div>
             <div className="ml-auto hidden justify-end space-x-8 md:block">
-               
+                {auth.authenticated && <span className="ml-2 opacity-70">Welcome, {auth.username}</span>}
                 <a
                     href={auth.authenticated ? "/accounts/logout" : "/accounts/login"}
                     className="font-orbitron animate-gradient-x from-brandOrange via-brandSage to-brandBlue relative justify-end bg-gradient-to-r bg-clip-text text-transparent"
@@ -74,10 +71,10 @@ export default function Navbar() {
 
             {isOpen && (
                 <div className="absolute top-16 left-0 z-50 flex w-full flex-col items-center space-y-4 py-6 backdrop-blur-sm md:hidden">
-                    <a href="#" className="animate-gradient-x from-brandOrange via-brandSage to-brandBlue relative bg-gradient-to-r bg-clip-text text-transparent">Home</a>
-                    <a href="#" className="animate-gradient-x from-brandOrange via-brandSage to-brandBlue relative bg-gradient-to-r bg-clip-text text-transparent">About</a>
-                    <a href="#" className="animate-gradient-x from-brandOrange via-brandSage to-brandBlue relative bg-gradient-to-r bg-clip-text text-transparent">Plugins</a>
-                    <a href="#" className="animate-gradient-x from-brandOrange via-brandSage to-brandBlue relative bg-gradient-to-r bg-clip-text text-transparent">Feedback</a>
+                    <a href="/" className="animate-gradient-x from-brandOrange via-brandSage to-brandBlue relative bg-gradient-to-r bg-clip-text text-transparent">Home</a>
+                    <a href="#" className="animate-gradient-x from-brandOrange via-brandSage to-brandBlue pointer-events-none relative cursor-not-allowed bg-gradient-to-r bg-clip-text text-transparent opacity-50">About</a>
+                    <a href="#" className="animate-gradient-x from-brandOrange via-brandSage to-brandBlue pointer-events-none relative cursor-not-allowed bg-gradient-to-r bg-clip-text text-transparent opacity-50">Plugins</a>
+                    <a href="#" className="animate-gradient-x from-brandOrange via-brandSage to-brandBlue pointer-events-none relative cursor-not-allowed bg-gradient-to-r bg-clip-text text-transparent opacity-50">Feedback</a>
                     <a
                         href={auth.authenticated ? "/accounts/logout" : "/accounts/login"}
                         className="font-orbitron animate-gradient-x from-brandOrange via-brandSage to-brandBlue relative justify-end bg-gradient-to-r bg-clip-text text-transparent"

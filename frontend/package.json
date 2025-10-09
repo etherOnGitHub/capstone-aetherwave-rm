@@ -10,7 +10,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "rc-knob": "^1.0.1",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "tone": "^15.1.22"
