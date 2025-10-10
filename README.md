@@ -2,6 +2,9 @@
 <p align="center">
 <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/aetherwave-hero-embedded.svg" width="1024" alt="Aetherwave.rm hero image">
 </p>
+<p align="center">
+  A simple but powerful synth website that can host users and create custom synths with large modular scalability
+</p>
 <br>
 <!-- thin divider !-->
 <div align="center" style="margin: 100px 0;">
@@ -12,6 +15,9 @@
 <br>
 <br>
 <!-- deploy link !-->
+<p align="center">
+<b>Status:</b> <span style="color:limegreen">Live on Heroku ✅</span>
+</p>
 <div align="center">
   <a href="https://aetherwave-rm-53c8c8259e3d.herokuapp.com/" target="_blank">
         <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/aetherwave-badge-deploy-link.svg" width="500" alt="Aetherwave.rm deploy link image">
@@ -326,7 +332,193 @@
 <p  align="center">
   <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/aetherwave-divider-saw.svg" width="1440" alt="Aetherwave.rm saw wave divider">
 </p>
+.svg deploy
 
+# 🚀 Deploying to Heroku (Django + Optional React Frontend)
+
+This guide covers deploying a Django + React (optional) project to **Heroku-24**.  
+All you need to do is connect your database URL and deploy — everything else is preconfigured.
+
+---
+
+## ⚙️ Project Overview
+
+This setup includes:
+
+- **Django 5.x**
+- **Gunicorn** (production server)
+- **WhiteNoise** (serves static files)
+- **dj-database-url** (database from env vars)
+- **Heroku-24** stack support
+- Optional **React/Vite** frontend (built into `frontend/dist`)
+
+---
+
+## 🔧 Settings Overview
+
+`config/settings.py` is already configured to run on Heroku, here is a shortened example of the key information contained.
+
+```python
+import os
+import dj_database_url
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+DEBUG = os.getenv("DEBUG", "0") == "1"
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", ".herokuapp.com,localhost,127.0.0.1").split(",")
+CSRF_TRUSTED_ORIGINS = [os.getenv("CSRF_ORIGIN", "https://*.herokuapp.com")]
+
+DATABASES = {
+    "default": dj_database_url.config(
+        default="sqlite:///" + str(BASE_DIR / "db.sqlite3"),
+        conn_max_age=600,
+        ssl_require=True,
+    )
+}
+
+STATIC_URL = "/static/"
+STATIC_ROOT = BASE_DIR / "staticfiles"
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+    BASE_DIR / "theme" / "static",
+    BASE_DIR / "frontend" / "dist",
+]
+
+MIDDLEWARE = [
+    "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
+    # ...rest of middleware...
+]
+
+STORAGES = {
+    "staticfiles": {"BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage"},
+}
+```
+
+---
+
+## 📦 Procfile
+
+```
+release: python manage.py migrate
+web: gunicorn config.wsgi:application --log-file -
+```
+
+This ensures migrations run automatically on every deploy.
+
+---
+
+## 🧱 Deployment Steps
+
+### 1. Create a Heroku App
+
+```bash
+heroku login
+heroku create <your-app-name> --stack heroku-24
+```
+
+(Optional if using React build, <span style="color:red">all the files are already built but just in case</span>)
+
+```bash
+heroku buildpacks:add --index 1 heroku/nodejs -a <your-app-name>
+heroku buildpacks:add --index 2 heroku/python -a <your-app-name>
+```
+
+### 2. Add Config Vars
+
+```bash
+heroku config:set   SECRET_KEY='your-secret-key'   DATABASE_URL='your-database-url'   -a <your-app-name>   CLOUDINARY_URL='your-cloudinary-url'
+```
+
+## 🧾 Environment Variables
+
+| Variable | Description |
+|-----------|-------------|
+| `SECRET_KEY` | Django secret key |
+| `DEBUG` | Set to `0` for production (this is off already but good to be aware of if you're new to deploying |
+| `DATABASE_URL` | Postgres or NeonDB connection string |
+| `ALLOWED_HOSTS` | `.herokuapp.com,localhost,127.0.0.1` |
+
+> Example `.env` file provided for local testing.
+
+---
+
+### 3. Deploy
+
+```bash
+git add .
+git commit -m "Deploy: initial Heroku release"
+git push heroku main
+```
+
+### 🌿 Eco Dyno Setup
+
+### 1. Switch to Eco
+```bash
+heroku ps:type eco -a <app-name>
+```
+
+### 2. Sleep / Wake Info
+- Sleeps after 30 min inactivity  
+- Auto-wakes on request  
+- Limited shared hours per month  
+
+---
+
+## 🧮 Post-Deploy Commands
+
+This is the simplest way of doing it but you can do it in your IDE before you deploy and commit the changes instead and just rebuild it.
+
+```bash
+heroku run python manage.py createsuperuser -a <your-app-name>
+heroku ps:scale web=1 -a <your-app-name>
+heroku logs --tail -a <your-app-name>
+```
+
+---
+
+## 🧯 Common Fixes
+
+| Issue | Fix |
+|-------|-----|
+| **H14 – No web dynos** | `heroku ps:scale web=1 -a <app>` |
+| **App crashed** | Check `heroku logs --tail` |
+| **Static files missing** | Ensure WhiteNoise settings & collectstatic ran |
+| **Database errors** | Check `DATABASE_URL` or rerun migrations |
+
+---
+
+## ✅ Quick Recap
+
+1. Repo already configured for Heroku.  
+2. Set `DATABASE_URL`, `SECRET_KEY`, and other vars.  
+3. Deploy. Done.
+
+**You don’t need to change any code — just connect your DB and push.**
+
+---
+
+**Ready to launch.**
+
+---
+
+## 📜 License
+
+© 2025 etherOnGitHub - Released under the MIT License [what is it?](https://en.wikipedia.org/wiki/MIT_License).
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+---
+
+## 👤 Author
+
+- **Name:** [Callum (etherOnGitHub)](https://github.com/etherOnGitHub)  
+- **Contact:** reach out on [LinkedIn](https://www.linkedin.com/in/callumrichards-audio-code/)
 
 
 <!-- credits heading !-->
