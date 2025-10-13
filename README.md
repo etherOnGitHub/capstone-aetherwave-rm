@@ -447,11 +447,6 @@ Exo 2 handles longer text blocks, buttons, and UI controls to maintain readabili
 <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tight.svg" style="pointer-events: none;" width="780" alt="Aetherwave.rm thin horizontal line divider image">
 </div>
 
-<!-- pixel thin divider !-->
-<div align="center">
-<img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tight.svg" style="pointer-events: none;" width="780" alt="Aetherwave.rm thin horizontal line divider image">
-</div>
-
 ## Style Notes
 
 - **Blue + Orange** — core duality of energy vs calm; electric and creative.  
