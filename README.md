@@ -138,19 +138,27 @@
  <br>
  <br>
   
- ###  [Learning Objectives 🎯](#LO)  
+ ###  [🎯 Learning Objectives](#LO)  
  <br>
  <!-- thin line divider !-->
  <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tapered-glow.svg" style="pointer-events: none;" width="600" alt="Aetherwave.rm thin horizontal line divider image">
  <br>
  <br>
  
- ###  [Planning 📜](#Planning)  
+ ###  [📜 Planning](#Planning)  
  <br>
  <!-- thin line divider !-->
  <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tapered-glow.svg" style="pointer-events: none;" width="600" alt="Aetherwave.rm thin horizontal line divider image">
  <br>
  <br>
+
+ ###  [📜 Features](#Features)  
+ <br>
+ <!-- thin line divider !-->
+ <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tapered-glow.svg" style="pointer-events: none;" width="600" alt="Aetherwave.rm thin horizontal line divider image">
+ <br>
+ <br>
+ 
  
  ###  [🧪 Testing](#testing)  
  <br>
@@ -166,7 +174,7 @@
  <br>
  <br>
  
- ###  [AI Tools](#ai-integration) 
+ ###  [🤖 AI Tools](#ai-integration) 
  <br>
  <!-- thin line divider !-->
  <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tapered-glow.svg" style="pointer-events: none;" width="600" alt="Aetherwave.rm thin horizontal line divider image">
@@ -555,20 +563,20 @@ Compact toast-like notifications fade in and out automatically, using Tailwind t
 </div>
 <br>
 
-### 📱 Responsive Layout  
+### Responsive Layout  
 
 | Feature | Description | Purpose | Status |
 |:--------|:-------------|:----------|:--------:|
 | **Responsive Design** | Built using Tailwind CSS grid and flex utilities with defined breakpoints (`sm`, `md`, `lg`). Synth components adapt dynamically to smaller screens. | Ensures full usability across desktop, tablet, and mobile. | ✅ |
 
 <p align="center">
-  <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/features/responsive.webp" width="800" alt="Aetherwave.rm Responsive Design">
+  <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/Deploy/responsive-aetherwave.webp" alt="Aetherwave.rm deployed sites">
 </p>
 
 **Bio:**  
 No burger menus, no layout clutter — the grid intelligently stacks or expands modules as screen real estate changes. It feels equally native on a laptop or a phone synth pad.
 
-
+# Testing
 
 ## Python Tests  
 All backend features were tested manually using the Python terminal/ localhost and Django’s built-in shell.  
@@ -595,7 +603,8 @@ Each React component was tested for responsiveness, correct state changes, and v
 <p align="center">
 <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/validation/ts.png" width="700">
 </p>
-The following warning in ESlint doesn't matter as my type array doesnt ever change after its built, but the actual array can easily be expanded with more waves and sounds when going forward in the future builds and versions.
+
+The following warning in ESlint doesn't matter as my type array doesnt ever change after its built, but the actual array can easily be expanded with more waves and sounds when going forward in the future builds and versions. The program was also built to support future CI/CD as the array can be expanded and it will automatically detect (length of the array - 1) and change the amount of positions on the knob it is assigned to.
 
 <p align="center">
 <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/validation/eslint.png" width="700">
@@ -679,10 +688,6 @@ I am happy with the lighthouse scores as for a fully modular react app it has a 
 - Adjusted drag math and pointer offset calculations.  
 - Tweaked starting/ending angles for 7-to-5 o’clock visual arc.  
 **Outcome:** Knob interaction is now smoother, accurate, and mobile-friendly.
-
-<p align="center">
-  <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/Deploy/responsive-aetherwave.webp" alt="Aetherwave.rm deployed sites">
-</p>
 
 # Deploying to Heroku (Django + Optional React Frontend)
 
