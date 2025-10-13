@@ -187,14 +187,14 @@
  <br>
  <br>
  
- ###  [LO8 – 🤖 AI Tools](#lo8--ai-tools) 
+ ###  [AI Tools](#ai-integration-summary) 
  <br>
  <!-- thin line divider !-->
  <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tapered-glow.svg" style="pointer-events: none;" width="600" alt="Aetherwave.rm thin horizontal line divider image">
  <br>
  <br>
  
- ###  [🙏🏻 Credits](#Credits) 
+ ###  [🙏🏻 Credits](#credits--resources) 
  <br>
  <br>
  
@@ -665,7 +665,7 @@ heroku logs --tail -a <your-app-name>
 <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tight.svg" style="pointer-events: none;" width="780" alt="Aetherwave.rm thin horizontal line divider image">
 </div>
 
-# AI Integration Summary
+# AI Integration
 
 AI tools supported my development process across every stage of aetherwave.rm, mainly as a second pair of eyes rather than an author. I used them to explore ideas, fix problems faster, and polish the final experience—while keeping all decision-making and implementation in my hands.
 
@@ -681,8 +681,6 @@ AI helped me identify small inefficiencies and refine the user experience. It su
 ## Workflow & Reflection
 Overall, AI tools became part of my workflow the same way a good documentation search or code review would be: an assistant that speeds up problem-solving and helps me focus on creative and structural thinking. It improved efficiency without taking over the process, leaving me more time to refine both the code quality and the overall experience of aetherwave.rm.
 
-<!-- credits heading !-->
-.svg credits
 <!-- !-->
 ## Credits & Resources
 
