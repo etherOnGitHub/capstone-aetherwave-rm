@@ -379,6 +379,7 @@
 <p align="center">
   <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tapered-glow.svg" style="pointer-events: none;" width="400" alt="Aetherwave.rm thin horizontal line divider image">
 </p>
+
 <!-- models heading !-->
 <p align="center">
   <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/entity-relationship-diagram.svg" width="550" alt="Aetherwave.rm ERD heading image">
@@ -447,16 +448,16 @@ Exo 2 handles longer text blocks, buttons, and UI controls to maintain readabili
   <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/aetherwave-divider-saw.svg" width="1440" alt="Aetherwave.rm saw wave divider">
 </p>
 
-## 🧩 Features  
+# Features  
 
-### 🧭 Navigation Bar  
+### Navigation Bar  
 
 | Feature | Description | Purpose | Status |
 |:--------|:-------------|:----------|:--------:|
 | **Navigation Bar** | Responsive top bar built in React with conditional rendering. Displays login/logout options and a dynamic welcome message when authenticated. | Provides intuitive access to user actions and reinforces session awareness. | ✅ |
 
 <p align="center">
-  <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/features/navbar.webp" width="800" alt="Aetherwave.rm Navigation Bar">
+  <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/features/navbar.png" width="800" alt="Aetherwave.rm Navigation Bar">
 </p>
 
 **Bio:**  
@@ -468,14 +469,14 @@ The navigation bar is minimalist — blending seamlessly with the dark synth the
 </div>
 <br>
 
-### 🏠 Home Interface  
+### Home Interface  
 
 | Feature | Description | Purpose | Status |
 |:--------|:-------------|:----------|:--------:|
 | **Home Interface** | Central React page that hosts all major UI components including synth controls, modals, and visual elements. Designed as a single-page app for instant interactions. | Acts as the core creative environment where users control their synths. | ✅ |
 
 <p align="center">
-  <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/features/home-interface.webp" width="800" alt="Aetherwave.rm Home Interface">
+  <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/features/home.png" width="800" alt="Aetherwave.rm Home Interface">
 </p>
 
 **Bio:**  
@@ -487,14 +488,14 @@ Every interaction happens here — from tweaking oscillators to saving presets. 
 </div>
 <br>
 
-### 🎛️ Synth Controls (Knob UI)  
+### Synth Controls (Knob UI)  
 
 | Feature | Description | Purpose | Status |
 |:--------|:-------------|:----------|:--------:|
 | **Synth Control Knobs** | Custom-built React components using pointer event handling and SVG arcs. Each knob controls parameters like volume, attack, decay, sustain, and release. | Provides tactile-style control for an immersive, DAW-like feel in the browser. | ✅ |
 
 <p align="center">
-  <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/features/knob-ui.webp" width="800" alt="Aetherwave.rm Synth Controls">
+  <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/features/knob.png" width="800" alt="Aetherwave.rm Synth Controls">
 </p>
 
 **Bio:**  
@@ -506,14 +507,20 @@ The knobs rotate along a 7-to-5 o’clock arc, balancing visibility and precisio
 </div>
 <br>
 
-### 💾 Preset Management (CRUD)  
+### Preset Management (CRUD)  
 
 | Feature | Description | Purpose | Status |
 |:--------|:-------------|:----------|:--------:|
 | **Preset Management** | Fully functional CRUD system: users can create, read, update, and delete synth presets stored in a PostgreSQL database. | Gives users persistence and flexibility — build once, recall anytime. | ✅ |
 
 <p align="center">
-  <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/features/preset-management.webp" width="800" alt="Aetherwave.rm Preset Management System">
+  <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/features/CRUD.png" width="800" alt="Aetherwave.rm Preset Management System">
+</p>
+
+> Hidden when not logged in.
+
+<p align="center">
+  <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/features/CRUD-hidden.png" width="800" alt="Aetherwave.rm Preset Management System">
 </p>
 
 **Bio:**  
@@ -525,14 +532,19 @@ Presets sync between the frontend and backend via Django REST Framework. Each op
 </div>
 <br>
 
-### 🔐 Login / Logout Modal  
+### Login / Logout Modal  
 
 | Feature | Description | Purpose | Status |
 |:--------|:-------------|:----------|:--------:|
 | **Login / Logout Modal** | A dynamic modal window built in React that allows users to securely sign in or out without leaving the main synth interface. It uses Django Allauth for authentication and React state to toggle visibility. | Keeps the user experience seamless and prevents full-page reloads while maintaining session security. | ✅ |
 
 <p align="center">
-  <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/features/login-modal.webp" width="800" alt="Aetherwave.rm Login Modal">
+  <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/features/login.png" alt="Aetherwave.rm Login" height="75">
+  <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/features/logout.png" alt="Aetherwave.rm Logout">
+</p>
+
+<p align="center">
+  <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/features/loginmodal.png" alt="Aetherwave.rm Login modal">
 </p>
 
 **Bio:**  
@@ -544,18 +556,38 @@ The login/logout modal overlays the synth interface with a soft blur effect. It 
 </div>
 <br>
 
-### 💬 Status & Notification System  
+### Status & Notification System  
 
 | Feature | Description | Purpose | Status |
 |:--------|:-------------|:----------|:--------:|
 | **Status Messages** | Real-time feedback banners in React that confirm actions (e.g., preset saved, deleted, or updated). | Improves user awareness and interaction flow. | ✅ |
 
 <p align="center">
-  <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/features/status-messages.webp" width="800" alt="Aetherwave.rm Status Notifications">
+  <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/features/systemnoti.png" width="800" alt="Aetherwave.rm Status Notifications">
+  <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/features/systemnoti2.png" width="800" alt="Aetherwave.rm Status Notifications">
 </p>
 
 **Bio:**  
-Compact toast-like notifications fade in and out automatically, using Tailwind transitions to deliver unobtrusive but clear updates to the user after each action.
+Compact notifications fade in and out automatically, using Tailwind transitions to deliver unobtrusive but clear updates to the user after each action and then they will purge themselves to maintain focus on the synth.
+
+<!-- pixel thin divider !-->
+<div align="center">
+<img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tight.svg" style="pointer-events: none;" width="780" alt="Aetherwave.rm thin horizontal line divider image">
+</div>
+<br>
+
+## Delete Confirmation Modal  
+
+| Feature | Description | Purpose | Status |
+|:--------|:-------------|:----------|:--------:|
+| **Delete Confirmation Modal** | A safety modal that appears before a user permanently deletes a preset. It uses controlled React state for open/close logic and visual feedback for success or cancellation. | Prevents accidental data loss by requiring explicit confirmation before deletion. | ✅ |
+
+<p align="center">
+  <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/features/deletemodal.png" width="800" alt="Aetherwave.rm Delete Confirmation Modal">
+</p>
+
+**Bio:**  
+The delete modal introduces a quick moment of pause — dimming the background with a blurred overlay. Its design reinforces deliberate user action, using clear color and minimal motion for focus. Once confirmed, the modal fades out smoothly while the updated state reflects instantly across the synth UI.  
 
 <!-- pixel thin divider !-->
 <div align="center">
@@ -574,7 +606,7 @@ Compact toast-like notifications fade in and out automatically, using Tailwind t
 </p>
 
 **Bio:**  
-No burger menus, no layout clutter — the grid intelligently stacks or expands modules as screen real estate changes. It feels equally native on a laptop or a phone synth pad.
+No complicated menus, no layout clutter — the grid intelligently stacks or expands modules as screen real estate changes. It feels equally native on a laptop or a phone synth pad.
 
 # Testing
 
