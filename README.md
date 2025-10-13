@@ -210,7 +210,7 @@
 <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tapered-glow.svg" style="pointer-events: none;" width="400" alt="Aetherwave.rm thin horizontal line divider image">
 </p>
 <!-- LO table !-->
-<table>
+<table border="4px">
   <thead>
     <tr style="background-color:#000000; color:#ffffff; text-align:center; vertical-align:middle;">
       <th style="padding:10px; border:1px solid #444;">LO 🌐</th>
@@ -420,10 +420,23 @@
   The ERD for the app is relatively straight forward as it will have one user being able to create, read, edit and delete their many audio apps. This system will allow users to store their synth component settings and manipulate them when required.
 </p>
 <br>
+<p align="center">
+  <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tapered-glow.svg" style="pointer-events: none;" width="400" alt="Aetherwave.rm thin horizontal line divider image">
+</p>
+<p>
+  <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/colours-font.svg">
+</p>
+<p align="center">
+  <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/UX/fonts/orbitron-basic.svg" width="500">
+  <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/UX/fonts/exo2-basic.svg" width="500">
+  <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/UX/colours/aetherwave_palette_exo.svg" width="800">
+</p>
+
 <!-- saw divider !-->
 <p  align="center">
   <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/aetherwave-divider-saw.svg" width="1440" alt="Aetherwave.rm saw wave divider">
 </p>
+
 .svg deploy
 
 <p align="center">
@@ -435,7 +448,10 @@
 This guide covers deploying a Django + React (optional) project to **Heroku-24**.  
 All you need to do is connect your database URL and deploy — everything else is preconfigured.
 
----
+<!-- pixel thin divider !-->
+<div align="center">
+<img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tight.svg" style="pointer-events: none;" width="780" alt="Aetherwave.rm thin horizontal line divider image">
+</div>
 
 ## Project Overview
 
@@ -448,7 +464,10 @@ This setup includes:
 - **Heroku-24** stack support
 - Optional **React/Vite** frontend (built into `frontend/dist`)
 
----
+<!-- pixel thin divider !-->
+<div align="center">
+<img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tight.svg" style="pointer-events: none;" width="780" alt="Aetherwave.rm thin horizontal line divider image">
+</div>
 
 ## Settings Overview
 
@@ -492,7 +511,10 @@ STORAGES = {
 }
 ```
 
----
+<!-- pixel thin divider !-->
+<div align="center">
+<img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tight.svg" style="pointer-events: none;" width="780" alt="Aetherwave.rm thin horizontal line divider image">
+</div>
 
 ## Procfile
 
@@ -503,7 +525,10 @@ web: gunicorn config.wsgi:application --log-file -
 
 This ensures migrations run automatically on every deploy.
 
----
+<!-- pixel thin divider !-->
+<div align="center">
+<img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tight.svg" style="pointer-events: none;" width="780" alt="Aetherwave.rm thin horizontal line divider image">
+</div>
 
 ## Deployment Steps
 
@@ -538,7 +563,10 @@ heroku config:set   SECRET_KEY='your-secret-key'   DATABASE_URL='your-database-u
 
 > Example `.env` file provided for local testing.
 
----
+<!-- pixel thin divider !-->
+<div align="center">
+<img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tight.svg" style="pointer-events: none;" width="780" alt="Aetherwave.rm thin horizontal line divider image">
+</div>
 
 ### 3. Deploy
 
@@ -560,7 +588,10 @@ heroku ps:type eco -a <app-name>
 - Auto-wakes on request  
 - Limited shared hours per month  
 
----
+<!-- pixel thin divider !-->
+<div align="center">
+<img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tight.svg" style="pointer-events: none;" width="780" alt="Aetherwave.rm thin horizontal line divider image">
+</div>
 
 ## Post-Deploy Commands
 
@@ -572,7 +603,10 @@ heroku ps:scale web=1 -a <your-app-name>
 heroku logs --tail -a <your-app-name>
 ```
 
----
+<!-- pixel thin divider !-->
+<div align="center">
+<img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tight.svg" style="pointer-events: none;" width="780" alt="Aetherwave.rm thin horizontal line divider image">
+</div>
 
 ## Common Fixes
 
@@ -583,7 +617,10 @@ heroku logs --tail -a <your-app-name>
 | **Static files missing** | Ensure WhiteNoise settings & collectstatic ran |
 | **Database errors** | Check `DATABASE_URL` or rerun migrations |
 
----
+<!-- pixel thin divider !-->
+<div align="center">
+<img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tight.svg" style="pointer-events: none;" width="780" alt="Aetherwave.rm thin horizontal line divider image">
+</div>
 
 ## Quick Recap
 
@@ -593,11 +630,17 @@ heroku logs --tail -a <your-app-name>
 
 **You don’t need to change any code — just connect your DB and push.**
 
----
+<!-- pixel thin divider !-->
+<div align="center">
+<img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tight.svg" style="pointer-events: none;" width="780" alt="Aetherwave.rm thin horizontal line divider image">
+</div>
 
 **Ready to launch.**
 
----
+<!-- pixel thin divider !-->
+<div align="center">
+<img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tight.svg" style="pointer-events: none;" width="780" alt="Aetherwave.rm thin horizontal line divider image">
+</div>
 
 <!-- credits heading !-->
 .svg credits
@@ -606,7 +649,10 @@ heroku logs --tail -a <your-app-name>
 
 A full list of technologies, tools, and references used in this project.
 
----
+<!-- pixel thin divider !-->
+<div align="center">
+<img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tight.svg" style="pointer-events: none;" width="780" alt="Aetherwave.rm thin horizontal line divider image">
+</div>
 
 ### Frontend
 
@@ -618,7 +664,10 @@ A full list of technologies, tools, and references used in this project.
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Tone.js](https://tonejs.github.io/)
 
----
+<!-- pixel thin divider !-->
+<div align="center">
+<img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tight.svg" style="pointer-events: none;" width="780" alt="Aetherwave.rm thin horizontal line divider image">
+</div>
 
 ### Backend
 
@@ -691,14 +740,20 @@ whitenoise==6.11.0
 
 </details>
 
----
+<!-- pixel thin divider !-->
+<div align="center">
+<img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tight.svg" style="pointer-events: none;" width="780" alt="Aetherwave.rm thin horizontal line divider image">
+</div>
 
 ### Database
 
 - [PostgreSQL](https://www.postgresql.org/)
 - [NeonDB](https://neon.tech/)
 
----
+<!-- pixel thin divider !-->
+<div align="center">
+<img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tight.svg" style="pointer-events: none;" width="780" alt="Aetherwave.rm thin horizontal line divider image">
+</div>
 
 ### Development Environment
 
@@ -706,20 +761,29 @@ whitenoise==6.11.0
 - [ESLint](https://eslint.org/)
 - [Python Extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
 
----
+<!-- pixel thin divider !-->
+<div align="center">
+<img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tight.svg" style="pointer-events: none;" width="780" alt="Aetherwave.rm thin horizontal line divider image">
+</div>
 
 ### AI & Automation
 
 - [ChatGPT](https://chat.openai.com/)
 - [GitHub Copilot](https://github.com/features/copilot)
 
----
+<!-- pixel thin divider !-->
+<div align="center">
+<img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tight.svg" style="pointer-events: none;" width="780" alt="Aetherwave.rm thin horizontal line divider image">
+</div>
 
 ### Fonts & Assets
 
 - [Google Fonts](https://fonts.google.com/)
 
----
+<!-- pixel thin divider !-->
+<div align="center">
+<img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tight.svg" style="pointer-events: none;" width="780" alt="Aetherwave.rm thin horizontal line divider image">
+</div>
 
 ### Technical Guidance
 
@@ -730,7 +794,10 @@ Special thanks to:
 
 for their technical input and support throughout the project.
 
----
+<!-- pixel thin divider !-->
+<div align="center">
+<img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tight.svg" style="pointer-events: none;" width="780" alt="Aetherwave.rm thin horizontal line divider image">
+</div>
 
 ## License
 
@@ -744,7 +811,10 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
----
+<!-- pixel thin divider !-->
+<div align="center">
+<img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tight.svg" style="pointer-events: none;" width="780" alt="Aetherwave.rm thin horizontal line divider image">
+</div>
 
 ## Author
 
