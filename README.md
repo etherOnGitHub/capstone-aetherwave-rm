@@ -53,7 +53,7 @@
          <img src="https://upload.wikimedia.org/wikipedia/commons/f/f5/Typescript.svg" width="75" height="75" alt="TypeScript">
       </td>
       <td colspan="2" align="center">
-        <img src="https://cdn.simpleicons.org/python" width="75" height="75" alt="Python">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" width="75" height="75" alt="Python">
       </td>
    </tr>
    <tr>
@@ -439,7 +439,48 @@ Exo 2 handles longer text blocks, buttons, and UI controls to maintain readabili
   <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/aetherwave-divider-saw.svg" width="1440" alt="Aetherwave.rm saw wave divider">
 </p>
 
-.svg deploy
+## Python Tests  
+All backend features were tested manually using the Python terminal/ localhost and Django’s built-in shell.  
+Each model, serializer, and API endpoint was checked for expected behaviour, correct data handling, and error responses.  
+
+**Test focus:**  
+- Creating, reading, updating, and deleting presets  
+- Validating user authentication and access  
+- Confirming database records update correctly  
+- Checking error handling for invalid inputs  
+
+## TypeScript / Frontend Tests  
+Frontend testing was carried out manually using Google Developer Tools and direct user interaction within the react localhost.  
+Each React component was tested for responsiveness, correct state changes, and visual consistency across screen sizes.  
+
+<p align="center">
+<img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/validation/w3c.png" width="700">
+</p>
+
+<p align="center">
+<img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/validation/w3css.png" width="700">
+</p>
+
+<p align="center">
+<img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/validation/ts.png" width="700">
+</p>
+The following warning in ESlint doesn't matter as my type array doesnt ever change after its built, but the actual array can easily be expanded with more waves and sounds when going forward in the future builds and versions.
+
+<p align="center">
+<img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/validation/eslint.png" width="700">
+</p>
+
+**Test focus:**  
+- Component rendering and data display  
+- User interaction (buttons, modals, and audio controls)  
+- Layout scaling and responsive design  
+
+## Lighthouse
+I am happy with the lighthouse scores as for a fully modular react app it has a fast load time especially considering the use of Web Audio API within the DOM and containing all of the elements into one page. <br>
+<p align="center">
+<img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/validation/aetherwave-lighthouse.png">
+</p>
+
 
 <p align="center">
   <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/Deploy/responsive-aetherwave.webp" alt="Aetherwave.rm deployed sites">
@@ -615,7 +656,7 @@ heroku logs --tail -a <your-app-name>
 | Issue | Fix |
 |-------|-----|
 | **H14 – No web dynos** | `heroku ps:scale web=1 -a <app>` |
-| **App crashed** | Check `heroku logs --tail` |
+| **App crashed** | Check `heroku logs --tail --appname` |
 | **Static files missing** | Ensure WhiteNoise settings & collectstatic ran |
 | **Database errors** | Check `DATABASE_URL` or rerun migrations |
 
