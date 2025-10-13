@@ -665,6 +665,22 @@ heroku logs --tail -a <your-app-name>
 <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tight.svg" style="pointer-events: none;" width="780" alt="Aetherwave.rm thin horizontal line divider image">
 </div>
 
+# AI Integration Summary
+
+AI tools supported my development process across every stage of aetherwave.rm, mainly as a second pair of eyes rather than an author. I used them to explore ideas, fix problems faster, and polish the final experience—while keeping all decision-making and implementation in my hands.
+
+## Code Creation
+I used AI to brainstorm approaches and check my logic while building the React (TypeScript + Tailwind) frontend and Django REST backend. It helped me think through structure—like reusable hooks, cleaner state management, and serializer logic—but I always wrote, reviewed, and refactored the code myself. The goal was clarity and maintainability, not automation.
+
+## Debugging
+When I hit snags—API connection issues, CORS errors, or Heroku deployment quirks—AI acted as a quick reference guide. I’d describe what was happening, and it helped me interpret stack traces or point out where the problem might be. That saved me time scrolling through docs.
+
+## Optimization & UX
+AI helped me identify small inefficiencies and refine the user experience. It suggested improvements for React rendering performance, state handling, and Tailwind layout tweaks for responsiveness. I also used it to sanity-check accessibility, making sure contrast ratios and semantic elements were solid. The creative and technical decisions—like tone.js behaviour and UI flow—came from my own testing and iteration.
+
+## Workflow & Reflection
+Overall, AI tools became part of my workflow the same way a good documentation search or code review would be: an assistant that speeds up problem-solving and helps me focus on creative and structural thinking. It improved efficiency without taking over the process, leaving me more time to refine both the code quality and the overall experience of aetherwave.rm.
+
 <!-- credits heading !-->
 .svg credits
 <!-- !-->
