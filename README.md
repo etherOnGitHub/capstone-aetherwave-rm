@@ -636,7 +636,7 @@ The delete modal introduces a quick moment of pause — dimming the background w
 No complicated menus, no layout clutter — the grid intelligently stacks or expands modules as screen real estate changes. It feels equally native on a laptop or a phone synth pad.
 
 # Testing
-
+All testing was done throughout development with a few screenshots provided with the features explaining how the app works.
 ## Python Tests  
 All backend features were tested manually using the Python terminal/ localhost and Django’s built-in shell.  
 Each model, serializer, and API endpoint was checked for expected behaviour, correct data handling, and error responses.  
