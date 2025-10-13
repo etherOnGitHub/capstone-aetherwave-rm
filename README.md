@@ -138,19 +138,27 @@
  <br>
  <br>
   
- ###  [Learning Objectives 🎯](#LO)  
+ ###  [🎯 Learning Objectives](#LO)  
  <br>
  <!-- thin line divider !-->
  <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tapered-glow.svg" style="pointer-events: none;" width="600" alt="Aetherwave.rm thin horizontal line divider image">
  <br>
  <br>
  
- ###  [Planning 📜](#Planning)  
+ ###  [📜 Planning](#Planning)  
  <br>
  <!-- thin line divider !-->
  <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tapered-glow.svg" style="pointer-events: none;" width="600" alt="Aetherwave.rm thin horizontal line divider image">
  <br>
  <br>
+
+ ###  [📜 Features](#Features)  
+ <br>
+ <!-- thin line divider !-->
+ <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tapered-glow.svg" style="pointer-events: none;" width="600" alt="Aetherwave.rm thin horizontal line divider image">
+ <br>
+ <br>
+ 
  
  ###  [🧪 Testing](#testing)  
  <br>
@@ -166,7 +174,7 @@
  <br>
  <br>
  
- ###  [AI Tools](#ai-integration) 
+ ###  [🤖 AI Tools](#ai-integration) 
  <br>
  <!-- thin line divider !-->
  <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tapered-glow.svg" style="pointer-events: none;" width="600" alt="Aetherwave.rm thin horizontal line divider image">
@@ -439,6 +447,137 @@ Exo 2 handles longer text blocks, buttons, and UI controls to maintain readabili
   <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/aetherwave-divider-saw.svg" width="1440" alt="Aetherwave.rm saw wave divider">
 </p>
 
+## 🧩 Features  
+
+### 🧭 Navigation Bar  
+
+| Feature | Description | Purpose | Status |
+|:--------|:-------------|:----------|:--------:|
+| **Navigation Bar** | Responsive top bar built in React with conditional rendering. Displays login/logout options and a dynamic welcome message when authenticated. | Provides intuitive access to user actions and reinforces session awareness. | ✅ |
+
+<p align="center">
+  <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/features/navbar.webp" width="800" alt="Aetherwave.rm Navigation Bar">
+</p>
+
+**Bio:**  
+The navigation bar is minimalist — blending seamlessly with the dark synth theme. It anchors the user visually while dynamically changing based on login state, creating a smooth and personalised feel without clutter.
+
+<!-- pixel thin divider !-->
+<div align="center">
+<img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tight.svg" style="pointer-events: none;" width="780" alt="Aetherwave.rm thin horizontal line divider image">
+</div>
+<br>
+
+### 🏠 Home Interface  
+
+| Feature | Description | Purpose | Status |
+|:--------|:-------------|:----------|:--------:|
+| **Home Interface** | Central React page that hosts all major UI components including synth controls, modals, and visual elements. Designed as a single-page app for instant interactions. | Acts as the core creative environment where users control their synths. | ✅ |
+
+<p align="center">
+  <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/features/home-interface.webp" width="800" alt="Aetherwave.rm Home Interface">
+</p>
+
+**Bio:**  
+Every interaction happens here — from tweaking oscillators to saving presets. The interface feels modular yet cohesive, mirroring a real-world synth rack but optimised for clarity and responsiveness.
+
+<!-- pixel thin divider !-->
+<div align="center">
+<img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tight.svg" style="pointer-events: none;" width="780" alt="Aetherwave.rm thin horizontal line divider image">
+</div>
+<br>
+
+### 🎛️ Synth Controls (Knob UI)  
+
+| Feature | Description | Purpose | Status |
+|:--------|:-------------|:----------|:--------:|
+| **Synth Control Knobs** | Custom-built React components using pointer event handling and SVG arcs. Each knob controls parameters like volume, attack, decay, sustain, and release. | Provides tactile-style control for an immersive, DAW-like feel in the browser. | ✅ |
+
+<p align="center">
+  <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/features/knob-ui.webp" width="800" alt="Aetherwave.rm Synth Controls">
+</p>
+
+**Bio:**  
+The knobs rotate along a 7-to-5 o’clock arc, balancing visibility and precision. Designed to mimic physical gear with minimal lag, they bring a tangible layer to the digital synth experience.
+
+<!-- pixel thin divider !-->
+<div align="center">
+<img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tight.svg" style="pointer-events: none;" width="780" alt="Aetherwave.rm thin horizontal line divider image">
+</div>
+<br>
+
+### 💾 Preset Management (CRUD)  
+
+| Feature | Description | Purpose | Status |
+|:--------|:-------------|:----------|:--------:|
+| **Preset Management** | Fully functional CRUD system: users can create, read, update, and delete synth presets stored in a PostgreSQL database. | Gives users persistence and flexibility — build once, recall anytime. | ✅ |
+
+<p align="center">
+  <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/features/preset-management.webp" width="800" alt="Aetherwave.rm Preset Management System">
+</p>
+
+**Bio:**  
+Presets sync between the frontend and backend via Django REST Framework. Each operation updates instantly in the React state, ensuring the UI reflects the database without refreshes.
+
+<!-- pixel thin divider !-->
+<div align="center">
+<img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tight.svg" style="pointer-events: none;" width="780" alt="Aetherwave.rm thin horizontal line divider image">
+</div>
+<br>
+
+### 🔐 Login / Logout Modal  
+
+| Feature | Description | Purpose | Status |
+|:--------|:-------------|:----------|:--------:|
+| **Login / Logout Modal** | A dynamic modal window built in React that allows users to securely sign in or out without leaving the main synth interface. It uses Django Allauth for authentication and React state to toggle visibility. | Keeps the user experience seamless and prevents full-page reloads while maintaining session security. | ✅ |
+
+<p align="center">
+  <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/features/login-modal.webp" width="800" alt="Aetherwave.rm Login Modal">
+</p>
+
+**Bio:**  
+The login/logout modal overlays the synth interface with a soft blur effect. It keeps users in the creative flow while managing authentication invisibly in the background.
+
+<!-- pixel thin divider !-->
+<div align="center">
+<img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tight.svg" style="pointer-events: none;" width="780" alt="Aetherwave.rm thin horizontal line divider image">
+</div>
+<br>
+
+### 💬 Status & Notification System  
+
+| Feature | Description | Purpose | Status |
+|:--------|:-------------|:----------|:--------:|
+| **Status Messages** | Real-time feedback banners in React that confirm actions (e.g., preset saved, deleted, or updated). | Improves user awareness and interaction flow. | ✅ |
+
+<p align="center">
+  <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/features/status-messages.webp" width="800" alt="Aetherwave.rm Status Notifications">
+</p>
+
+**Bio:**  
+Compact toast-like notifications fade in and out automatically, using Tailwind transitions to deliver unobtrusive but clear updates to the user after each action.
+
+<!-- pixel thin divider !-->
+<div align="center">
+<img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tight.svg" style="pointer-events: none;" width="780" alt="Aetherwave.rm thin horizontal line divider image">
+</div>
+<br>
+
+### Responsive Layout  
+
+| Feature | Description | Purpose | Status |
+|:--------|:-------------|:----------|:--------:|
+| **Responsive Design** | Built using Tailwind CSS grid and flex utilities with defined breakpoints (`sm`, `md`, `lg`). Synth components adapt dynamically to smaller screens. | Ensures full usability across desktop, tablet, and mobile. | ✅ |
+
+<p align="center">
+  <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/Deploy/responsive-aetherwave.webp" alt="Aetherwave.rm deployed sites">
+</p>
+
+**Bio:**  
+No burger menus, no layout clutter — the grid intelligently stacks or expands modules as screen real estate changes. It feels equally native on a laptop or a phone synth pad.
+
+# Testing
+
 ## Python Tests  
 All backend features were tested manually using the Python terminal/ localhost and Django’s built-in shell.  
 Each model, serializer, and API endpoint was checked for expected behaviour, correct data handling, and error responses.  
@@ -464,7 +603,8 @@ Each React component was tested for responsiveness, correct state changes, and v
 <p align="center">
 <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/validation/ts.png" width="700">
 </p>
-The following warning in ESlint doesn't matter as my type array doesnt ever change after its built, but the actual array can easily be expanded with more waves and sounds when going forward in the future builds and versions.
+
+The following warning in ESlint doesn't matter as my type array doesnt ever change after its built, but the actual array can easily be expanded with more waves and sounds when going forward in the future builds and versions. The program was also built to support future CI/CD as the array can be expanded and it will automatically detect (length of the array - 1) and change the amount of positions on the knob it is assigned to.
 
 <p align="center">
 <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/validation/eslint.png" width="700">
@@ -548,10 +688,6 @@ I am happy with the lighthouse scores as for a fully modular react app it has a 
 - Adjusted drag math and pointer offset calculations.  
 - Tweaked starting/ending angles for 7-to-5 o’clock visual arc.  
 **Outcome:** Knob interaction is now smoother, accurate, and mobile-friendly.
-
-<p align="center">
-  <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/Deploy/responsive-aetherwave.webp" alt="Aetherwave.rm deployed sites">
-</p>
 
 # Deploying to Heroku (Django + Optional React Frontend)
 
