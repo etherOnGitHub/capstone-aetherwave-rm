@@ -431,6 +431,34 @@
   <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/UX/fonts/exo2-basic.svg" width="500">
   <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/UX/colours/aetherwave_palette_exo.svg" width="800">
 </p>
+<!-- pixel thin divider !-->
+<div align="center">
+<img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tight.svg" style="pointer-events: none;" width="780" alt="Aetherwave.rm thin horizontal line divider image">
+</div>
+
+- **[Orbitron](https://fonts.google.com/specimen/Orbitron)** — a geometric, sci-fi typeface used for titles and headers. Its angular design reinforces the project's futuristic and digital identity.  
+- **[Exo 2](https://fonts.google.com/specimen/Exo+2)** — a modern sans-serif used for body text and UI labels. It balances Orbitron’s sharpness with legibility and smooth flow.
+
+Orbitron drives the *aetherwave* visual brand: section titles, logo marks, and key callouts.  
+Exo 2 handles longer text blocks, buttons, and UI controls to maintain readability without breaking the tone.
+
+<!-- pixel thin divider !-->
+<div align="center">
+<img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tight.svg" style="pointer-events: none;" width="780" alt="Aetherwave.rm thin horizontal line divider image">
+</div>
+
+<!-- pixel thin divider !-->
+<div align="center">
+<img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tight.svg" style="pointer-events: none;" width="780" alt="Aetherwave.rm thin horizontal line divider image">
+</div>
+
+## Style Notes
+
+- **Blue + Orange** — core duality of energy vs calm; electric and creative.  
+- **Black + White** — base contrast for accessibility and UI clarity.  
+- **Sage** — accent for subtle highlights, borders, or muted text states.
+
+> Together, Orbitron + Exo 2 pair sharp futurism with human readability, framed by a colour palette that evokes glowing circuitry and balanced warmth.
 
 <!-- saw divider !-->
 <p  align="center">
@@ -445,7 +473,7 @@
 
 # Deploying to Heroku (Django + Optional React Frontend)
 
-This guide covers deploying a Django + React (optional) project to **Heroku-24**.  
+This guide covers deploying a Django + React (optional) project to **Heroku**.  
 All you need to do is connect your database URL and deploy — everything else is preconfigured.
 
 <!-- pixel thin divider !-->
