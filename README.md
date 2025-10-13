@@ -152,7 +152,7 @@
  <br>
  <br>
 
- ###  [📜 Features](#Features)  
+ ###  [💫 Features](#features)  
  <br>
  <!-- thin line divider !-->
  <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tapered-glow.svg" style="pointer-events: none;" width="600" alt="Aetherwave.rm thin horizontal line divider image">
@@ -379,6 +379,33 @@
 <p align="center">
   <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tapered-glow.svg" style="pointer-events: none;" width="400" alt="Aetherwave.rm thin horizontal line divider image">
 </p>
+
+## 🌀 Agile Methodology  
+
+Aetherwave.rm was developed using an **Agile Kanban approach** through [GitHub Projects](https://github.com/users/etherOnGitHub/projects/7), tracking all major user stories, tasks, and development stages via linked issues and pull requests. Each task moved across columns from **Backlog → To-Do → In-Progress → Done**, ensuring steady progress and full transparency throughout the build.  
+
+### Workflow Overview  
+
+| Category | Description | GitHub Link |
+|:----------|:-------------|:-------------|
+| **Backend Logic** | Django app structure, modular CRUD system, and authentication logic. | [Django App Modularity](https://github.com/etherOnGitHub/capstone-aetherwave-rm/issues/20) • [CRUD Implementation](https://github.com/etherOnGitHub/capstone-aetherwave-rm/issues/15) • [Authorization, Authentication, and Permission Features](https://github.com/etherOnGitHub/capstone-aetherwave-rm/issues/17) |
+| **Database** | Designing, linking, and testing models. | [Database Design](https://github.com/etherOnGitHub/capstone-aetherwave-rm/issues/12) • [Audio to Database](https://github.com/etherOnGitHub/capstone-aetherwave-rm/issues/21) |
+| **Frontend & UI** | React + Tailwind interface, styling, and component layout. | [Front End Design](https://github.com/etherOnGitHub/capstone-aetherwave-rm/issues/22) • [CSS Styling](https://github.com/etherOnGitHub/capstone-aetherwave-rm/issues/10) • [HTML Template Design](https://github.com/etherOnGitHub/capstone-aetherwave-rm/issues/8) • [UX Design](https://github.com/etherOnGitHub/capstone-aetherwave-rm/issues/13) |
+| **Synth & Audio** | Web Audio API integration and modular synth system. | [JS Web Audio API](https://github.com/etherOnGitHub/capstone-aetherwave-rm/issues/9) • [Synth](https://github.com/etherOnGitHub/capstone-aetherwave-rm/pull/25) • [Create Audio Manipulation Tools](https://github.com/etherOnGitHub/capstone-aetherwave-rm/issues/2) |
+| **User Features** | Authentication, login/logout, and preset management. | [Create User](https://github.com/etherOnGitHub/capstone-aetherwave-rm/issues/1) • [Login/Logout](https://github.com/etherOnGitHub/capstone-aetherwave-rm/issues/18) • [Preset Creation](https://github.com/etherOnGitHub/capstone-aetherwave-rm/issues/3) • [Store Presets](https://github.com/etherOnGitHub/capstone-aetherwave-rm/issues/4) • [Fetch Saved Presets](https://github.com/etherOnGitHub/capstone-aetherwave-rm/issues/5) • [Edit Preset](https://github.com/etherOnGitHub/capstone-aetherwave-rm/issues/6) • [Delete Preset](https://github.com/etherOnGitHub/capstone-aetherwave-rm/issues/7) |
+| **Testing & Validation** | Manual testing and validation passes for frontend and backend. | [Testing & Validation](https://github.com/etherOnGitHub/capstone-aetherwave-rm/issues/24) • [Validation](https://github.com/etherOnGitHub/capstone-aetherwave-rm/issues/16) • [Unit Tests](https://github.com/etherOnGitHub/capstone-aetherwave-rm/issues/23) |
+| **Documentation** | README, planning sections, and AI reflection documentation. | [README Planning Sections](https://github.com/etherOnGitHub/capstone-aetherwave-rm/issues/14) • [README AI Contributions](https://github.com/etherOnGitHub/capstone-aetherwave-rm/issues/19) • [Planning and Design Criteria](https://github.com/etherOnGitHub/capstone-aetherwave-rm/issues/11) |
+| **Optimisation** | Build tools, minification, and performance tuning. | [Minifier](https://github.com/etherOnGitHub/capstone-aetherwave-rm/issues/26) |
+
+---
+
+**Tools Used:**  
+- **GitHub Projects** – Kanban task management  
+- **GitHub Issues** – User stories and bug tracking  
+- **Pull Requests** – Code review checkpoints
+- **MoSCoW Prioritisation** - To target an **MVP** then turn to CI/CD `Must Have`, `Should Have` and `Could Have`.
+- **Labels** – Organised by content like `Audio Engine`, `Audio Database`, `Authorization Authentication and Permissions`, `Website`, `README`, and `Testing and Validation` in table view. Also with sub-issues to track larger parts of the full stack development cycle.
+- **Acceptance Criteria** – Each task marked complete only after full UX and functionality verification  
 
 <!-- models heading !-->
 <p align="center">
