@@ -334,6 +334,10 @@
 </p>
 .svg deploy
 
+<p align="center">
+  <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/Deploy/responsive-aetherwave.webp" alt="Aetherwave.rm deployed sites">
+</p>
+
 # 🚀 Deploying to Heroku (Django + Optional React Frontend)
 
 This guide covers deploying a Django + React (optional) project to **Heroku-24**.  
@@ -503,6 +507,139 @@ heroku logs --tail -a <your-app-name>
 
 ---
 
+<!-- credits heading !-->
+.svg credits
+<!-- !-->
+## 🙌 Credits & Resources
+
+A full list of technologies, tools, and references used in this project.
+
+---
+
+### 🎨 Frontend
+
+- [HTML5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5)
+- [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS)
+- [React](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [JavaScript (ES6+)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Tone.js](https://tonejs.github.io/)
+
+---
+
+### ⚙️ Backend
+
+- [Node.js](https://nodejs.org/)
+- [Vite](https://vitejs.dev/)
+- [Python](https://www.python.org/)
+- [Django](https://www.djangoproject.com/)
+- [Heroku](https://www.heroku.com/)
+
+#### 🧰 Backend Packages
+
+| Package | Version | Description |
+|----------|----------|-------------|
+| arrow | 1.3.0 | Better date & time handling |
+| asgiref | 3.9.2 | ASGI utilities for Django |
+| dj-database-url | 3.0.1 | Database URL config helper |
+| Django | 5.2.6 | Python web framework |
+| django-allauth | 65.12.0 | Authentication system |
+| django-cors-headers | 4.9.0 | CORS support for Django |
+| django-tailwind | 4.2.0 | Tailwind CSS integration |
+| djangorestframework | 3.16.1 | Django REST API toolkit |
+| gunicorn | 23.0.0 | WSGI HTTP server |
+| whitenoise | 6.11.0 | Static file serving |
+| cloudinary | 1.44.1 | Media storage & CDN |
+| psycopg2 | 2.9.10 | PostgreSQL adapter |
+| rich | 14.1.0 | Better CLI output |
+| requests | 2.32.5 | HTTP requests library |
+
+<details>
+<summary>📦 View full package list</summary>
+
+arrow==1.3.0  
+asgiref==3.9.2  
+binaryornot==0.4.4  
+certifi==2025.8.3  
+chardet==5.2.0  
+charset-normalizer==3.4.3  
+click==8.3.0  
+cloudinary==1.44.1  
+colorama==0.4.6  
+cookiecutter==2.6.0  
+dj-database-url==3.0.1  
+dj3-cloudinary-storage==0.0.6  
+Django==5.2.6  
+django-allauth==65.12.0  
+django-cors-headers==4.9.0  
+django-tailwind==4.2.0  
+djangorestframework==3.16.1  
+gunicorn==23.0.0  
+idna==3.10  
+Jinja2==3.1.6  
+markdown-it-py==4.0.0  
+MarkupSafe==3.0.3  
+mdurl==0.1.2  
+packaging==25.0  
+psycopg2==2.9.10  
+Pygments==2.19.2  
+python-dateutil==2.9.0.post0  
+python-slugify==8.0.4  
+PyYAML==6.0.3  
+requests==2.32.5  
+rich==14.1.0  
+six==1.17.0  
+sqlparse==0.5.3  
+text-unidecode==1.3  
+types-python-dateutil==2.9.0.20250822  
+tzdata==2025.2  
+urllib3==2.5.0  
+whitenoise==6.11.0  
+
+</details>
+
+---
+
+### 🗄️ Database
+
+- [PostgreSQL](https://www.postgresql.org/)
+- [NeonDB](https://neon.tech/)
+
+---
+
+### 🧠 Development Environment
+
+- [Visual Studio 2022](https://visualstudio.microsoft.com/)
+- [ESLint](https://eslint.org/)
+- [Python Extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
+
+---
+
+### 🤖 AI & Automation
+
+- [ChatGPT](https://chat.openai.com/)
+- [GitHub Copilot](https://github.com/features/copilot)
+
+---
+
+### 🔤 Fonts & Assets
+
+- [Google Fonts](https://fonts.google.com/)
+
+---
+
+### 👥 Technical Guidance
+
+Special thanks to:
+- **Alex Tasad**
+- **Mark Briscoe**
+- **Code Institute Mentors**
+
+for their technical input and support throughout the project.
+
+---
+
 ## 📜 License
 
 © 2025 etherOnGitHub - Released under the MIT License [what is it?](https://en.wikipedia.org/wiki/MIT_License).
@@ -520,7 +657,3 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
 - **Name:** [Callum (etherOnGitHub)](https://github.com/etherOnGitHub)  
 - **Contact:** reach out on [LinkedIn](https://www.linkedin.com/in/callumrichards-audio-code/)
 
-
-<!-- credits heading !-->
-.svg credits
-<!-- 
