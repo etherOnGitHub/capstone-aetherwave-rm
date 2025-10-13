@@ -152,42 +152,21 @@
  <br>
  <br>
  
- ###  [LO2 – 🔎 Data & Business Logic](#lo2--data--business-logic)  
+ ###  [🧪 Testing](#testing)  
  <br>
  <!-- thin line divider !-->
  <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tapered-glow.svg" style="pointer-events: none;" width="600" alt="Aetherwave.rm thin horizontal line divider image">
  <br>
  <br>
  
- ###  [LO3 – 🔐 Auth & Permissions](#lo3--auth--permissions)  
+ ###  [☁️ Deployment](#deploying-to-heroku-django--optional-react-frontend) 
  <br>
  <!-- thin line divider !-->
  <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tapered-glow.svg" style="pointer-events: none;" width="600" alt="Aetherwave.rm thin horizontal line divider image">
  <br>
  <br>
  
- ###  [LO4 – 🧪 Testing](#lo4--testing)  
- <br>
- <!-- thin line divider !-->
- <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tapered-glow.svg" style="pointer-events: none;" width="600" alt="Aetherwave.rm thin horizontal line divider image">
- <br>
- <br>
- 
- ###  [LO6 – ☁️ Deployment](#lo6--deployment) 
- <br>
- <!-- thin line divider !-->
- <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tapered-glow.svg" style="pointer-events: none;" width="600" alt="Aetherwave.rm thin horizontal line divider image">
- <br>
- <br>
- 
- ###  [LO7 – 🏗️ Data Models](#lo7--data-models) 
- <br>
- <!-- thin line divider !-->
- <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tapered-glow.svg" style="pointer-events: none;" width="600" alt="Aetherwave.rm thin horizontal line divider image">
- <br>
- <br>
- 
- ###  [AI Tools](#ai-integration-summary) 
+ ###  [AI Tools](#ai-integration) 
  <br>
  <!-- thin line divider !-->
  <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tapered-glow.svg" style="pointer-events: none;" width="600" alt="Aetherwave.rm thin horizontal line divider image">
