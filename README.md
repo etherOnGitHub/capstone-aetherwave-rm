@@ -563,7 +563,7 @@ All you need to do is connect your database URL and deploy — everything else i
 <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/divider-line-tight.svg" style="pointer-events: none;" width="780" alt="Aetherwave.rm thin horizontal line divider image">
 </div>
 
-## Project Overview
+## Prerequisites
 
 This setup includes:
 
