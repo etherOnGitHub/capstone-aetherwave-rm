@@ -31,6 +31,98 @@
 <p align="center">
 <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/README_styling/aetherwave-divider-sine.svg" width="1440" alt="Aetherwave.rm sine wave divider image">
 </p>
+<!-- tech !-->
+<table border="4px" align="center">
+   <thead>
+      <tr>
+         <th colspan="8" align="center">Technologies</th>
+      </tr>
+   </thead>
+   <tbody>
+   <tr>
+      <th colspan="8" align="center" >Languages</th>
+   </tr>
+   <tr>
+      <td colspan="2" align="center">
+         <img src="https://cdn.simpleicons.org/html5" width="75" height="75" alt="HTML">
+      </td>
+      <td colspan="2" align="center">
+         <img src="https://cdn.simpleicons.org/css" width="75" height="75" alt="CSS">
+      </td>
+      <td colspan="2" align="center">
+         <img src="https://upload.wikimedia.org/wikipedia/commons/f/f5/Typescript.svg" width="75" height="75" alt="TypeScript">
+      </td>
+      <td colspan="2" align="center">
+        <img src="https://cdn.simpleicons.org/python" width="75" height="75" alt="Python">
+      </td>
+   </tr>
+   <tr>
+      <th colspan="8" align="center">Frameworks</th>
+   </tr
+   <tr>
+      <td colspan="1" align="center">
+         <img src="https://cdn.simpleicons.org/tailwindcss" width="75" height="75" alt="Tailwind CSS">
+      </td>
+      <td colspan="2" align="center">
+         <img src="https://cdn.simpleicons.org/django" width="75" height="75" alt="Django">
+      </td>
+      <td colspan="2" align="center">
+         <img src="https://cdn.simpleicons.org/nodedotjs" width="75" height="75" alt="Node.js">
+      </td>
+      <td colspan="2" align="center">
+         <img src="https://cdn.simpleicons.org/cloudinary" width="75" height="75" alt="Cloudinary">
+      </td>
+     <td colspan="1" align="center">
+         <img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Vitejs-logo.svg" width="75" height="75" alt="Vite">
+      </td>
+   </tr>
+   <tr>
+      <th colspan="8" align="center" >Libraries</th>
+   </tr>
+   <tr>
+      <td colspan="3" align="center">
+         <img src="https://cdn.simpleicons.org/googlefonts" width="75" height="75" alt="Google Fonts">
+      </td>
+     <td colspan="2" align="center">
+       <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/React_Logo_SVG.svg" width="75" alt="React">
+     </td>
+      <td colspan="3" align="center">
+         <img src="https://avatars.githubusercontent.com/u/11019186?s=48&v=4" width="75" height="75" alt="Tone.js">
+      </td>
+   </tr>
+   <tr>
+      <th colspan="8" align="center" >Programs</th>
+   </tr>
+   <tr>
+      <td align="center">
+         <img src="https://upload.wikimedia.org/wikipedia/commons/2/2c/Visual_Studio_Icon_2022.svg" width="75" height="75" alt="VS">
+      </td>
+      <td align="center">
+         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Balsamiq_2025_logo.svg/500px-Balsamiq_2025_logo.svg.png" width="75" height="75" alt="Balsamiq">
+      </td>
+      <td align="center">
+         <img src="https://cdn.simpleicons.org/miro" width="75" height="75" alt="Miro">
+      </td>
+      <td align="center">
+         <img src="https://cdn.simpleicons.org/github" width="75" height="75" alt="GitHub">
+      </td>
+      <td align="center">
+         <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Google_Chrome_icon_%28February_2022%29.svg" width="75" height="75" alt="chrome">
+      </td>
+      <td align="center">
+         <img src="https://cdn.simpleicons.org/openai" width="75" height="75" alt="ChatGPT">
+      </td>
+      <td align="center">
+         <img src="https://cdn.simpleicons.org/heroku" width="75" height="75" alt="Heroku">
+      </td>
+      <td align="center">
+         <img src="https://upload.wikimedia.org/wikipedia/en/thumb/f/f2/Lucidchart_logo_%28September_2021%29.svg/375px-Lucidchart_logo_%28September_2021%29.svg.png" width="65" height="65" alt="Lucidchart">
+      </td>
+   </tr>
+   </tbody>
+</table>
+
+
 <!-- contents !-->
 <details align="center" open>
   <summary>
@@ -338,14 +430,14 @@
   <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/Deploy/responsive-aetherwave.webp" alt="Aetherwave.rm deployed sites">
 </p>
 
-# 🚀 Deploying to Heroku (Django + Optional React Frontend)
+# Deploying to Heroku (Django + Optional React Frontend)
 
 This guide covers deploying a Django + React (optional) project to **Heroku-24**.  
 All you need to do is connect your database URL and deploy — everything else is preconfigured.
 
 ---
 
-## ⚙️ Project Overview
+## Project Overview
 
 This setup includes:
 
@@ -358,7 +450,7 @@ This setup includes:
 
 ---
 
-## 🔧 Settings Overview
+## Settings Overview
 
 `config/settings.py` is already configured to run on Heroku, here is a shortened example of the key information contained.
 
@@ -402,7 +494,7 @@ STORAGES = {
 
 ---
 
-## 📦 Procfile
+## Procfile
 
 ```
 release: python manage.py migrate
@@ -413,7 +505,7 @@ This ensures migrations run automatically on every deploy.
 
 ---
 
-## 🧱 Deployment Steps
+## Deployment Steps
 
 ### 1. Create a Heroku App
 
@@ -435,7 +527,7 @@ heroku buildpacks:add --index 2 heroku/python -a <your-app-name>
 heroku config:set   SECRET_KEY='your-secret-key'   DATABASE_URL='your-database-url'   -a <your-app-name>   CLOUDINARY_URL='your-cloudinary-url'
 ```
 
-## 🧾 Environment Variables
+## Environment Variables
 
 | Variable | Description |
 |-----------|-------------|
@@ -456,7 +548,7 @@ git commit -m "Deploy: initial Heroku release"
 git push heroku main
 ```
 
-### 🌿 Eco Dyno Setup
+### Eco Dyno Setup
 
 ### 1. Switch to Eco
 ```bash
@@ -470,7 +562,7 @@ heroku ps:type eco -a <app-name>
 
 ---
 
-## 🧮 Post-Deploy Commands
+## Post-Deploy Commands
 
 This is the simplest way of doing it but you can do it in your IDE before you deploy and commit the changes instead and just rebuild it.
 
@@ -482,7 +574,7 @@ heroku logs --tail -a <your-app-name>
 
 ---
 
-## 🧯 Common Fixes
+## Common Fixes
 
 | Issue | Fix |
 |-------|-----|
@@ -493,7 +585,7 @@ heroku logs --tail -a <your-app-name>
 
 ---
 
-## ✅ Quick Recap
+## Quick Recap
 
 1. Repo already configured for Heroku.  
 2. Set `DATABASE_URL`, `SECRET_KEY`, and other vars.  
@@ -510,13 +602,13 @@ heroku logs --tail -a <your-app-name>
 <!-- credits heading !-->
 .svg credits
 <!-- !-->
-## 🙌 Credits & Resources
+## Credits & Resources
 
 A full list of technologies, tools, and references used in this project.
 
 ---
 
-### 🎨 Frontend
+### Frontend
 
 - [HTML5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5)
 - [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS)
@@ -528,7 +620,7 @@ A full list of technologies, tools, and references used in this project.
 
 ---
 
-### ⚙️ Backend
+### Backend
 
 - [Node.js](https://nodejs.org/)
 - [Vite](https://vitejs.dev/)
@@ -536,7 +628,7 @@ A full list of technologies, tools, and references used in this project.
 - [Django](https://www.djangoproject.com/)
 - [Heroku](https://www.heroku.com/)
 
-#### 🧰 Backend Packages
+#### Backend Packages
 
 | Package | Version | Description |
 |----------|----------|-------------|
@@ -556,7 +648,7 @@ A full list of technologies, tools, and references used in this project.
 | requests | 2.32.5 | HTTP requests library |
 
 <details>
-<summary>📦 View full package list</summary>
+<summary>View full package list</summary>
 
 arrow==1.3.0  
 asgiref==3.9.2  
@@ -601,14 +693,14 @@ whitenoise==6.11.0
 
 ---
 
-### 🗄️ Database
+### Database
 
 - [PostgreSQL](https://www.postgresql.org/)
 - [NeonDB](https://neon.tech/)
 
 ---
 
-### 🧠 Development Environment
+### Development Environment
 
 - [Visual Studio 2022](https://visualstudio.microsoft.com/)
 - [ESLint](https://eslint.org/)
@@ -616,20 +708,20 @@ whitenoise==6.11.0
 
 ---
 
-### 🤖 AI & Automation
+### AI & Automation
 
 - [ChatGPT](https://chat.openai.com/)
 - [GitHub Copilot](https://github.com/features/copilot)
 
 ---
 
-### 🔤 Fonts & Assets
+### Fonts & Assets
 
 - [Google Fonts](https://fonts.google.com/)
 
 ---
 
-### 👥 Technical Guidance
+### Technical Guidance
 
 Special thanks to:
 - **Alex Tasad**
@@ -640,7 +732,7 @@ for their technical input and support throughout the project.
 
 ---
 
-## 📜 License
+## License
 
 © 2025 etherOnGitHub - Released under the MIT License [what is it?](https://en.wikipedia.org/wiki/MIT_License).
 
@@ -652,8 +744,9 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
 
 ---
 
-## 👤 Author
+## Author
 
 - **Name:** [Callum (etherOnGitHub)](https://github.com/etherOnGitHub)  
 - **Contact:** reach out on [LinkedIn](https://www.linkedin.com/in/callumrichards-audio-code/)
 
+<img src="https://github.com/etherOnGitHub/etherOnGitHub/blob/main/theme/images/banners/etherchild_banner_transparent_cropped.png">
