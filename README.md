@@ -481,6 +481,73 @@ I am happy with the lighthouse scores as for a fully modular react app it has a 
 <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/validation/aetherwave-lighthouse.png">
 </p>
 
+# Bugs
+
+## 1. React & Django Integration  
+**Issue:** React frontend wasn’t communicating correctly with the Django REST API — CORS errors and mismatched routes during development.  
+**Cause:** Missing `django-cors-headers` setup and incorrect proxy handling for API calls.  
+**Solution:**  
+- Installed and configured `django-cors-headers` in `settings.py`.  
+- Updated `ALLOWED_HOSTS`, `CORS_ALLOWED_ORIGINS`, and added `credentials: 'include'` to fetch calls.  
+- Verified routes and CSRF token handling.  
+**Outcome:** API communication became stable across both local and deployed environments.
+
+## 2. Static File Handling (React + Django)  
+**Issue:** React’s built JS/CSS assets weren’t showing in production, especially SVG icons.  
+**Cause:** Static directories misconfigured in Django’s `settings.py` after the React build step.  
+**Solution:**  
+- Added React’s `/frontend/dist` directory to `STATICFILES_DIRS`.  
+- Configured `WhiteNoise` to serve built assets from `STATIC_ROOT`.  
+- Rebuilt and redeployed on Heroku to confirm working asset paths.  
+**Outcome:** Static assets (including icons and waveforms) loaded correctly in both dev and production.
+
+## 3. State Sync & Preset Loading  
+**Issue:** When loading presets, React components weren’t reflecting updated knob values or synth parameters.  
+**Cause:** Missing state dependency updates in React hooks.  
+**Solution:**  
+- Added controlled state updates using `useEffect` with proper dependencies.  
+- Adjusted knob components to reflect initial state when presets loaded.  
+**Outcome:** Preset values now sync perfectly between the UI and audio engine.
+
+## 4. Tone.js Performance Lag  
+**Issue:** Audio engine (Tone.js) lagged after repeated state changes and UI updates.  
+**Cause:** Repeated reinitialization of synth nodes.  
+**Solution:**  
+- Cached synth instances and throttled parameter updates.  
+- Used `useRef` to maintain persistent Tone.js objects between renders.  
+**Outcome:** Real-time audio controls became smoother and more responsive.
+
+## 5. Mobile Responsiveness  
+**Issue:** UI elements (especially knobs and buttons) overlapped or scaled incorrectly on smaller screens.  
+**Cause:** Overly rigid Tailwind grid and flex definitions.  
+**Solution:**  
+- Reworked layout using responsive Tailwind classes (`lg:grid-cols-6`, `sm:flex-col`, etc.).  
+- Tested using Chrome’s device emulation.  
+**Outcome:** Layout now scales consistently across mobile, tablet, and desktop.
+
+## 6. Authentication & Delete Request Errors  
+**Issue:** Django returned `403 Forbidden` for DELETE requests from React.  
+**Cause:** CSRF protection and missing credentials in fetch calls.  
+**Solution:**  
+- Added `credentials: 'include'` to all authenticated fetch requests.  
+- Verified CSRF tokens in Django templates and REST API endpoints.  
+**Outcome:** Authenticated operations (create/update/delete) now succeed without errors.
+
+## 7. Heroku Deployment Issues  
+**Issue:** Heroku app failed to display frontend assets after successful build.  
+**Cause:** Improper build command and missing post-build asset handling.  
+**Solution:**  
+- Added `heroku-postbuild` script to compile React before Django collects static files.  
+- Ensured environment variables and build paths matched production setup.  
+**Outcome:** Seamless full-stack deployment with React + Django integration.
+
+## 8. Knob Component Bugs  
+**Issue:** Knob component pointer position and drag sensitivity felt inconsistent, especially on mobile.  
+**Cause:** Angle calculations and pointer event handling didn’t scale with device input differences.  
+**Solution:**  
+- Adjusted drag math and pointer offset calculations.  
+- Tweaked starting/ending angles for 7-to-5 o’clock visual arc.  
+**Outcome:** Knob interaction is now smoother, accurate, and mobile-friendly.
 
 <p align="center">
   <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/Deploy/responsive-aetherwave.webp" alt="Aetherwave.rm deployed sites">
