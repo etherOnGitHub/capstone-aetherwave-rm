@@ -78,6 +78,11 @@ button:focus-visible {
  
 }
 
+input {
+    background-color: white !important;
+    color: black !important;
+}
+
 .text-glow {
     text-shadow: 0 0 8px rgba(0, 160, 255, 0.6), 
                  0 0 16px rgba(0, 160, 255, 0.4);
