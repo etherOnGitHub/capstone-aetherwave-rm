@@ -680,6 +680,19 @@ I am happy with the lighthouse scores as for a fully modular react app it has a 
 <img src="https://github.com/etherOnGitHub/capstone-aetherwave-rm/blob/main/external_assets/README_images/validation/aetherwave-lighthouse.png">
 </p>
 
+## Manual Testing Table
+
+| Feature           | Test Steps (Manual)                                                  | Expected Result                                   | Actual Result | Pass |
+|-------------------|-----------------------------------------------------------------------|----------------------------------------------------|---------------|------|
+| User Login        | Open login page • Enter valid creds • Submit                          | User redirected to dashboard                      | Works as expected | Yes |
+| User Logout       | Click logout button                                                   | User session cleared • Redirect to home           | Works as expected | Yes |
+| Save Synth Patch  | Open synth • Adjust settings • Click Save                             | Patch saved to user account • Confirmation shown  | Works as expected | Yes |
+| Load Synth Patch  | Navigate to patches • Select saved patch                              | Synth loads all saved values correctly            | Works as expected | Yes |
+| Update Synth      | Load patch • Change parameters • Click Update                         | Patch updated in database • UI reflects changes   | Works as expected | Yes |
+| Delete Synth      | Open patch list • Click Delete on a patch                             | Patch removed • No longer appears in list         | Works as expected | Yes |
+| Knob Movement     | Click and drag knob                                                    | Knob value updates • Affects synth in real time   | Works as expected | Yes |
+
+
 # Bugs
 
 ## 1. React & Django Integration  
